@@ -1,0 +1,250 @@
+StarAgile DCP : Started on : 16th Nov. 2023 
+https://github.com/SA-DCP-Nov16/DevOps_Training_Docs
+
+########################
+16th Nov. 2023
+########################
+DevOps Fundamentals :::
+
+Module 1
+
+DevOps Overview :::
+
+AWS Fundamentals
+DevOps on Cloud (AWS)
+Linux Fundamentals
+
+DevOps Overview :::
+
+	DevOps :::
+	
+	Waterfall & Agile Method ??
+	
+	Stages of DevOps ????
+	
+	DevOps ::::
+	
+		- Software --> 
+		
+			- Application Software 
+					--> Desktops Applications  --> Billing system
+					--> Web Applications       --> ECommerce, Online Banking 
+					--> Mobile Applications	   --> Mobile Apps
+			- System  Software 
+			
+		SDLC -> Software Development Life Cycle :::
+		
+				--> Desktops Applications  --> Billing system
+				
+			- Requirement Analysis 
+			- Design 
+			- Coding / Development
+			- Testing 
+			- Implementation 
+			- Maintainence/Monitoring
+			
+		1. Waterfall Model ::: - 	Linear in approach
+									It strictly follows top down approach
+									It is meant for Monolith Application Architecture
+				
+				--> Desktops Applications  --> Billing system BASIC / COBOL 
+					Billing Application :
+						- Inventory Mgmt
+						- Price Mgmt
+						- User-Interface - CLI
+						- Order placement 
+						- Payment 
+							
+				Project 1:		
+					- Requirement Analysis 		==> 9 months to complete this project.
+					- Design 
+					- Coding / Development			mid of 4th Month 
+					- Testing 
+					- Implementation 
+					- Maintainence/Monitoring		
+					
+				Project 2:		
+					- Requirement Analysis 		==> 
+					- Design 
+					- Coding / Development			
+					- Testing 
+					- Implementation 
+					- Maintainence/Monitoring	
+
+				
+				
+				Tele-comm Domain :: 
+					SP1 --> Introduce a new offer to their customers 
+							-> IT Team to implement this ASAP
+					SP2 --> 
+					
+		2. Agile Methodology :::
+		
+				--> Desktops Applications  --> Billing system BASIC / COBOL 
+				
+					Billing Application :
+						Functions/Modules/Iterations
+							- Inventory Mgmt
+							- Price Mgmt
+							- User-Interface - CLI
+							- Order placement 
+							- Cash-Payment
+							- Online-payment
+													
+			Iterations 1:  Inventory Mgmt
+				- Requirement Analysis 
+				- Design 
+				- Coding / Development
+				- Testing 
+				- Implementation*** 
+				- Maintainence/Monitoring***	
+		
+			Iterations 2:  - Price Mgmt
+				- Requirement Analysis 
+				- Design 
+				- Coding / Development
+				- Testing 
+				- Implementation*** 
+				- Maintainence/Monitoring***		
+	
+			Iterations n:  - Online-payment
+				- Requirement Analysis 
+				- Design 
+				- Coding / Development
+				- Testing 
+				- Implementation*** 
+				- Maintainence/Monitoring***
+				
+			Using Agile Methodologies we can able to achieve :::
+					Continous Development 
+					Continous Integration
+					Continous Testing 
+					Continous Delivery  to Production
+								- This Expect Manual approval for Production Release.
+			But we cannot achieve :::
+					Continous Deployment to Production
+								- This Doesnt expect any manual approval for Production Release. We can automate Production Release without any manual intervension.
+
+
+		3. DevOps :::
+		
+			What is DevOps ????
+			
+				DevOps is a Software Development Strategy, which helps to promote the collaboration between the Development Team and Operations Team to achieve Continous Development, Continous Integration, Continous Testing, Continous Delivery, Continous Deployment and Continous Monitoring in more automated fashion.
+				
+			
+			Teams ::
+			
+				DevOps Team 
+					1. Infra-Structure Management Team 
+					2. Application Development Team 
+					3. Testing Team
+					4. Release Management Team 
+					5. Production Support Team
+					6. Production Monitoring Team
+					7. Security Team
+				
+				
+			Stages of DevOps ::
+			
+					Infra-Structure Management ::
+							IAC - Ansible & Terraform 
+							
+					Continous Development ::
+						- It is capability of Application Development to continously develop the code.
+						- Increase the productivity of Developers.
+						Developer --> Role of developer ???
+							Coding the Business Application.
+							- Create source code 
+							- Manually build the code 
+							- Create Artifacts
+							- Manually perform unit testing 
+							- Promote the code to Testing Environments 
+							- Notify the testing team to do further testing
+							
+						Using DevOps Approach :::
+							- Create source code Update the code in a source code repository 
+							
+						DevOps take the responsibility : 
+							- Automate build the code 
+									Application Build :
+										It is process of compiling the source code and creating artifacts.
+										Artifacts are - Binaries (*.war,*.jar,*.exec,*.dll)										
+							- Automate Create Artifacts
+							- Automated unit testing 
+							- Automate Promote the code to Testing Environments 
+							- Automate the Notification - Notify the testing team to do further testing
+					
+						Tools : 
+							Eclipse based IDEs(Integrated Development Environment) - Eclipse, Pycharm, Intellij
+						DevOps Tools ::
+							GIT, Jenkins, Build Tools(Maven,JUnit)
+							
+					Continous Integration ::
+						- It is capability of Application Development to continously integrate their code change for further testing without waiting for any dependencies.
+						
+						Tools ::
+							- Jenkins, Ansible, Docker, Kubernetes 
+						
+					Continous Testing ::
+						- To enable Automated Testing ::
+						- QA Testing
+						- UAT Testing 
+						
+						Tools ::
+							- Jenkins, Junit/TestNG/Selenium 						
+						
+					Continous Delivery  & Continous Deployment
+					
+						Tools : Jenkins, Ansible, Docker, Kubernetes 
+					
+						- Both are related to Production Release :
+						
+						Continous Delivery : 					Continous Delivery  to Production
+								- This Expect Manual approval for Production Release.						
+
+								Banking Application :
+									Online Banking :::
+										release new feature  to Production Environment:::
+										
+										Open a Production Deployment Window :: (4 - 6 Hrs) - Non-Business Hours
+											Take manual approval from all stake holders for this release 
+											Thorough Testing in Production Environment.
+												If anything goes wrong :
+													Fix the Issue. 
+													Revert
+									
+						Continous Deployment :	
+								- Can be achieved with the matured DevOps Strategies/Process.
+								- This Doesnt expect any manual approval for Production Release. We can automate Production Release without any manual intervension.	
+
+								Facebook 
+								Netflix 
+								amazon 
+								google 							
+							
+					Continous Monitoring :
+							
+							- Mainly used to achieve Business Continuity.
+							
+							- Infra-Structure Monitoring
+									Monitor the Production Servers -- Memory/CPU utilization & Traffic 
+									
+							Tools :: 
+									Jenkins,Prometheus,Grafana,
+									
+							- Application Monitoring 
+									AppDynamics
+									
+					
+			DevOps Tools ::
+
+				Self Managed - Open Source Tools :
+					
+				
+				Manage Services from Service Providers 
+				
+					AWS 	
+					AZURE 
+					GCP 
+				
