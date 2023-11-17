@@ -1,4 +1,7 @@
+
 StarAgile DCP : Started on : 16th Nov. 2023 
+https://github.com/SA-DCP-Nov16/DevOps_Training_Docs
+
 https://github.com/SA-DCP-Nov16/DevOps_Training_Docs
 
 ########################
@@ -216,7 +219,8 @@ DevOps Overview :::
 									
 						Continous Deployment :	
 								- Can be achieved with the matured DevOps Strategies/Process.
-								- This Doesnt expect any manual approval for Production Release. We can automate Production Release without any manual intervension.	
+								- This Doesnt expect any manual approval for Production Release. We can automate Production Release without any manual intervension.
+								- No Downtime.
 
 								Facebook 
 								Netflix 
@@ -247,4 +251,171 @@ DevOps Overview :::
 					AWS 	
 					AZURE 
 					GCP 
+
+########################
+17th Nov. 2023
+########################
+
+		DevOps Fundamentals 
+		
+		
+		AWS Fundamentals
+		
+			Teams ::
+			
+				DevOps Team 
+					1. Infra-Structure Management Team ==> Server Provisioning & Configuration 
+					2. Application Development Team 
+					3. Testing Team
+					4. Release Management Team 
+					5. Production Support Team
+					6. Production Monitoring Team
+					7. Security Team
+					
+					
+		Stages of DevOps ::::
+		
+			Pre-requisites for Effective DevOps Implementation.
+			
+			Application Development & Deployment
+			
+			Application Architecture 
+			
+				SDLC Perspective :
 				
+					1. Monolith Application Architecture :
+						- It is a tightly coupled Application Architecture
+						- It is difficult to Add More features quickly
+						- All the Application Dependencies are closely couple with each other.
+						
+					Billing Application :
+						Functions/Modules/Iterations
+							- Inventory Mgmt
+							- Price Mgmt
+							- User-Interface - CLI
+							- Order placement 
+							- Cash-Payment
+							- Online-payment		
+
+					2. Micro-Service Based Application Architecture :
+						- A smallest unit of task
+						- It is loosely coupled application 
+						- It allows the developers to independently develop, test, and develop the changes to production.
+						- Eleminate all the dependencies and enable independent development and implementation.
+			
+				www.amazon.com 
+				
+				- Sign-up			- Micro-Service1 - Developer - Independently code, test and Release the changes to Production.
+				- Sign-In 
+				- Search-products
+				- Add to Cart 
+				- Place the order 
+				- payment 
+				- confirm the order 
+				- track the order 
+					
+					3- tier architecture  - Front-End Design,Application Logic, BackEnd(Database)
+					
+			DevOps Tools ::
+
+				Self Managed - Open Source Tools :
+					
+				
+				Manage Services from Service Providers 
+				
+					AWS 	
+					AZURE 
+					GCP 
+
+			
+			DevOps is all about :::
+			
+					People		==> 	
+					Process		==>
+					Tools		==>
+					
+			
+			Architect ==> Client ==> Devops 
+			
+			Teams ::
+			
+				DevOps Team 
+					1. Infra-Structure Management Team ==> Server Provisioning & Configuration 
+					2. Application Development Team 
+					3. Testing Team
+					4. Release Management Team 
+					5. Production Support Team
+					6. Production Monitoring Team
+					7. Security Team
+
+			Assessment :::
+			Identify the scope for automation.
+			
+			
+			Roles and Responsibilities of DevOps Team :
+			
+				DevOps Associate 
+				Sr. DevOps Associate
+				DevOps Engineer
+				Sr. DevOps Engineer
+				DevOps Lead 
+				Sr. DevOps Lead
+				DevOps Architect
+				Sr. DevOps Architect
+				DevOps Consultant 
+			
+			Waterfall - Agile - DevOps - DevSecOps - SRE - GitOps - MLOps - AIOps
+			
+			
+			
+		AWS Fundamentals	 ::: 
+		
+			Basic services of AWS.
+			
+				Cloud Platform ???
+				
+				Cloud Computing ::: What & Why ???
+				
+				Type of Services provided ?
+					IAAS
+					PAAS
+					SAAS 
+					
+				Cloud Service Deployment Model ::
+				
+					Public Cloud
+					Private Cloud 
+					Hybrid Cloud 
+					Community Cloud
+				
+				
+			On-Premises Platform ::::
+				
+			Cloud Platform :::
+			
+				AWS 
+				Azure 
+				GCP 
+				Digital Ocean
+				
+				
+			Explore AWS Cloud Platform :
+			
+				1. Create AWS Account 
+						Free Tier - 12 Months.
+							Valid/Active - Mobile Number, Email_ID, Credit/Debit Card(Eligible for International Transaction) 
+			
+			Lab Pre-Requisites for this Trainings ::
+
+				1. Create GITHUB(Remote Repository to maintain files and folders) Account.
+						https://github.com/
+				2. Create AWS Account 
+						Free Tier - 12 Months.
+							Valid/Active - Mobile Number, Email_ID, Credit/Debit Card(Eligible for International Transaction) 
+							
+				3. Create Virtual Machines(EC2 Instances) and Connect to VMs
+							
+				
+			
+			
+			
