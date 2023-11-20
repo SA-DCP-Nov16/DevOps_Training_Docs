@@ -409,13 +409,136 @@ DevOps Overview :::
 
 				1. Create GITHUB(Remote Repository to maintain files and folders) Account.
 						https://github.com/
-				2. Create AWS Account 
+				2. Create AWS Account  https://aws.amazon.com/console/
 						Free Tier - 12 Months.
 							Valid/Active - Mobile Number, Email_ID, Credit/Debit Card(Eligible for International Transaction) 
 							
 				3. Create Virtual Machines(EC2 Instances) and Connect to VMs
 							
 				
+########################
+20th Nov. 2023
+########################			
+			
+		AWS Fundamentals :::
+		
+			Login to AWS Account :
+				Through AWS Console we can login to AWS Account...
+				
+				
+				-  root id 
+				-  IAM User ID  
+				
+				AWS CLI 
+				API Calls.
+				
+					As a root user Login to AWS Console. 
+						- Email_ID & Password 
+						
+					- Create IAM Users 
+					
+				At Enterprise level : Root User Account 
+				
+					User1
+					User2
+					User3
+
+					50 Teams -- Each has 100 Members
+				
+					AWS Account -> 
+					
+						Free Tier Account 
+						
+							- Usage 
+							Billing Dashboard 
+							
+							
+					AWS Cloud 
+					
+						Regions 
+							Availability Zones (Data Centers) 
+								Server1,2,3,4,5
+									Virtual Machines 
+										Runs Operating System (Amazon Machine Image)
+											Runs Applications
+									
+			1. AWS EC2 Instances ::
+			
+				Virtual Machines are refered as EC2 Instances
+				
+					Application ::
+							To run an application :
+							
+								Computing Device 
+								
+							Operating System acts as an interface between User Applications and Underlying hardware.
+			
+			Why we use AWS Account?
+			
+				To Create Virtual Machines 
+					To install and work with DevOps Tools like Jenkins, Docker,....
+				Storage, security groups...
+					
+					
+			How to Create EC2 Instance
+			
+				How to Connect to Ec2 Instance : https://aws.amazon.com/console/
+				
+					- EC2 Instance Connect  == through aws console using web browser.
+					
+					- SSH Client 
+						- Is a agent installed in the local machine.	
+							- MobaXterm 	https://mobaxterm.mobatek.net/download.html							
+							- Putty
+						
+					- Using Terminal
+					
+			Authentication ::
+				
+				Password Based Authentication
+				Token Based Authentication
+				
+				Key Based Authentication
+					- Private & Public Key 
+				
+				Passwordless Authentication
+			
+		
+				
+				1 VM  ==> 750 Hrs/Month
+				10 VM ==> 75 Hrs/Month
+			
+		
+					
+				
+			0 to 1 year DevOps Trained Resource.
+			
+			
+			Linux OS - Ubuntu Distribution.
+			
+				Operating System
+			
+						Operating System acts as an interface between User Applications and Underlying hardware.
+						
+					Windows OS  
+					Linux OS 	(Open-Source Operating System)
+						Distribution -
+							- Ubuntu 
+							- Centos / rhel / fedora 					
+					Mac OS 
+					
+			
+			
+			
+			
+				
+		
+			
+			
+			
+		
+			
+			
 			
 			
 			
