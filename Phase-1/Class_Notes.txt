@@ -528,7 +528,159 @@ DevOps Overview :::
 					Mac OS 
 					
 			
+########################
+21st Nov. 2023
+########################	
+
+		AWS Fundamentals :::
+		  
+		  Create VMs
+		  Connect with VMs
+		  Work with VMs
+		  
+			VMs --> AMI -- Ubuntu/Windows/Mac ==> Server templates
 			
+				--> Login 
+				--> Linux Command to work with VMs.
+				
+				Linux - OS 
+				
+				Admin related activities :::
+				
+					- Work with Application Packages.
+					
+					
+			VM -
+			
+				Public IP Address  	--> Used to access the VM thru external network
+									--> It is NOT a permanent IP Address
+									
+									13.232.50.178
+									52.66.204.121
+									
+				Private IP Address 	--> Used to access the VM within internal network
+									--> It is a permanent IP Address
+									
+									172.31.45.173
+				
+				Admin related activities :::
+				
+					- Work with Application Packages.		
+
+						In Linux;
+							- root user 	==> Considered as admin user with full access to Linux Machine.
+												Using this, we can install/Uninstall/Upgrade the packages
+							- general user 	==> ubuntu ==> 
+							
+							
+						Linux Distributions :::
+							Linux OS 	(Open-Source Operating System)
+								Distribution -
+									- Ubuntu 									==> apt-get (or) apt
+									- Centos / rhel / fedora(Previous_Version) 	==> yum 	
+									- Fedora(Latest Version)					==> dnf 
+									- 
+							Package Manager ::: It is utility through which we can manage the packages in Linux Machines.
+							
+								In windows --> *.exec file
+							
+							- Update the default packages.
+								
+								clear
+								sudo -i
+								apt update -y
+								apt install maven -y 			# Install maven build tool
+								mvn --version
+								apt remove maven -y
+								
+								git 	
+								apt install git -y 
+								
+							Types of Packages :::
+								tools 
+								zipfileformat
+								service 		===> 
+								
+								git/maven/ansible 		== tool 
+								jenkins/docker/tomcat 	== service ==> It should be enable with default port
+								
+								Tomcat  ==> Web Application Server == Used to run web applications
+								
+							Installation procedures :::
+							
+								1. Install the pre-requisites 
+								2. Install the Actual tool 
+								3. Perform Post_Installation Activities
+								
+							It is always recommended to use the official documentation to do the package management
+							
+							
+							Install & Configure Jenkins Server :
+							
+								- Refer to that tools/Service's Official Documentation.
+											https://www.jenkins.io/doc/book/installing/linux/
+
+# Install Jdk:
+											
+sudo apt update -y
+sudo apt install openjdk-11-jre -y 						# previous version
+java -version						
+								
+#Install Jenkins:
+
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt-get update
+
+sudo apt-get install jenkins -y
+
+
+jenkins --version 
+
+systemctl status jenkins 
+
+Open web browser :
+
+http://<Public_IP_Address>:8080/
+
+E.g.: http://43.205.118.56:8080/
+
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+
+			Jenkins installation path ::::
+			
+			
+							
+					Which port is used to connect to Linux VM ? 
+							
+					Security Group :::
+					
+						Is used define the Inbound(Allows Incomming Traffic) and Outbound(Allows Out going Traffic) rules 
+						
+						
+					
+			Linux Modules -> 
+		  
+Summary :::	
+
+		Launching Ubuntu VM in AWS 
+		Connect to VM using Mobaxterm 
+		Login as root user 
+		Install/update/remote the package using apt package manager
+		Install and Configure Jenkins 
+			- Know about default port for jenkins
+			- Security Group :
+				- Configure Inbound & Out Bound Rules
+			- Install Jenins - with all its pre-requisites
+			- Perform post installation activities
+			- Access Jenkins using http://<Public_IP_Address>:8080/			
 			
 			
 				
