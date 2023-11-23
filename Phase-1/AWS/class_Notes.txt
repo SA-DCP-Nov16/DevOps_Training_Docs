@@ -1,0 +1,809 @@
+
+StarAgile DCP : Started on : 16th Nov. 2023 
+https://github.com/SA-DCP-Nov16/DevOps_Training_Docs
+
+https://github.com/SA-DCP-Nov16/DevOps_Training_Docs
+
+########################
+16th Nov. 2023
+########################
+DevOps Fundamentals :::
+
+Module 1
+
+DevOps Overview :::
+
+AWS Fundamentals
+DevOps on Cloud (AWS)
+Linux Fundamentals
+
+DevOps Overview :::
+
+	DevOps :::
+	
+	Waterfall & Agile Method ??
+	
+	Stages of DevOps ????
+	
+	DevOps ::::
+	
+		- Software --> 
+		
+			- Application Software 
+					--> Desktops Applications  --> Billing system
+					--> Web Applications       --> ECommerce, Online Banking 
+					--> Mobile Applications	   --> Mobile Apps
+			- System  Software 
+			
+		SDLC -> Software Development Life Cycle :::
+		
+				--> Desktops Applications  --> Billing system
+				
+			- Requirement Analysis 
+			- Design 
+			- Coding / Development
+			- Testing 
+			- Implementation 
+			- Maintainence/Monitoring
+			
+		1. Waterfall Model ::: - 	Linear in approach
+									It strictly follows top down approach
+									It is meant for Monolith Application Architecture
+				
+				--> Desktops Applications  --> Billing system BASIC / COBOL 
+					Billing Application :
+						- Inventory Mgmt
+						- Price Mgmt
+						- User-Interface - CLI
+						- Order placement 
+						- Payment 
+							
+				Project 1:		
+					- Requirement Analysis 		==> 9 months to complete this project.
+					- Design 
+					- Coding / Development			mid of 4th Month 
+					- Testing 
+					- Implementation 
+					- Maintainence/Monitoring		
+					
+				Project 2:		
+					- Requirement Analysis 		==> 
+					- Design 
+					- Coding / Development			
+					- Testing 
+					- Implementation 
+					- Maintainence/Monitoring	
+
+				
+				
+				Tele-comm Domain :: 
+					SP1 --> Introduce a new offer to their customers 
+							-> IT Team to implement this ASAP
+					SP2 --> 
+					
+		2. Agile Methodology :::
+		
+				--> Desktops Applications  --> Billing system BASIC / COBOL 
+				
+					Billing Application :
+						Functions/Modules/Iterations
+							- Inventory Mgmt
+							- Price Mgmt
+							- User-Interface - CLI
+							- Order placement 
+							- Cash-Payment
+							- Online-payment
+													
+			Iterations 1:  Inventory Mgmt
+				- Requirement Analysis 
+				- Design 
+				- Coding / Development
+				- Testing 
+				- Implementation*** 
+				- Maintainence/Monitoring***	
+		
+			Iterations 2:  - Price Mgmt
+				- Requirement Analysis 
+				- Design 
+				- Coding / Development
+				- Testing 
+				- Implementation*** 
+				- Maintainence/Monitoring***		
+	
+			Iterations n:  - Online-payment
+				- Requirement Analysis 
+				- Design 
+				- Coding / Development
+				- Testing 
+				- Implementation*** 
+				- Maintainence/Monitoring***
+				
+			Using Agile Methodologies we can able to achieve :::
+					Continous Development 
+					Continous Integration
+					Continous Testing 
+					Continous Delivery  to Production
+								- This Expect Manual approval for Production Release.
+			But we cannot achieve :::
+					Continous Deployment to Production
+								- This Doesnt expect any manual approval for Production Release. We can automate Production Release without any manual intervension.
+
+
+		3. DevOps :::
+		
+			What is DevOps ????
+			
+				DevOps is a Software Development Strategy, which helps to promote the collaboration between the Development Team and Operations Team to achieve Continous Development, Continous Integration, Continous Testing, Continous Delivery, Continous Deployment and Continous Monitoring in more automated fashion.
+				
+			
+			Teams ::
+			
+				DevOps Team 
+					1. Infra-Structure Management Team 
+					2. Application Development Team 
+					3. Testing Team
+					4. Release Management Team 
+					5. Production Support Team
+					6. Production Monitoring Team
+					7. Security Team
+				
+				
+			Stages of DevOps ::
+			
+					Infra-Structure Management ::
+							IAC - Ansible & Terraform 
+							
+					Continous Development ::
+						- It is capability of Application Development to continously develop the code.
+						- Increase the productivity of Developers.
+						Developer --> Role of developer ???
+							Coding the Business Application.
+							- Create source code 
+							- Manually build the code 
+							- Create Artifacts
+							- Manually perform unit testing 
+							- Promote the code to Testing Environments 
+							- Notify the testing team to do further testing
+							
+						Using DevOps Approach :::
+							- Create source code Update the code in a source code repository 
+							
+						DevOps take the responsibility : 
+							- Automate build the code 
+									Application Build :
+										It is process of compiling the source code and creating artifacts.
+										Artifacts are - Binaries (*.war,*.jar,*.exec,*.dll)										
+							- Automate Create Artifacts
+							- Automated unit testing 
+							- Automate Promote the code to Testing Environments 
+							- Automate the Notification - Notify the testing team to do further testing
+					
+						Tools : 
+							Eclipse based IDEs(Integrated Development Environment) - Eclipse, Pycharm, Intellij
+						DevOps Tools ::
+							GIT, Jenkins, Build Tools(Maven,JUnit)
+							
+					Continous Integration ::
+						- It is capability of Application Development to continously integrate their code change for further testing without waiting for any dependencies.
+						
+						Tools ::
+							- Jenkins, Ansible, Docker, Kubernetes 
+						
+					Continous Testing ::
+						- To enable Automated Testing ::
+						- QA Testing
+						- UAT Testing 
+						
+						Tools ::
+							- Jenkins, Junit/TestNG/Selenium 						
+						
+					Continous Delivery  & Continous Deployment
+					
+						Tools : Jenkins, Ansible, Docker, Kubernetes 
+					
+						- Both are related to Production Release :
+						
+						Continous Delivery : 					Continous Delivery  to Production
+								- This Expect Manual approval for Production Release.						
+
+								Banking Application :
+									Online Banking :::
+										release new feature  to Production Environment:::
+										
+										Open a Production Deployment Window :: (4 - 6 Hrs) - Non-Business Hours
+											Take manual approval from all stake holders for this release 
+											Thorough Testing in Production Environment.
+												If anything goes wrong :
+													Fix the Issue. 
+													Revert
+									
+						Continous Deployment :	
+								- Can be achieved with the matured DevOps Strategies/Process.
+								- This Doesnt expect any manual approval for Production Release. We can automate Production Release without any manual intervension.
+								- No Downtime.
+
+								Facebook 
+								Netflix 
+								amazon 
+								google 							
+							
+					Continous Monitoring :
+							
+							- Mainly used to achieve Business Continuity.
+							
+							- Infra-Structure Monitoring
+									Monitor the Production Servers -- Memory/CPU utilization & Traffic 
+									
+							Tools :: 
+									Jenkins,Prometheus,Grafana,
+									
+							- Application Monitoring 
+									AppDynamics
+									
+					
+			DevOps Tools ::
+
+				Self Managed - Open Source Tools :
+					
+				
+				Manage Services from Service Providers 
+				
+					AWS 	
+					AZURE 
+					GCP 
+
+########################
+17th Nov. 2023
+########################
+
+		DevOps Fundamentals 
+		
+		
+		AWS Fundamentals
+		
+			Teams ::
+			
+				DevOps Team 
+					1. Infra-Structure Management Team ==> Server Provisioning & Configuration 
+					2. Application Development Team 
+					3. Testing Team
+					4. Release Management Team 
+					5. Production Support Team
+					6. Production Monitoring Team
+					7. Security Team
+					
+					
+		Stages of DevOps ::::
+		
+			Pre-requisites for Effective DevOps Implementation.
+			
+			Application Development & Deployment
+			
+			Application Architecture 
+			
+				SDLC Perspective :
+				
+					1. Monolith Application Architecture :
+						- It is a tightly coupled Application Architecture
+						- It is difficult to Add More features quickly
+						- All the Application Dependencies are closely couple with each other.
+						
+					Billing Application :
+						Functions/Modules/Iterations
+							- Inventory Mgmt
+							- Price Mgmt
+							- User-Interface - CLI
+							- Order placement 
+							- Cash-Payment
+							- Online-payment		
+
+					2. Micro-Service Based Application Architecture :
+						- A smallest unit of task
+						- It is loosely coupled application 
+						- It allows the developers to independently develop, test, and develop the changes to production.
+						- Eleminate all the dependencies and enable independent development and implementation.
+			
+				www.amazon.com 
+				
+				- Sign-up			- Micro-Service1 - Developer - Independently code, test and Release the changes to Production.
+				- Sign-In 
+				- Search-products
+				- Add to Cart 
+				- Place the order 
+				- payment 
+				- confirm the order 
+				- track the order 
+					
+					3- tier architecture  - Front-End Design,Application Logic, BackEnd(Database)
+					
+			DevOps Tools ::
+
+				Self Managed - Open Source Tools :
+					
+				
+				Manage Services from Service Providers 
+				
+					AWS 	
+					AZURE 
+					GCP 
+
+			
+			DevOps is all about :::
+			
+					People		==> 	
+					Process		==>
+					Tools		==>
+					
+			
+			Architect ==> Client ==> Devops 
+			
+			Teams ::
+			
+				DevOps Team 
+					1. Infra-Structure Management Team ==> Server Provisioning & Configuration 
+					2. Application Development Team 
+					3. Testing Team
+					4. Release Management Team 
+					5. Production Support Team
+					6. Production Monitoring Team
+					7. Security Team
+
+			Assessment :::
+			Identify the scope for automation.
+			
+			
+			Roles and Responsibilities of DevOps Team :
+			
+				DevOps Associate 
+				Sr. DevOps Associate
+				DevOps Engineer
+				Sr. DevOps Engineer
+				DevOps Lead 
+				Sr. DevOps Lead
+				DevOps Architect
+				Sr. DevOps Architect
+				DevOps Consultant 
+			
+			Waterfall - Agile - DevOps - DevSecOps - SRE - GitOps - MLOps - AIOps
+			
+			
+			
+		AWS Fundamentals	 ::: 
+		
+			Basic services of AWS.
+			
+				Cloud Platform ???
+				
+				Cloud Computing ::: What & Why ???
+				
+				Type of Services provided ?
+					IAAS
+					PAAS
+					SAAS 
+					
+				Cloud Service Deployment Model ::
+				
+					Public Cloud
+					Private Cloud 
+					Hybrid Cloud 
+					Community Cloud
+				
+				
+			On-Premises Platform ::::
+				
+			Cloud Platform :::
+			
+				AWS 
+				Azure 
+				GCP 
+				Digital Ocean
+				
+				
+			Explore AWS Cloud Platform :
+			
+				1. Create AWS Account 
+						Free Tier - 12 Months.
+							Valid/Active - Mobile Number, Email_ID, Credit/Debit Card(Eligible for International Transaction) 
+			
+			Lab Pre-Requisites for this Trainings ::
+
+				1. Create GITHUB(Remote Repository to maintain files and folders) Account.
+						https://github.com/
+				2. Create AWS Account  https://aws.amazon.com/console/
+						Free Tier - 12 Months.
+							Valid/Active - Mobile Number, Email_ID, Credit/Debit Card(Eligible for International Transaction) 
+							
+				3. Create Virtual Machines(EC2 Instances) and Connect to VMs
+							
+				
+########################
+20th Nov. 2023
+########################			
+			
+		AWS Fundamentals :::
+		
+			Login to AWS Account :
+				Through AWS Console we can login to AWS Account...
+				
+				
+				-  root id 
+				-  IAM User ID  
+				
+				AWS CLI 
+				API Calls.
+				
+					As a root user Login to AWS Console. 
+						- Email_ID & Password 
+						
+					- Create IAM Users 
+					
+				At Enterprise level : Root User Account 
+				
+					User1
+					User2
+					User3
+
+					50 Teams -- Each has 100 Members
+				
+					AWS Account -> 
+					
+						Free Tier Account 
+						
+							- Usage 
+							Billing Dashboard 
+							
+							
+					AWS Cloud 
+					
+						Regions 
+							Availability Zones (Data Centers) 
+								Server1,2,3,4,5
+									Virtual Machines 
+										Runs Operating System (Amazon Machine Image)
+											Runs Applications
+									
+			1. AWS EC2 Instances ::
+			
+				Virtual Machines are refered as EC2 Instances
+				
+					Application ::
+							To run an application :
+							
+								Computing Device 
+								
+							Operating System acts as an interface between User Applications and Underlying hardware.
+			
+			Why we use AWS Account?
+			
+				To Create Virtual Machines 
+					To install and work with DevOps Tools like Jenkins, Docker,....
+				Storage, security groups...
+					
+					
+			How to Create EC2 Instance
+			
+				How to Connect to Ec2 Instance : https://aws.amazon.com/console/
+				
+					- EC2 Instance Connect  == through aws console using web browser.
+					
+					- SSH Client 
+						- Is a agent installed in the local machine.	
+							- MobaXterm 	https://mobaxterm.mobatek.net/download.html							
+							- Putty
+						
+					- Using Terminal
+					
+			Authentication ::
+				
+				Password Based Authentication
+				Token Based Authentication
+				
+				Key Based Authentication
+					- Private & Public Key 
+				
+				Passwordless Authentication
+			
+		
+				
+				1 VM  ==> 750 Hrs/Month
+				10 VM ==> 75 Hrs/Month
+			
+		
+					
+				
+			0 to 1 year DevOps Trained Resource.
+			
+			
+			Linux OS - Ubuntu Distribution.
+			
+				Operating System
+			
+						Operating System acts as an interface between User Applications and Underlying hardware.
+						
+					Windows OS  
+					Linux OS 	(Open-Source Operating System)
+						Distribution -
+							- Ubuntu 
+							- Centos / rhel / fedora 					
+					Mac OS 
+					
+			
+########################
+21st Nov. 2023
+########################	
+
+		AWS Fundamentals :::
+		  
+		  Create VMs
+		  Connect with VMs
+		  Work with VMs
+		  
+			VMs --> AMI -- Ubuntu/Windows/Mac ==> Server templates
+			
+				--> Login 
+				--> Linux Command to work with VMs.
+				
+				Linux - OS 
+				
+				Admin related activities :::
+				
+					- Work with Application Packages.
+					
+					
+			VM -
+			
+				Public IP Address  	--> Used to access the VM thru external network
+									--> It is NOT a permanent IP Address
+									
+									13.232.50.178
+									52.66.204.121
+									
+				Private IP Address 	--> Used to access the VM within internal network
+									--> It is a permanent IP Address
+									
+									172.31.45.173
+				
+				Admin related activities :::
+				
+					- Work with Application Packages.		
+
+						In Linux;
+							- root user 	==> Considered as admin user with full access to Linux Machine.
+												Using this, we can install/Uninstall/Upgrade the packages
+							- general user 	==> ubuntu ==> 
+							
+							
+						Linux Distributions :::
+							Linux OS 	(Open-Source Operating System)
+								Distribution -
+									- Ubuntu 									==> apt-get (or) apt
+									- Centos / rhel / fedora(Previous_Version) 	==> yum 	
+									- Fedora(Latest Version)					==> dnf 
+									- 
+							Package Manager ::: It is utility through which we can manage the packages in Linux Machines.
+							
+								In windows --> *.exec file
+							
+							- Update the default packages.
+								
+								clear
+								sudo -i
+								apt update -y
+								apt install maven -y 			# Install maven build tool
+								mvn --version
+								apt remove maven -y
+								
+								git 	
+								apt install git -y 
+								
+							Types of Packages :::
+								tools 
+								zipfileformat
+								service 		===> 
+								
+								git/maven/ansible 		== tool 
+								jenkins/docker/tomcat 	== service ==> It should be enable with default port
+								
+								Tomcat  ==> Web Application Server == Used to run web applications
+								
+							Installation procedures :::
+							
+								1. Install the pre-requisites 
+								2. Install the Actual tool 
+								3. Perform Post_Installation Activities
+								
+							It is always recommended to use the official documentation to do the package management
+							
+							
+							Install & Configure Jenkins Server :
+							
+								- Refer to that tools/Service's Official Documentation.
+											https://www.jenkins.io/doc/book/installing/linux/
+
+# Install Jdk:
+
+sudo -i 			
+sudo apt update -y
+sudo apt install openjdk-11-jre -y 						# previous version
+java -version						
+								
+#Install Jenkins:
+
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt-get update
+
+sudo apt-get install jenkins -y
+
+
+jenkins --version 
+
+systemctl status jenkins 
+
+Open web browser :
+
+http://<Public_IP_Address>:8080/
+
+E.g.: http://43.205.118.56:8080/
+
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+
+			Jenkins installation path ::::
+			
+			
+							
+					Which port is used to connect to Linux VM ? 
+							
+					Security Group :::
+					
+						Is used define the Inbound(Allows Incomming Traffic) and Outbound(Allows Out going Traffic) rules 
+						
+						
+					
+			Linux Modules -> 
+		  
+Summary :::	
+
+		Launching Ubuntu VM in AWS 
+		Connect to VM using Mobaxterm 
+		Login as root user 
+		Install/update/remote the package using apt package manager
+		Install and Configure Jenkins 
+			- Know about default port for jenkins
+			- Security Group :
+				- Configure Inbound & Out Bound Rules
+			- Install Jenins - with all its pre-requisites
+			- Perform post installation activities
+			- Access Jenkins using http://<Public_IP_Address>:8080/
+		
+
+########################
+23rd Nov. 2023
+########################		
+			
+			
+		- Overview of AWS Services 
+		
+		- Linux Fundamentals.
+			
+			
+		- Overview of AWS Services 	::
+
+			- EC2 Instance Service
+			
+			- IAM 
+					User_Group 			
+						User_IDs
+					
+					Dev Team :
+						Dev_Group 		==> need access to SQL_Database.
+							5 members = +50 users 
+					https://310817730195.signin.aws.amazon.com/console
+					
+					RBAC --> Role Based Access Control.
+								developer/admin/manager
+					
+			- Storage - S3 / EBS / EFS
+			
+					Web application ==> Target Environment(VM) --> to run the we appln. I need some config files...
+					1TB of volume +1TB
+					
+			- Database - DynamoDB / RDS 
+			
+			- Security Groups ::::
+					jenkins -- 8080 
+					
+					Inbound Rules 		==> Incomming Traffic 
+					OutBound Rules		==> Out Going Traffic. 		
+			
+			
+			- Developer Services ...
+			
+			AWS Provided DevOps Services ::::
+			
+				DevOps Requirement :::
+				
+					-- DevOps Tools Stack! 
+								Open Source DevOps Tools 
+									GIT 
+									Jenkins 
+									Ansible 
+									Terraform
+									Docker
+									Kubernetes
+									Prometheus
+									Grafana
+								
+								Managed Services 
+								
+									AWS   12 month free tier 	
+										Code Pipeline 
+										Code Build / Test 
+										Code Deploy 										
+									
+									Azure DevOps Services ::: --> 
+									
+										200 USD --> 1 Month 
+									
+									
+									
+									GCP 
+									
+									
+						Hybrid Cloud ::
+						
+							On-Premises
+								
+								
+							Cloud(AWS)
+							
+						
+						Continous Delivery / Deployment using DevOps 
+						
+						
+			CI/CD Pipeline ::
+			
+			
+			Lifecycle of DevOps 
+			
+				Code 
+				
+						
+						
+						
+						
+						
+									
+									
+				DevOps -->
+				
+					- Assessment Phase ::
+						
+					- Recommendations!
+						Open Source (or)
+						 Managed Service 
+						 
+							On-Premises Environments 
+						 
+							-> Cloud Adoption 			==> Azure Platform 
+							-> DevOps Implemetation 	==> Azure DevOps Services 
+							
+							
+						AWS 	--> Infra-Structure 
+						
+						DevOps 	--> 
+						
+						
+Next ::
+		
+		Pre-requisite - Create and Access EC2 Instance (Ubuntu)
+		
+		Linux Fundamentals ::: Tasks 
+		AWS Fundamentals - Assignments.
