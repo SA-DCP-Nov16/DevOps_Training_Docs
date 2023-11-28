@@ -1494,3 +1494,154 @@ Next :
   156  exit
   157  passwd devopsadmin
   158  history
+
+
+########################
+28th Nov. 2023
+########################
+
+		Remote server handling :::
+		Linux Scripting :::
+		
+				useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+
+		Remote server handling::
+		
+			What is the need for remote server?
+			
+			
+		DevOps :::
+		
+			Development :::	==> 
+			
+				Environments ==> Computing Devices (Virtual Machine/Containers/On-Premises Servers)
+			
+				Development Environment 
+						==> Used by Developers ---> Java  
+						==> They Coding and development of projects - IDEs 
+				
+				Build Environment
+						==> Used by Developers 
+						==> To build the Code == Compile and create artifacts(Binaries) --> *.war
+				
+				Test Environment - QA(Quality Assurance Testing), UAT(User Acceptance Testing) 
+						
+						==> Used by the Testing Teams
+						==> Automated Testing of Application
+						
+				Target/Hosted/Production Environment - LIVE Servers
+			
+		Environment			CI/CD 
+		
+			Non-Prod										Production Environment
+			
+				Dev
+				Test 
+					QA 
+					UAT 				====>					Prod Environments
+		
+		Local Windows Machine ::: 
+		
+			AWS EC2 Instance : VM ( Remote Server)
+				- How to connect with remote server from local Machine ?
+						Host Name/Host IP Address & User_Name & Authentication Keys ==> SSH(Secure SHell Protocal(Rules to establish connection to remote servers)
+						
+						
+			Deployment --> Is a process of copying the artifacts from a source server to target servers.
+			
+					Virtual Machine :
+					
+						Build_Folder ==> payment.war 
+						
+						Copy this artifacts to Target_Folder in the same Machine. 
+						
+						cp payment.war Target_Folder
+						
+					Build_Server payment.war
+					
+					Test_Server :
+					
+						1. Establish Conection to Test Server 
+						2. Authentication
+						3. Perform Deployment 
+						
+						
+ls
+ls -a		
+		
+			Demo :::
+				
+				1. Create 2 VMs 
+				2. Create User_Name in each VM 
+				3. Create SSH Keys for Authentication
+				4. Establish Connection to Remote server
+				5. Gain access to Remote Servers.
+						
+CUI - Command User Interface :: shell and bash are types of CUI
+
+#Login to Client Machine. Perform below activities:
+
+#Add User in Client/Target Machine : 
+
+sudo -i
+
+useradd devopsuser1 -s /bin/bash -m -d /home/devopsuser1
+
+passwd devopsuser1
+
+#Enter New Password:
+#Confirm Password:
+
+#Goto:
+
+vi /etc/ssh/sshd_config
+
+#Enable Password Authentication to Yes and save the file
+#Execute Below command to update the changes.
+
+service sshd reload
+
+su - devopsuser1
+
+ls -a 				# Show the list of all files & folders including hidden files and folders
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#Login to Server:
+
+#Add User in Server/Source Machine : 
+
+sudo -i
+
+useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+su - devopsadmin
+
+#for Ubuntu ::
+ssh-keygen -t rsa -b 1024 -m PEM
+cd .ssh
+
+#id_rsa  		==> Private key 
+#id_rsa.pub		==> Public key
+
+ssh-copy-id devopsuser1@172.31.3.16
+
+#Type yes for confirmation
+#Enter the password for devopsuser1
+
+#### Verify the key copied in Server under /home/devopsuser1/.ssh/
+
+ssh devopsuser1@172.31.3.16
+
+
+scp file1.txt devopsuser1@172.31.3.16:/home/devopsuser1				
+			
+			
+		
+		
+						
+						
+			
+				
+
