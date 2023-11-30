@@ -1638,10 +1638,243 @@ ssh devopsuser1@172.31.3.16
 scp file1.txt devopsuser1@172.31.3.16:/home/devopsuser1				
 			
 			
+########################
+30th Nov. 2023
+########################		
 		
+		Linux Scripting :::
 		
+			CLI / CUI ==> Used to interact with Operating System 
+				shell / bash(Unix/Linux) are the terms refers this CUI/CLI 
 						
 						
+			cp / mv 
+			
+			source file & Target dir.
+			
+			file1.txt 			target : /home/ubuntu/desti
+			
+			cp file1.txt /home/ubuntu/desti
+				
+				
+				
+/home/ubuntu~$ cp file1.txt /home/ubuntu/desti
+
+/home/ubuntu~$ cp /home/ubuntu/source_dir1/file1.txt /home/ubunut/desti
+
+/home/ubuntu/deve1~$ cp /home/ubuntu/source_dir1/file1.txt /home/ubunut/desti
+
+/home/ubuntu~$ cp file1.txt file2.txt *.java /home/ubuntu/desti
+
+		Linux Scripting :::
+		
+			Software Program :	==> set of instructions given the Computers to perform some task.
+					
+			Programming Languages :::				
+					==> are used to develop some Business Applications(Banking/Retail/Insurance)
+									C/C++/Java/C#/ASP/JSP/Angular/PHP/python
+									Application Frameworks - .Net/Spring boot
+									
+			Scripting Languages :::
+					==> are light weight 
+					==> are used to create some process automation/Validations
+									shell scripting/python scripting/java scripting/yaml scripting/groovy scripting
+									
+									
+				--> Linux Machine ==>  30 GB of Storage 
+							Build_Server(VM)	Application Build ==> compile & Create artifacts -- *.war
+										1000's of micro services 
+										
+								periodic Monitoring -- every day / every one hour
+										If the memory utilization reaches 28GB(for Eg.)
+											- Clean up the unwanted files from the server
+											- Add More volumes +20GB
+											
+								Automation ::
+									Automatically Monitor the Build_Server, Able to cleanup the storage/add more volumes 
+								
+				-->	E_Commerce Portal :
+						User_Registration Process :
+						
+					3 - Tier Application Architecture ::: 
+						Front-End Layer 
+						Application Layer 
+						BackEnd - Database Layer 
+				
+					Client Side Scripting ::: 
+							Validate the user inputs at the client side itself without hitting the Server side.
+			
+		On DevOps Perspective ::
+		
+			Scripting Knowledge for DevOps Engineers ::
+				shell scripting/yaml scripting/groovy scripting/Python Scripting
+				
+					- Process Automation:
+					
+		Fundamentals of Shell/Linux Scripting ::			
+					
+					
+			- set of instructions are the building blocks for programs to perform any task:::
+			
+			
+			Task :::
+				
+					1. Calculate sum of 2 numbers ::: 
+					
+						1. read input 1 & 2 
+						2. c = a + b 
+						3. print c
+						
+						
+			Logic of a program/script. Logical Thinking!
+			
+			
+			
+		Technicals :::
+		
+			Linux Scripting Language ::
+				
+				
+				Building-Blocks / Concepts of Programming/Scripting Languages :::
+				
+				Entire IT Tools/Software are used to deal with Data.
+				
+					- Variable 		==> 5 ==> x = 5
+					- Type --> DataTypes 
+								5 = Numeric data 
+								"Hello" = String/Alphabet
+								"xyz123" = Alpha--numeric
+					- Size of data 
+						Declare  the variables with datatypes :
+								int a = 5;
+								a = 5
+						Variable :
+							stud_Name = "adfasdf"
+							stud_Name[5] = {"adsf","adsf","asdf","asdf","asdf"}
+					- Array
+					- 		stud_Name = 121231231
+							Stud_Age  = 25 or 27 or 99
+							
+					- Validation :
+							IF, switch-case statements 
+					- Iterations :
+							for loop / while / do-while looping constructs
+					- File Handling concepts :
+							Sequential file used to store some sequential data.
+								file operations : create/open/read/write/update/delete 
+					- Data base :
+						 Relational DataBase Mgmt System :
+							Tables : rows/Columns 
+							
+							Stud_Reg.Numbr		stud_Name  			Stud_Age
+							1001				asdfasdfs			25
+							1002				adfasasdfasd		27
+					
+					- Remote servers and transfer these data!
+							Data 	== plural 
+							datum	== singular
+						 
+				
+				
+		Scripting :::
+
+			Write the Scripts ::::
+			
+				1. Requirement Analysis 
+				2. Design 
+				3. Code 
+				4. Testing 
+				5. Implementation
+				
+		
+	
+		Requirement :
+		
+			Algorithms
+			
+			Psudo-Code
+			
+		Calculate sum of 2 numbers ::: 
+			
+				1. Read the input value 1 	==> String!
+				2. Read the input value 2
+				3. Calculate c as sum of val1 & val2 
+				4. Display the value of c
 			
 				
+			Any Programming/Scripting Languages to implement this.
+			
+			Exception/Error Handling 
+			
+			
+		Find Maximum of three numbers ????		23 45 12
+				
+				Algorithm :::
+					Is written in high - level language
+					It defines the step by step instructions to achieve  a specific task. 
+					It is not based on any Programming/Scripting Language
+						
+		
+		Calculate sum of n numbers				????
+		
+				n = 10
+					1,1,1,1,1,1,1,1,1,1		==> 
 
+		
+		Print "Hello" 
+		
+			Linux Script ""
+			
+				echo "Hello" 
+				
+		Print "Hai"
+		
+		Print 5 
+		
+		Print '*'
+		
+			echo "*"
+			
+		* * * * *	
+
+		
+		*****
+		 ***
+		  *
+
+		
+		5 5 5 5 5
+		 4 4 4 4
+		  3 3 3
+		   2 2
+		    1
+		
+		
+		variable ==> PinNumber ===> 987654321 
+			 - To reverse the given Numbers. 
+					==> 123456789
+		
+		Variable ==> Strings ==>  HelloEveryone
+		
+			 - To Reverse the given string of letters...
+			 
+		Prime Numbers ????
+		
+			1,2,3,4,5,6,7,8,9
+			
+			1 => If the given number is prime number, print it is prime number 
+				 If the given number is NOT a prime number, print it is NOT prime number
+		
+			
+		
+		
+	 
+					
+			
+				
+			
+			
+			
+			
+				
+					
