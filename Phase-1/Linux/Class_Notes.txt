@@ -1153,3 +1153,728 @@ sudo -i
    64  ls
    65  exit
    66  history
+
+
+########################
+27th Nov. 2023
+########################
+
+
+		Linux File Management 
+			
+			create dir/
+			create/update/delete/read ==> file
+			
+		User Management :::
+		
+		
+		Linux File Management 
+			
+			create dir/
+			create/update/delete/read ==> file
+			
+			
+			What is shell > ==> Command line utility used to interact with Kernel of Linux OS
+			
+			cd 
+			mkdir 
+			echo 
+			
+			shell scripts ???
+			
+				collection of shell commands. ==> *.sh
+				
+			Linux File Management 
+				
+				create dir/
+				create/update/delete/read ==> file
+				
+				Misc. Shell Commands for file handling!
+
+					Create the directory :
+						mkdir 
+					
+					Create a file :
+						touch <file_name>						# used to create empty file 
+						echo "record" >> <file_name>			# used to create file with contents 
+						echo "record" > <file_name>				# used to replace the existing records 
+						echo "record" 							# to prind the message.
+						
+						Using vi Editor 						# default file editor in Linux 
+							vim/nano 
+							
+						vi <file_name> 							# Used to Edit the file.
+						
+						press i 								# get into insert mode .
+						esc :wq 								# used to save the file and exit 
+						ecs :q!									# used to exit the file without saving the changes.
+						
+					copy the files from one dir to another 
+					
+						cp <file_name> dir1/
+							cp /home/ubuntu/nov27/file1.txt /home/ubuntu/dir1/	# Execute this from different location
+							
+							cp file1.txt /home/ubuntu/folder1					# Execute this from the file location
+							
+							wildcard symbols :
+							
+							cp *.* /home/ubuntu/folder1
+							
+							cp *.java /home/ubuntu/folder1
+							
+							cp file1.txt,file2.java /home/ubuntu/folder1
+							
+					
+					move the files from one dir to another
+						mv <file_name> dir1/
+						
+							mv  /home/ubuntu/nov27/file1.txt /home/ubuntu/dir1/	# Execute this from different location
+							
+							mv file1.txt /home/ubuntu/folder1					# Execute this from the file location
+							
+							wildcard symbols :
+							
+							mv *.* /home/ubuntu/folder1
+							
+							mv *.java /home/ubuntu/folder1						
+						
+						
+					rename the file :::
+					
+							mv file1.txt newfile1.txt
+							
+					
+					
+					$ ll
+					
+					
+					----------
+					drwxrwxrwx			==> access level.
+					-rwxrwxrwx		
+							
+							
+							
+					Owner 			of the file 
+					
+					Access Mode 	of the file 
+			
+					ubuntu 
+					root 
+					
+					
+					dev_team			group 1
+						user1
+						user2
+						user3 
+						
+					test_team			group 2
+						user4
+						user5
+						user6 
+						user3
+					
+					user7	
+					user8 
+					user9 
+						
+					file1.txt ==> user1(owner) 			https://chmod-calculator.com/
+					
+					chmod 755 file1.sh
+					
+					-rw-rw-r--						# Default access mode.
+					
+					-rwxr-----
+					
+					-rwx--x--x						
+					
+
+					-rwx   		==> read,write,execute ==> Owner
+						
+					-rwxr--		==> Users part of the group can able to just read the file 
+					
+					-rwxr--r--  ==> Public users can able to just read the file
+					
+					
+					How to customize the Access Mode :::
+					
+					chmod 
+						
+						
+					rm <file_name>				# remove the file 
+					
+					rm -f <file_name>			# force remove the file
+					
+					rm -rf <dir_name>			# force remove the directory will all its sub-elements.(recursive)
+					
+					
+					
+					
+					----------
+	                
+					-						==> Denotes the type of the object (file/dir)
+					
+					  ---					===> Owner level access 					  
+						 ---				===> The group level access 
+						    ---				===> The public user access 
+					
+					 ---					==> denotes the access level of the owner - read,write,execute
+					 
+					users and groups???
+					
+					dir/
+					
+						
+				    -rwxrwxrwx	
+					
+					
+			User Management::
+				
+					- Create and Manage the Linux users.
+					- Create/Set Authentication for that user.
+									Password Authentication
+									Key Based Authentication
+									
+									
+					- User Authentication & Authorization 
+					- Authentication	==> Denotes Who can Access ?
+					- Authorization		==> Denotes What can Accessible ?
+					
+					Linux : ubuntu and root 
+					
+					Eg. for Authentication ::
+						both these users are authenticated to login to this Linux box.
+						
+					Eg. for Authorization ::
+						Whether ubuntu user can able access /root dir?			NO 
+						Whether root user can able access /home/ubuntu dir?		YES
+						
+				User Add Command to create users in Linux :::
+
+					cat /etc/passwd 					# get the list of users in Linu Machines.
+														# In windows Machine c:/users/
+					
+					cat /etc/group						# get the list of user-groups.
+
+					useradd devopsuser1
+							In Centos/RHEL, It create user_name,user's home directory, and default bash prompt
+							In Ubuntu, It creates only the user_name 
+							
+
+					useradd -m -d /home/devopsuser1 devopsuser1
+					
+					
+					In Ubuntu Machines ::: ******
+					
+						useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+					
+					su - devopsuser1 				# to login to that user.
+
+Summary :
+			file handling 
+			cp/mv/rename/delete 
+			
+			useradd 
+			
+			:	useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+	
+
+Next : 
+
+			Create Password & other Authentication methods like keys 
+			How to handle remote servers.
+				
+				
+				
+					Build 
+						--> 		compile and create artifacts ==> *.java / *.war
+					deployment 
+						--> 
+						
+					Environment ::
+					
+					Non-Prod					Prod Environment
+					(VM1)	dev - build  / *.war
+					(VM2)	qa 
+					(VM3)	uat			====>			prod(VM) 
+						
+						
+						
+				
+					cp ==> from dir1 to dir2 		# within a VM 
+
+   67  clear
+   68  ls
+   69  exit
+   70  clear
+   71  ls
+   72  vi sample1.txt
+   73  ls
+   74  pwd
+   75  mkdir tempfolder1
+   76  cd tempfolder1/
+   77  vi sample2.txt
+   78  pwd
+   79  ls
+   80  ll
+   81  pwd
+   82  cd /home/ubuntu/dir1/sub-dir1
+   83  ls
+   84  ll
+   85  clear
+   86  ls
+   87  ll
+   88  vi newfile1.txt
+   89  cat newfile1.txt
+   90  clear
+   91  ls
+   92  echo "echo hello" >> testscript.sh
+   93  cat testscript.sh
+   94  clear
+   95  ls
+   96  ll
+   97  clear
+   98  ls
+   99  ll
+  100  chmod 777 testscript.sh
+  101  ll
+  102  chmod 400 testscript.sh
+  103  ll
+  104  vi testscript.sh
+  105  clear
+  106  ll
+  107  chmod 755 testscript.sh
+  108  ll
+  109  clear
+  110  cd ..
+  111  ls
+  112  rm -rf sub-dir1/
+  113  ls
+  114  clear
+  115  pwd
+  116  ls
+  117  cd l
+  118  cd ..
+  119  ls
+  120  cd folder1/
+  121  ls
+  122  rm -rf sub-dir4
+  123  ls
+  124  rm f sub-dir3
+  125  clear
+  126  ls
+  127  touch f1.txt
+  128  ls
+  129  rm f1.txt
+  130  ls
+  131  clear
+  132  cd ~
+  133  cd /etc/passwd
+  134  cat /etc/passwd
+  135  cd /etc/
+  136  ls
+  137  clear
+  138  ls
+  139  cat /etc/groups
+  140  cat /etc/group
+  141  clear
+  142  cd ~
+  143  useradd devopadmin1
+  144  su - devopadmin1
+  145  cd /home/
+  146  ls
+  147  useradd -m -d /home/devopsuser1 devopsuser1
+  148  cd ~
+  149  su - devopsuser1
+  150  useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+  151  su - devopsadmin
+  152  cat /etc/passwd
+  153  cat /etc/group
+  154  clear
+  155  su - devopsadmin
+  156  exit
+  157  passwd devopsadmin
+  158  history
+
+
+########################
+28th Nov. 2023
+########################
+
+		Remote server handling :::
+		Linux Scripting :::
+		
+				useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+
+		Remote server handling::
+		
+			What is the need for remote server?
+			
+			
+		DevOps :::
+		
+			Development :::	==> 
+			
+				Environments ==> Computing Devices (Virtual Machine/Containers/On-Premises Servers)
+			
+				Development Environment 
+						==> Used by Developers ---> Java  
+						==> They Coding and development of projects - IDEs 
+				
+				Build Environment
+						==> Used by Developers 
+						==> To build the Code == Compile and create artifacts(Binaries) --> *.war
+				
+				Test Environment - QA(Quality Assurance Testing), UAT(User Acceptance Testing) 
+						
+						==> Used by the Testing Teams
+						==> Automated Testing of Application
+						
+				Target/Hosted/Production Environment - LIVE Servers
+			
+		Environment			CI/CD 
+		
+			Non-Prod										Production Environment
+			
+				Dev
+				Test 
+					QA 
+					UAT 				====>					Prod Environments
+		
+		Local Windows Machine ::: 
+		
+			AWS EC2 Instance : VM ( Remote Server)
+				- How to connect with remote server from local Machine ?
+						Host Name/Host IP Address & User_Name & Authentication Keys ==> SSH(Secure SHell Protocal(Rules to establish connection to remote servers)
+						
+						
+			Deployment --> Is a process of copying the artifacts from a source server to target servers.
+			
+					Virtual Machine :
+					
+						Build_Folder ==> payment.war 
+						
+						Copy this artifacts to Target_Folder in the same Machine. 
+						
+						cp payment.war Target_Folder
+						
+					Build_Server payment.war
+					
+					Test_Server :
+					
+						1. Establish Conection to Test Server 
+						2. Authentication
+						3. Perform Deployment 
+						
+						
+ls
+ls -a		
+		
+			Demo :::
+				
+				1. Create 2 VMs 
+				2. Create User_Name in each VM 
+				3. Create SSH Keys for Authentication
+				4. Establish Connection to Remote server
+				5. Gain access to Remote Servers.
+						
+CUI - Command User Interface :: shell and bash are types of CUI
+
+#Login to Client Machine. Perform below activities:
+
+#Add User in Client/Target Machine : 
+
+sudo -i
+
+useradd devopsuser1 -s /bin/bash -m -d /home/devopsuser1
+
+passwd devopsuser1
+
+#Enter New Password:
+#Confirm Password:
+
+#Goto:
+
+vi /etc/ssh/sshd_config
+
+#Enable Password Authentication to Yes and save the file
+#Execute Below command to update the changes.
+
+service sshd reload
+
+su - devopsuser1
+
+ls -a 				# Show the list of all files & folders including hidden files and folders
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#Login to Server:
+
+#Add User in Server/Source Machine : 
+
+sudo -i
+
+useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+su - devopsadmin
+
+#for Ubuntu ::
+ssh-keygen -t rsa -b 1024 -m PEM
+cd .ssh
+
+#id_rsa  		==> Private key 
+#id_rsa.pub		==> Public key
+
+ssh-copy-id devopsuser1@172.31.3.16
+
+#Type yes for confirmation
+#Enter the password for devopsuser1
+
+#### Verify the key copied in Server under /home/devopsuser1/.ssh/
+
+ssh devopsuser1@172.31.3.16
+
+
+scp file1.txt devopsuser1@172.31.3.16:/home/devopsuser1				
+			
+			
+########################
+30th Nov. 2023
+########################		
+		
+		Linux Scripting :::
+		
+			CLI / CUI ==> Used to interact with Operating System 
+				shell / bash(Unix/Linux) are the terms refers this CUI/CLI 
+						
+						
+			cp / mv 
+			
+			source file & Target dir.
+			
+			file1.txt 			target : /home/ubuntu/desti
+			
+			cp file1.txt /home/ubuntu/desti
+				
+				
+				
+/home/ubuntu~$ cp file1.txt /home/ubuntu/desti
+
+/home/ubuntu~$ cp /home/ubuntu/source_dir1/file1.txt /home/ubunut/desti
+
+/home/ubuntu/deve1~$ cp /home/ubuntu/source_dir1/file1.txt /home/ubunut/desti
+
+/home/ubuntu~$ cp file1.txt file2.txt *.java /home/ubuntu/desti
+
+		Linux Scripting :::
+		
+			Software Program :	==> set of instructions given the Computers to perform some task.
+					
+			Programming Languages :::				
+					==> are used to develop some Business Applications(Banking/Retail/Insurance)
+									C/C++/Java/C#/ASP/JSP/Angular/PHP/python
+									Application Frameworks - .Net/Spring boot
+									
+			Scripting Languages :::
+					==> are light weight 
+					==> are used to create some process automation/Validations
+									shell scripting/python scripting/java scripting/yaml scripting/groovy scripting
+									
+									
+				--> Linux Machine ==>  30 GB of Storage 
+							Build_Server(VM)	Application Build ==> compile & Create artifacts -- *.war
+										1000's of micro services 
+										
+								periodic Monitoring -- every day / every one hour
+										If the memory utilization reaches 28GB(for Eg.)
+											- Clean up the unwanted files from the server
+											- Add More volumes +20GB
+											
+								Automation ::
+									Automatically Monitor the Build_Server, Able to cleanup the storage/add more volumes 
+								
+				-->	E_Commerce Portal :
+						User_Registration Process :
+						
+					3 - Tier Application Architecture ::: 
+						Front-End Layer 
+						Application Layer 
+						BackEnd - Database Layer 
+				
+					Client Side Scripting ::: 
+							Validate the user inputs at the client side itself without hitting the Server side.
+			
+		On DevOps Perspective ::
+		
+			Scripting Knowledge for DevOps Engineers ::
+				shell scripting/yaml scripting/groovy scripting/Python Scripting
+				
+					- Process Automation:
+					
+		Fundamentals of Shell/Linux Scripting ::			
+					
+					
+			- set of instructions are the building blocks for programs to perform any task:::
+			
+			
+			Task :::
+				
+					1. Calculate sum of 2 numbers ::: 
+					
+						1. read input 1 & 2 
+						2. c = a + b 
+						3. print c
+						
+						
+			Logic of a program/script. Logical Thinking!
+			
+			
+			
+		Technicals :::
+		
+			Linux Scripting Language ::
+				
+				
+				Building-Blocks / Concepts of Programming/Scripting Languages :::
+				
+				Entire IT Tools/Software are used to deal with Data.
+				
+					- Variable 		==> 5 ==> x = 5
+					- Type --> DataTypes 
+								5 = Numeric data 
+								"Hello" = String/Alphabet
+								"xyz123" = Alpha--numeric
+					- Size of data 
+						Declare  the variables with datatypes :
+								int a = 5;
+								a = 5
+						Variable :
+							stud_Name = "adfasdf"
+							stud_Name[5] = {"adsf","adsf","asdf","asdf","asdf"}
+					- Array
+					- 		stud_Name = 121231231
+							Stud_Age  = 25 or 27 or 99
+							
+					- Validation :
+							IF, switch-case statements 
+					- Iterations :
+							for loop / while / do-while looping constructs
+					- File Handling concepts :
+							Sequential file used to store some sequential data.
+								file operations : create/open/read/write/update/delete 
+					- Data base :
+						 Relational DataBase Mgmt System :
+							Tables : rows/Columns 
+							
+							Stud_Reg.Numbr		stud_Name  			Stud_Age
+							1001				asdfasdfs			25
+							1002				adfasasdfasd		27
+					
+					- Remote servers and transfer these data!
+							Data 	== plural 
+							datum	== singular
+						 
+				
+				
+		Scripting :::
+
+			Write the Scripts ::::
+			
+				1. Requirement Analysis 
+				2. Design 
+				3. Code 
+				4. Testing 
+				5. Implementation
+				
+		
+	
+		Requirement :
+		
+			Algorithms
+			
+			Psudo-Code
+			
+		Calculate sum of 2 numbers ::: 
+			
+				1. Read the input value 1 	==> String!
+				2. Read the input value 2
+				3. Calculate c as sum of val1 & val2 
+				4. Display the value of c
+			
+				
+			Any Programming/Scripting Languages to implement this.
+			
+			Exception/Error Handling 
+			
+			
+		Find Maximum of three numbers ????		23 45 12
+				
+				Algorithm :::
+					Is written in high - level language
+					It defines the step by step instructions to achieve  a specific task. 
+					It is not based on any Programming/Scripting Language
+						
+		
+		Calculate sum of n numbers				????
+		
+				n = 10
+					1,1,1,1,1,1,1,1,1,1		==> 
+
+		
+		Print "Hello" 
+		
+			Linux Script ""
+			
+				echo "Hello" 
+				
+		Print "Hai"
+		
+		Print 5 
+		
+		Print '*'
+		
+			echo "*"
+			
+		* * * * *	
+
+		
+		*****
+		 ***
+		  *
+
+		
+		5 5 5 5 5
+		 4 4 4 4
+		  3 3 3
+		   2 2
+		    1
+		
+		
+		variable ==> PinNumber ===> 987654321 
+			 - To reverse the given Numbers. 
+					==> 123456789
+		
+		Variable ==> Strings ==>  HelloEveryone
+		
+			 - To Reverse the given string of letters...
+			 
+		Prime Numbers ????
+		
+			1,2,3,4,5,6,7,8,9
+			
+			1 => If the given number is prime number, print it is prime number 
+				 If the given number is NOT a prime number, print it is NOT prime number
+		
+			
+		
+		
+	 
+					
+			
+				
+			
+			
+			
+			
+				
+					
