@@ -1867,9 +1867,720 @@ scp file1.txt devopsuser1@172.31.3.16:/home/devopsuser1
 		
 			
 		
-		
+###############
+1st Dec. 2023
+###############	
 	 
+		Linux Scripting - core concepts.
+		
+			Linux Scripts ==> It is collection of Linux Commands.
+			
+			samplescript.sh  ==> Extension.
+			
+			# Commented Line    ==> To explain about the script/Documentation purpose.
+			
+			
+			Create a directory ::
+			
+				mkdir scripts 
+				cd scripts
+				vi samplescript.sh 
+					press i 			# insert mode 
 					
+					#!/bin/bash 
+					echo "Hello"
+					
+					press esc :wq 
+					
+					ll 
+					
+					chmod 755 samplescript.sh
+					
+					./samplescript.sh
+					
+				Scenario :::	
+					Remote servers :::
+						
+						Team == 5 Developers --> Need GIT, JDK, Maven Tools to be installed in their machines.		
+
+					Administrators :
+					
+						Create installdevtools.sh
+						
+							#!/bin/bash 
+							# This is to install dev tools.
+							echo "Installing dev tools "
+							sudo apt update -y
+							sudo apt install git -y 
+							sudo apt install Openjdk11 -y
+							sudo apt install maven -y
+						
+						Local Machine (VM)	--> Dev1,2,3,4,5
+						
+						scp 						
+						cp 						
+						IAC - Infra-Structure As Code -  Tools like Ansible 
+						
+				
+				Operators :::
+				
+					- Arithmetic Operator ==> + - * /
+					
+					- Comparison Operators ==> eq gt lt ne 
+					
+					- Logical Operator :: AND OR NOT
+							Used to implement some complex conditions.
+							
+					- Conditional Statements :
+					
+						IF then Else fi
+						
+						
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to print the calender month by default.
+
+Source Code:
+
+#!/bin/bash
+#	     
+echo "The Month is"
+cal # cal command displays current month by default
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to read user input and perform operations with them.
+
+Source Code:
+
+#!/bin/bash
+#
+
+echo -n "Enter number 1 : " # -n option supresses newline
+read NUM1 # Read the user input from Standard Input and store in Variable NUM1
+
+echo -n "Enter number 2 : "
+read NUM2
+
+SUM=$(($NUM1 + $NUM2)) # Arithmetic expansion using double parentheses
+echo "The sum is $SUM"
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A script to show usage of if condition
+
+#Operators :: 6 Operators
+
+Source Code:
+
+#!/bin/bash
+
+NUM1=1 # variabe assignment
+NUM2=2
+
+if [ $NUM1 -gt $NUM2 ] # -gt is to test integer numbers
+then
+    echo "NUM1 > NUM2"
+fi
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show usage of if else condition
+
+Source Code:
+
+#!/bin/bash
+
+NUM1=2 # Variabe assignment
+NUM2=5
+
+if [ $NUM1 -lt $NUM2 ]  # -lt is to test integer numbers
+then
+    echo "NUM1 < NUM2"
+else
+    echo "NUM1 > NUM2"
+fi
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show usage of else if condition
+
+Source Code:
+
+#!/bin/bash
+#
+
+echo -n "Enter a number: "
+read NUM
+
+if [ $NUM -gt 0 ]
+then
+    echo "$NUM is +ve"
+elif [ $NUM -lt 0 ]
+then
+    echo "$NUM is -ve"
+else
+    echo "$NUM is 0"
+fi
+
+echo "done"
+
+
+###########################################################
+syntax of if then elif else statement
+
+operators ::: 
+Arithmetic ==>  + - * / %
+Logical
+Relational
+bitwise 
+
+
+== > < != >= <=
+
+-eq -gt -lt -ne -ge -le
+
+
+comparison/conditional/Relational
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to demonstrate case statement
+
+Source Code:  a e i o u
+
+#!/bin/bash
+
+echo -n "Enter a character: "
+read CHAR
+
+case $CHAR in
+	a) echo "You entered $CHAR which is a vowel";;  # ;; Terminates each option
+	e) echo "You entered $CHAR which is a vowel";;
+	i) echo "You entered $CHAR which is a vowel";;
+	o) echo "You entered $CHAR which is a vowel";;
+	u) echo "You entered $CHAR which is a vowel";;
+	*) echo "You entered $CHAR which is not a vowel";; # Defaults to everything else
+esac
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to demonstrate case statement
+
+Source Code:
+
+#!/bin/bash
+
+echo -n "Enter a character: "
+read CHAR
+
+case $CHAR in
+	a | A) # Test for both Lower or Upper case letter
+		# You may write commands in this fashion too!!, means multiline commands
+		echo "You entered $CHAR which is a vowel"
+		;; # Terminates each option
+	e | E) 
+		echo "You entered $CHAR which is a vowel"
+		;;
+	i | I) 
+		echo "You entered $CHAR which is a vowel"
+		;;
+	o | O) 
+		echo "You entered $CHAR which is a vowel"
+		;;
+	u | U) 
+		echo "You entered $CHAR which is a vowel"
+		;;
+	*)  # Defaults to everything else
+		echo "You entered $CHAR which is not a vowel"
+		;;
+esac
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to demonstrate case statement
+
+Source Code:
+
+#!/bin/bash
+
+echo -n "Oceans are larger than lakes (True or False) : "
+read USER_INPUT
+
+case $USER_INPUT in
+	"TRUE"| "True" | "true")
+		echo "Yes you are right"
+		;; # Terminates each option
+	"FALSE" | "Fasle" | "false")
+		echo "No your are wrong"
+		;;
+	*)  # Defaults to everything else
+		echo "Please enter either True or False"
+		;;
+esac
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to show usage of string compare operator = and !=
+
+Source Code:
+
+#!/bin/bash
+
+STR1="Hello"
+STR2="Hello"
+
+if [ ${STR1} = ${STR2} ]
+then
+    echo "Strings match"
+else
+    echo "Strings don't match"
+fi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to show usage of string compare operator -z and -n
+
+Source Code:
+
+#!/bin/bash
+
+STR1="Hello"
+STR2="Hello"
+
+if [ -z "${STR1}" ]
+then
+    echo "String1 is empty"
+else
+    echo "String1 is NOT empty"
+fi
+
+echo ":$STR:"
+if [ -n "${STR2}" ]
+then
+    echo "String2 is NOT empty"
+else
+    echo "String2 is empty"
+fi
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to show usage of logical operators
+
+Source Code:
+
+#!/bin/bash
+
+echo -n "Enter a NUM: "
+read NUM
+
+# Check whether a number is between 10 and 20 (Using AND -a operator)
+if [ $NUM -ge 10 -a $NUM -le 20 ]
+then
+    echo "$NUM is between 10 and 20"
+else
+    echo "$NUM is NOT between 10 and 20"
+fi
+
+echo -n "Enter another NUM: "
+read NUM
+
+# Check whether a number is between 10 and 20 (Using OR -o operator)
+if [ $NUM -lt 10 -o $NUM -gt 20 ]
+then
+    echo "$NUM is NOT between 10 and 20"
+else
+    echo "$NUM is between 10 and 20"
+fi
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to show usage while loop
+
+Source Code:
+
+#!/bin/bash
+#
+
+COUNT=0
+
+while [ $COUNT -lt 5 ]
+do
+    echo "Loop count is ${COUNT}"
+    COUNT=$((COUNT + 1))
+done
+
+echo "Done"
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sum of N natural numbers using while loop
+
+Source Code:
+
+#!/bin/bash
+#
+
+echo -n "Enter a number: "
+read NUM
+
+let SUM=0; 
+let I=1
+while [ $I -le $NUM ]
+do
+	SUM=`expr $SUM + $I`
+	I=$((${I} + 1))
+done
+
+echo "The sum of the first $NUM numbers is: $SUM"
+
+
+
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A simple script to demonstarte for loop [ Bash syntax ]
+
+Source Code:
+
+#!/bin/bash
+#
+
+COUNT=0
+
+for i in 0 1 2 3 4
+do
+    echo "Loop count is ${COUNT}"
+    COUNT=$((COUNT + 1))
+done
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A simple script to demonstarte for loop [ C syntax ]
+
+Source Code:
+
+#!/bin/bash
+
+COUNT=0
+
+for ((i = 0; i < 5; i++))
+do
+    echo "Loop count is ${COUNT}"
+    COUNT=$((COUNT + 1))
+done
+
+
+
+
+
+
+
+#!/bin/bash
+#
+
+COUNT=0
+
+while [ $COUNT -lt 5 ]
+do
+    echo "Loop count is ${COUNT}"
+    COUNT=$((COUNT + 1))
+done
+
+
+
+			
+###############
+5th Dec. 2023
+###############			
+
+
+			Shell ==> 
+			
+				ansible 
+				yaml 
+				python 
+				
+			Scenario 1:
+			
+					Production Server --> 3 servers 		# To ensure High Availability.
+					
+						Up and running! 24/7 
+						Manage this thru automation ??
+						
+						Monitor Tools -- 	Prometheus/Dynatrace this will monitor and send alerts
+											Script - Linux-Shell/Python/Yaml/Groovy ==> Scale up the servers
+											
+						
+					E_Commerce Application ==> 3 servers  == 10000 users ==> 50000 users ==> 1000 usrs 
+					
+					Scale up the servers 3 + 2 + 2
+					scale down the servers 2 
+					
+					incomming traffic 					
+					cpu 
+					memory 
+					
+					
+					
+					
+					Deployment ::
+					
+						copy the artifacts from non-prod environment to prod environment
+						
+							UAT server to prod server  - 1 VM to deploy ???
+							
+							Network Traffic 
+							
+							On-Line Ticket Booking System 
+
+		Scripting ::::
+
+			The should be generic.
+			
+				We should not hard-code any constant values in the script.
+				
+			To write a generic program/script always we should pass the arguments during the progam call or function call.
+				
+				
+Source Code:
+
+#!/bin/bash
+#
+
+echo -n "Enter number 1 : " # -n option supresses newline
+read NUM1 # Read the user input from Standard Input and store in Variable NUM1
+
+echo -n "Enter number 2 : "
+read NUM2
+
+SUM=$(($NUM1 + $NUM2)) # Arithmetic expansion using double parentheses
+echo "The sum is $SUM"				
+					
+			
+			
+		Handling the functions """
+		
+			Function ?? What & Why ?
+				Functions are some set of instructions that are written and invoked in the script.
+				Functions are used to define set of instructions that are very frequently used.
+				i.e., The Script can be composed of many functions. 
+				It is used to eleminate the duplication of codes.
+				Used to reuse the logic at any suitable level.
+				
+				
+		How to Write a script with functions :::
+		
+			- 
+			
+			
+			1 Application Team want to automate build. - compile and create artifacts.
+			
+				Script -- Build Tools maven - perform build
+				
+			100 Application Teams want to do the same task.???
+			
+				e
+		
+		
+		Array ::
+		
+			It is group of elements with same name and datatype.
+			
+		Stud_Reg_Number1 : 1001 
+		Stud_Reg_Number2
+		Stud_Reg_Number3
+		Stud_Reg_Number4
+		Stud_Reg_Number5
+		
+		Stud_Reg_Number (1001 1002 1003 1004 1005)
+						   0	1	 2	  3    4		# Index 
+						   
+						   
+			# Index is used to uniquely identify the array element
+			# It always start with 0.
+				
+		Stud_Reg_Number[2] ==> 1003
+		
+		
+		Stud_Reg_Number[4] ==> 1005			
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show the usage of command line arguments, Here we access positional arguments using $1, $2 …
+
+Source Code:
+
+#!/bin/bash
+
+echo "Total no. of argument: $#"
+
+echo "Program name: $0"
+echo "1st argument: $1"
+echo "2nd argument: $2"
+echo "3rd argument: $3"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+samplearg1.sh
+
+./samplearg1.sh 12 12 12 12 
+
+
+#!/bin/bash
+
+NUM1=$1
+NUM2=$2
+
+SUM=$(($NUM1 + $NUM2)) # Arithmetic expansion using double parentheses
+echo "The sum is $SUM"	
+
+./sumdemo1.sh 23 23
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show the usage of function
+
+Source Code:
+
+#!/bin/bash
+
+# Function definition
+function print_hello()
+{
+    	echo "====="
+    	echo "Hello"
+    	echo "====="
+}
+
+# Call the function - print_hello
+print_hello
+print_hello
+print_hello
+
+
+Function Definition 
+
+Function Call.
+
+
+
+	E_Commerce Portal:
+	
+		User_Registration Process 			service1 
+				- name,email_id,phone_#
+					
+						email_id : _______________  # zasdf@gmail.com / asfasdf234234
+				
+				
+		Login 								service2 
+				- email_id,password 
+			
+						email_id : _______________  # zasdf@gmail.com / asfasdf234234
+		
+		
+
+		Email_ID_Validation()
+		{
+			asdfasdasdf
+			asdfasdasdfas
+			df
+			aasdfasdf
+			200 lines of code 
+			
+		}
+		
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to show how to declare an array and access its elements
+
+Source Code:
+
+#!/bin/bash
+
+num=(5 3 4 5 5) 
+
+# Declare an array
+FRUITS=(apple mango banana orange)
+
+# Print value of each element
+echo "element 0: ${FRUITS[0]}"
+echo "element 1: ${FRUITS[1]}"
+echo "element 2: ${FRUITS[2]}"
+echo "element 3: ${FRUITS[3]}"
+
+# Print size / length of array
+echo "Length: ${#FRUITS[@]}"
+echo "Whole array: ${FRUITS[@]}"
+
+echo "Looping over array elements"
+# Iterate over array elements
+for ITEM in ${FRUITS[@]}
+do
+    echo $ITEM
+done
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A script to demostrate usage of sed command
+
+Source Code:
+
+#!/bin/bash
+
+# Basic text substitution using sed
+echo "Bash Scripting Language" | sed 's/Bash/Perl/'
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+			
+Next ::
+
+		AWS & Linux Assignment Questions.
+		Best Practises. -- reference commands --> List linux commands are used on daily basis.
+		Module-2 
+		
+		
+					
+			
+			
+					
+			
 			
 				
 			
