@@ -2575,7 +2575,80 @@ Next ::
 		Best Practises. -- reference commands --> List linux commands are used on daily basis.
 		Module-2 
 		
+
+###############
+6th Dec. 2023
+###############			
 		
+					SSH - PORT - 22
+					
+					
+					Local client --> 				 Remote server (
+					
+						ip_address 							port 22 8080
+						
+					Remote Server Connection establishment :
+						Remote server - IP Address, port, Access Key.
+						Through web browser - http/https - 
+							Jenkins 
+							Tomcat 
+							Nginx 
+						
+						
+						
+						
+				open command prompt 
+							ipconfig 
+							
+							
+					HTTPS --> secured when compared to HTTP 
+					
+					HTTP  
+					
+					SSH 	--> Secure Shell 
+					
+					FTP 21 
+					
+					SFTP / ssh 22
+					
+					scp -- 
+
+Check whether the given number is prime or not :
+
+#!/bin/bash
+echo -e "Enter Number : \c"
+read n
+for((i=2; i<=$n/2; i++))
+do
+  ans=$(( n%i ))
+  if [ $ans -eq 0 ]
+  then
+	echo "$n is not a prime number."
+	exit 0
+  fi
+done
+echo "$n is a prime number."
+
+
+
+Linux ::
+
+	Practise all the Misc Linux Commands ::
+	
+	Linux Scripting.
+	
+		--> Prime or not! -- Assignment...
+		
+		1 --> I want to copy a file from one server to another server with proper backup of the old file version.
+				payment.war 		==> 		Target Server
+				VM1									VM2 
+			source/payment.war		==> 		Target/payment.war	
+			source/payment.war		==>
+			
+		2. --> Take a backup of the files and delete the content of directory.
+				VM1 
+				source/*.*	
+						
 					
 			
 			
