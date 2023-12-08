@@ -115,3 +115,157 @@ Application Development Fundamentals
 	
 	Tomcat :::
 		https://tomcat.apache.org/download-80.cgi
+	
+	
+###############
+8th Dec. 2023
+###############		
+				
+			- Demo -- JDK/Eclipse/Tomcat Installation process.
+			
+				- AWS - Windows Machine .
+				
+				
+			JDK 
+			
+			Eclipse IDE 
+			
+			Tomcat 		- Web Application Server - Used to Run Java Web Applications.
+			
+			
+			Discuss about Eclipse IDE 
+				- Types of Java Projects ::
+				
+					Project :::: 
+					
+						Java Projects :::
+						
+							*.java ==> Notepad 
+							save 
+							javac 
+							*.class 	==> Executable.
+							
+						Application :
+								Desktop/Console/terminal Application 
+									Billing System 
+								Web Applications:
+									Online Banking 
+									E_Commerce
+									
+							
+									
+					
+				
+				- How the Java Applications are created and Build ?
+				
+						- Using Eclipse IDE
+						
+						- Java Console Application :
+							
+				
+				
+				- Which Build tool is used for build 
+				
+						Maven Project ::::
+						
+							Using Maven we can create java project 
+							
+							Java Project :
+								Automate the Code Compilation 
+								Create Artifacts 
+								Perform Unit Testing 
+				
+							Maven Project :
+								This project is based on Maven Build Tool
+								This is to simply the process of code build & unit testing and package/artifacts creation
+								It will automatically take care of all the dependencies and plugins needed for application build and testing.
+								It used pom.xml file to maintain all the dependencies and plugins needed for application build and testing.
+								
+								Using the maven project methods, we can create dynamic web applications
+								Use the Java Web Application Framework like Springboot.
+							
+							How Maven Works :
+							
+								- pom.xml (Project Object Model) ::
+										pom.xml file is used to maintain all the dependencies and plugins needed for application build and testing.
+								
+								- Maven Goals ::
+										The objective/Task that are to be performed ::
+										
+											user_registeration.java program
+											Billing.java program
+											
+												compile 
+												test 
+												package 
+												build 
+												clean 
+											
+									As part of build the package are created and maintained in :
+										targets/
+											Billing.war / 
+											
+											*.war 		- Web Archive
+											*.jar 		- java Archive 
+											
+											
+								
+								- Maven Repsitory -> Is a global/Central Repository from where all the dependencies and plugins are downloaded by maven project during build activity. 
+							
+
+						Developer ::
+						
+							Java web application project :
+									Created in my machine. 
+										jdk		
+										
+										eclipse  			- used to create the source code 
+										Build Tool 			- to perform build the application
+										Unit Testing tool 	- to perform unit testing
+																	JUnit 
+																	TestNG 
+																	Selenium
+								
+							
+							java program :: compiled 
+				
+				- Maven Build Tool and its capabilities.
+	
+						Using DevOps Approach :::
+							- Create source code Update the code in a source code repository 
+							
+						DevOps take the responsibility : 
+							- Automate build the code 
+									Application Build :
+										It is process of compiling the source code and creating artifacts.
+										Artifacts are - Binaries (*.war,*.jar,*.exec,*.dll)										
+							- Automate Create Artifacts
+							- Automated unit testing 
+							- Automate Promote the code to Testing Environments 
+							- Automate the Notification - Notify the testing team to do further testing
+					
+						Tools : 
+							Eclipse based IDEs(Integrated Development Environment) - Eclipse, Pycharm, Intellij
+						DevOps Tools ::
+							GIT, Jenkins, Build Tools(Maven,JUnit)
+							
+		goto to start menu :
+
+			select eclipse and launch.
+			
+			Default workspace:
+			
+			
+			Java_Web Project ::		Project Folder - Workspace 
+				*.java 
+				*.war 
+				*.class 
+
+							
+Next :
+
+		Maven Goal/Commands 
+		Create Java Console and Web Applications using Maven 
+		Create Java Maven Web Applications using Spring Boot Web Application Framework.
+		
+	
