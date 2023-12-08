@@ -1,0 +1,117 @@
+
+###############
+6th Dec. 2023
+###############	
+		
+Module 2 ::::
+
+		Overview of Module 2 ::
+		
+		Pre-requisites for Lab Practise.
+
+Application Development Fundamentals
+4hrs
+• Overview of Application Development
+• Various Types of Application
+• Introduction to Databases
+• Multi-tiered application architecture
+• Overview of Monolithic and Microservices
+				
+				
+		
+		List of Tools :::
+		
+			Eclipse IDE - for Enterprise Java and Web Developers.
+				Configure Tomcat Web Application Server 
+				GIT 
+				Unit Test Tools like JUnit.
+				
+			Java Console Application. 
+			Java Web Application.
+					Maven build Tool.
+						Compile and create artifacts.
+					Web Application framework - springboot 	
+					
+			Python Console Application.
+			Python Web Application 
+					Web Application framework - flask
+			
+			Visual Studio Code IDE.
+			
+			.Net Framework --> c#.net asp.net 
+			
+		
+		Overview of Application Development :::
+		
+				Application Development 
+				
+				Application ????
+				
+				Software  ---> What ?
+				
+				
+				Application/Software
+						- It is a collection of programs.
+						- Programs are the collection instructions to perform desired tasks.
+				Business Applications ::
+						- Programming Languages like : C,C++,Java,VB,C#,Python
+						
+				How to develop the application ???
+				
+					Follows SDLC Process :
+						Requirement Analysis/Design/Coding/Testing/Implementation/Maintainence
+					
+				Developers' Perspective :::
+				
+					Desktop
+					Web Application 
+
+
+###############
+7th Dec. 2023
+###############			
+
+		Application Development :
+		
+			Java 
+			Python 
+			
+		-> Business Application : Domain 
+				Banking Application
+				Finance 
+				HealthCare
+				Retail
+				Insurance 
+		
+		-> Programming Languages like : Java/Python/.Net ...
+		
+		
+			Dev Machine :
+				Install all the Development tools :
+					IDE - Eclipse - Integrated Development Environment
+					Programming Language - JDK - Java Development Kit
+					Source Code Management Tool - GIT
+					Web Application Server -- To Execute/Test the Application 
+						- Tomcat 
+					
+					
+
+
+
+	Tool: 
+		Develop --> IDE - Eclipse,GIT,JDK
+
+	Windows Machine	::
+	
+	JDK :::
+		https://jdk.java.net/java-se-ri/11
+			- select window version
+		Define Environment Variable in Windows Machine.
+			C:\Software\jdk-11\bin
+		
+	Eclipse :::
+		https://www.eclipse.org/downloads/
+			Choose : Eclipse IDE for Enterprise Java and Web Developers  
+	
+	Tomcat :::
+		https://tomcat.apache.org/download-80.cgi
