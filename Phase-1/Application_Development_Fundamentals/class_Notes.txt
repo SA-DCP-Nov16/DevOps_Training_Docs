@@ -268,4 +268,155 @@ Next :
 		Create Java Console and Web Applications using Maven 
 		Create Java Maven Web Applications using Spring Boot Web Application Framework.
 		
+
+###############
+11th Dec. 2023
+###############	
 	
+
+		Maven Goal/Commands 
+		Create Java Maven Web Applications using Spring Boot Web Application Framework.	
+	
+		Maven Build Tool :::
+		
+		Maven Commands/goal:
+
+		Maven Goals :
+			● mvn clean - to clean the target folder.
+			● mvn compile - to compile the source code
+			● mvn test - to compile and execute junit test cases
+			● mvn package - to compile, test and package the application
+			● mvn install - to install the package to local repository.
+			● mvn deploy - to deploy the package from local repository to remote repository.
+			
+			
+			mvn clean package 
+			
+				Continuous Integration :::
+				
+					Dev - created the src code 
+					build/create artifacts & promote the code for further testing 
+					
+			
+		Source Repository ==> src/pom.xml 
+			Build ==> target/
+						*.war
+			
+		Create Java Console and Web Application :
+		
+		Java Web Application Project :::
+		
+			mkdir scripts/
+					*.sh 
+					
+		Maven Project Structure :::			# Java Maven Desktop/Console/terminal Application;
+
+		MVN_Poject1				# Project Name 
+			src 
+				main			# Maintain the source code *.java - Business Logic 
+					*.java
+				test			# Maintain the Test Cases and Test Data - JUnit 
+					*.java
+			target
+				artifacts *.war / *.jar
+			pom.xml 			==> defines the application artifacts, plugins and all the required depedencies
+			
+				By using Maven Archetypes
+			JRE_Libraries
+			MVN_Libraries
+	
+		Maven Project Structure :::			# Java Maven  Web Application;
+
+		MVN_Poject2				# Project Name 
+			src 
+				main			# Maintain the source code *.java - Business Logic 
+					*.java
+					*.java 
+					*.java
+				test			# Maintain the Test Cases and Test Data - JUnit 
+					*.java
+			resources
+				webapp
+					*.html 
+					*.jsp
+					*.css
+			target
+				artifacts *.war
+			pom.xml 			==> defines the application artifacts, plugins and all the required depedencies
+			
+				By using Maven Archetypes
+			JRE_Libraries
+			MVN_Libraries	
+			
+			
+		Eclipse IDE :
+		
+			Java is Object Oriented Programming Language :
+			
+			Artifacts ==> JVM - Java Virtual Machine		- Platform Independent Language
+							It help to run/execute the java applications in any platform 
+								Window/Linux/Mac
+			
+				OOPs Concepts :
+					Class 
+							- Functions and Variables.
+					Objects
+							- Instance of Class 
+					Inheritance
+					
+					Abstraction
+					
+					Encapsulation
+					
+		
+		
+		Create a Java Console & Web Application Using Maven 
+		
+			1. Create New Project 
+			Open Existing Project from the local machine
+			Import the Existing Project from external machine/network/repo
+			
+			
+			Archetype :::
+			
+				Template 
+				
+			Create a Project ::
+				
+				*.java 
+				
+				packages are collection of class/java programs 
+		
+		Create a Maven Console Application :
+				Desktop Application :::	
+						Group_ID
+							org.apache.maven.archetype
+						Artifact_ID
+							maven-archetype-simple
+						
+		Create a Maven Web Application 
+						Group_ID
+							org.apache.maven.archetype
+						Artifact_ID
+							maven-archetype-webapp			
+	
+		Java maven Spring boot web application framework :
+	
+	
+		Maven Repository : https://mvnrepository.com/
+	
+	
+Next :
+
+		Demo - Unit Test with Java application 
+		
+		Demo - Java maven Spring boot web application framework
+	
+		Python
+		
+		fundamentals of sql
+	
+	
+	
+	
+		
