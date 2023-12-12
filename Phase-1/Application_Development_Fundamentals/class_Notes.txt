@@ -417,6 +417,153 @@ Next :
 		fundamentals of sql
 	
 	
+###############
+12th Dec. 2023
+###############	
+
+
+		Demo - Unit Test with Java application 
+		
+		Demo - Java maven Spring boot web application framework
+		
+		CI -> build, unit test 
+		
+		
+		Testing ???
+		
+			What is the purpose of testing ??
+			
+		Requirement Analysis
+		Design 
+		Code	
+		Testing 
+		
+		Dev 
+		
+		Build 
+		
+		Test 
+		
+			QA	- Quality Assurance Testing  
+			UAT - User Acceptance Testing
+			
+		Prod.
+		
+		Eg.: 
+		
+			Create a program to perform basic arithmetic operation :
+			
+				num1 			5 			s		5 
+				num2 			5 			t 		t
+				operator 		+ - * /		#		&
+				
+				Output 			10 
+				
+			num1,num2,operator  		# Input validation
+			
+			output 						# result shd be based on the operator
+		
+		
+			Test Cases / Scenarios 
+					10 Scenarios 
+			
+			Test Data 
+					5,5,*
+					s,5,&
+					
+			Exception handling!
+			
+			Positive
+			
+			Negative path 
+			
+			DevOps Engineer ==> CI --> valid the Test Coverage!
+											100% test coverage 
+											failure cases 
+											success cases 
+											skipped ?
+											
+			JaCoCo 	==> Java Code Coverage Tool 
+			
+			In DevOps Perspective ::
+			
+				Shift Left Approach.
+				
+					==> It is a process of capturing & fixing all the issues/bugs/impacts at the very earlier stage of CICD Process.
+					
+			
+			dev -> build -> unit test -> qa -> uat -> prod test(performance Testing)
+					Monitor the prod environment : server/applications/traffic/networking/storage 
+			
+			Unit Testing is completely owned by developers == JUNIT 
+			
+			Testing Team ::		TestNG / Selenium Tools 
+				QA 
+					functional/regression/ testing 
+			
+				UAT User Acceptance Testing 
+					Based on the LIVE Production Data.
+			
+			Telecomm Domain :::
+			
+				SP1 --> Introduce a new feature. 
+				
+					How end user can avail the offer ?
+					
+					Thru their outlets / website.
+					
+					Users - Business Users.
+			
+			Testing Tools :::
+			
+		Demo - Java maven Spring boot web application framework
+		
+			Spring Initializr		==> Web Service used to create Java Spring boot web application
+				https://start.spring.io/
+			Full stack developers
+				As a developer, 
+					1. create business application using java
+					2. Create web application components using html, jsp, css 
+					3. Integration of java and web to database.			
+		
+		MS .Net ==>  Framework 
+				
+				
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>www.loksaieta.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="jumbotron" style="background-color:white">
+      <img src="https://octodex.github.com/images/spidertocat.png" alt="Spidertocat"
+           class="img-responsive center-block" style="width:250px"/>
+      <h2 class="text-center">Hello Team</h2>
+      <p class="text-center">Spring Boot Web Application </p>
+  </div>
+</body>
+</html>
+
+
+Next ::			
 	
+	Python ::
+
+		Python Console Application
+		Python Web Application 
+		
+	In Python, 
+	
+		Install python 
+		Python IDEs like Pycharm*
+			Install Visual Studio Code - https://code.visualstudio.com/download
+			
+		Fundamentals of Python.
+	
+	
+	SQL ->
+		
 	
 		
