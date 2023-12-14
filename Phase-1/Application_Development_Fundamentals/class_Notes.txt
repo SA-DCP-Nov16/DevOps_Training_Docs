@@ -565,5 +565,68 @@ Next ::
 	
 	SQL ->
 		
+###############
+14th Dec. 2023
+###############		
 	
+	
+	Python ::
+
+		Python Console Application
+		Python Web Application 
+		
+	In Python, 
+	
+		Install python 					==>	https://www.python.org/downloads/
+		Python IDEs like Pycharm*
+			Install Visual Studio Code 	==> https://code.visualstudio.com/download
+			
+		Fundamentals of Python.
+		
+		Python IDLE 
+		
+	Python --> 	Develop business Applications 
+				Scripts to Automate the process
+				
+				
+		Accessing Python using Visual Studio Code IDE.
+
+			1. Install Python in Windows Machine/Mac 
+			2. Install Visual Studio Code 
+			3. Open VS Code 
+			4. Install Python Extension(Microsoft) for VS Code.
+				Go to file Menu --> Open folder
+				
+				save the python file as  script1.py / *.py
+				
+			Variable ::
+			
+				x=23
+				
+			scope of the variable :::
+			
+							local variable 
+							
+							global variable 
+				
+a=10  
+b="Hi Python"  
+c = 10.5  
+print(type(a))  
+print(type(b))  
+print(type(c)) 
+
+
+x=9				# Global Variable
+sum()
+{
+	a=5			# Local 
+	b=5
+	c=a+b 
+	print(x)
+}
+	
+sum()
+print(a)
+print(x)	
 		
