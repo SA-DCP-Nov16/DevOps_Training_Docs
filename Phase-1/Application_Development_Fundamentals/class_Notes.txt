@@ -629,4 +629,166 @@ sum()
 sum()
 print(a)
 print(x)	
+
+	
+###############
+15th Dec. 2023
+###############	
+	
+	Python ::
+			
+		Python Console Application
+		Python Web Application 
 		
+		Vaiables ::
+		
+			Local & Global Variables :
+			
+			Identifiers / Literals 
+			Keywords ==> Reserved variables
+
+		Web site : Jenkins 
+			access the user Login/registration process : 
+			
+			API --> Application Programming Interface 
+				Send Request to Web Application using API Calls (Request)
+				Response will be sent from the Application (JSON File/YAML File)
+				
+				
+			sequential/flat file 
+			XML File - It is composed of User defined Tags
+			JSON & YAML == Both are composed of key and values (Key-Value Pair)
+			
+			Variables ::
+				
+				x=5
+				
+				x == y		# Yes / NO 
+				
+				a+ = b 		==> a = a + b
+				
+				if (a>b) and (a>c)
+					print "value of a is greater than both b and c"
+					
+					
+				in 		
+				
+				stud_Register_Numbers : {1001,1002,1003,1004,1005,1006}
+				
+				if (1002 not in stud_Register_Numbers)
+					print "1002 exist"
+				
+				not in
+			
+			Array :::		===> Set 
+			
+				stud_Register_Numbers : {1001,1002,1003,1004,1005,1006}
+			
+			Dictionary ::
+			
+			Employee_Details {
+				name : "xyz"
+				Emp_ID : "1001"
+				Payment {
+					basic_pay : 12312312
+					
+				}
+			}
+				
+			tuple 			()		==> Read-Only (1,2,"asdf","ADF") # Fixed List of elements	List of Months
+			
+			list 			[]		==> Editable  [1,2,"asdf",12,1] 	# variable list of elements 
+			
+											list[0]
+			
+			
+			Dictionary 		{}		==> {sno:1001,sname:"xjhvjbjhyz",dept:"IT"}
+
+			Set				{}		==> Should have only the unique values 
+			
+				stud_Register_Numbers : {1002,1001,1003,1004,1005,1006}
+				
+			Numeric :
+					a = 5 			
+			
+			String ::
+				
+					a = "Hello"
+					
+					b = "Hello" 
+					
+					c = "Students *** $"
+					
+					d = '''Students' Database'''
+					
+			
+	
+	Next :: 
+	
+				Python Web Application :::
+				
+					- Web Application Framework 
+					
+							Django
+							Flask 
+	
+				Flask Web Application Framework to craete python web application :
+				
+					1. Visual Studio Code 
+					2. Create a Project Folder
+					3. webapp.py 		# Import Flask in webapp.py
+					4. Create templates folder 
+							index.html 
+							
+					5. Open Terminal from VS Code 
+					6. set FLASK_APP=sample
+					7. python -m flask run
+					
+						localhost:5000
+						
+						http://127.0.0.1:5000
+
+#app.py
+				
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+
+def sample():
+	return render_template("sample.html")
+
+if "__name__" == "__main__":
+	app.run(debug=True)	
+
+
+	
+
+#sample.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>www.loksaieta.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="jumbotron" style="background-color:white">
+      <img src="https://octodex.github.com/images/spidertocat.png" alt="Spidertocat"
+           class="img-responsive center-block" style="width:250px"/>
+      <h2 class="text-center">Hello Team</h2>
+      <p class="text-center">Python Web Application Demo </p>
+  </div>
+</body>
+</html>	
+	
+	
+Next :::
+
+		Fundamentals of SQL :::
+
+		Assignments - Module 2 - Java 	
+		
+		Module 3 
