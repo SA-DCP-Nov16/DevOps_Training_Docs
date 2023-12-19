@@ -1,0 +1,112 @@
+	
+###############
+19th Dec. 2023
+###############	
+
+		Module - 3
+		
+			Version Control System using Git!
+			
+				Version Control System! 
+				
+					Project! 
+					
+						Web_Application! 
+						
+					
+						index.html 				# 
+							----
+							---
+							--
+							---
+							---
+							-----
+							----
+							
+						save index.html 
+						
+						Open a web browser & test this index.html page!
+						
+						Next DAy ! 
+						
+						index.html 
+							----
+							---
+							-asdfs-
+							---
+							-adfs--
+							-----asdfas
+							----asdfasdfa
+							asdfasdfasd
+							factasdf
+							asdfsad
+							fs
+							aboutsdf
+							
+						save index.html 
+						
+						Open a web browser & test this index.html page!
+						
+						Version Control the Changes!
+						 
+							index.html 
+							
+								If we save the same file using Version Control System ! 
+								
+								index.html_v1.0			# v1.0 - tag/version_Number/commit_id
+								index.html_v1.1
+								index.html_v1.2
+								index.html_v1.3
+								index.html_v1.4
+								index.html_v1.5			# Latest version!
+								
+						Version Control System :
+						
+							- Used to version control the source code changes 
+							- Used to Track the Code Changes
+							- Used to quickly indentify the previous changes and revert.
+							
+					GIT is one of the Open Source Distributed VCS.					
+					
+
+					Types of Version Control System :::
+					
+						- Local VCS 
+						- Centralized VCS 
+								Repository -- collection of folders and files - usually we maintain the project source code.
+								- Users should always be online to work in the project 
+								- If the Central server get currpted/losts, we lose the entire data/project.
+						- Distributed VCS 
+								- The Remote server maintains the source code repository.
+								- Backup of Remote Repositories 
+								- Source Code Repository is distributed in all the machines. 
+								- Users can have their local copy of the repository and work offline
+								
+						GIT is one of the Open Source Distributed VCS.	
+						
+						Install GIT Client in the local machine.
+						
+						GITHUB is considered as one of the Remote GIT Repository Servers
+						Azure Repository 
+						bit bucket 
+						gitlab 
+						AWS code commit 
+						
+						
+						git fork ????
+							- It copy one remote repository to an another remote repository.
+								
+								
+					What is git ??
+					
+						- GIT is one of the Open Source Distributed VCS.
+						- Used to version control the source code changes 
+                        - Used to Track the Code Changes
+                        - Perform Parallel Development 
+						
+						
+Next ::
+
+		GIT 
+		Install GIT Client in Local Machine 
+		Git Commands 
