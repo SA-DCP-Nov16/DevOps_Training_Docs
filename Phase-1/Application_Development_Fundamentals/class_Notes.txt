@@ -268,4 +268,527 @@ Next :
 		Create Java Console and Web Applications using Maven 
 		Create Java Maven Web Applications using Spring Boot Web Application Framework.
 		
+
+###############
+11th Dec. 2023
+###############	
 	
+
+		Maven Goal/Commands 
+		Create Java Maven Web Applications using Spring Boot Web Application Framework.	
+	
+		Maven Build Tool :::
+		
+		Maven Commands/goal:
+
+		Maven Goals :
+			● mvn clean - to clean the target folder.
+			● mvn compile - to compile the source code
+			● mvn test - to compile and execute junit test cases
+			● mvn package - to compile, test and package the application
+			● mvn install - to install the package to local repository.
+			● mvn deploy - to deploy the package from local repository to remote repository.
+			
+			
+			mvn clean package 
+			
+				Continuous Integration :::
+				
+					Dev - created the src code 
+					build/create artifacts & promote the code for further testing 
+					
+			
+		Source Repository ==> src/pom.xml 
+			Build ==> target/
+						*.war
+			
+		Create Java Console and Web Application :
+		
+		Java Web Application Project :::
+		
+			mkdir scripts/
+					*.sh 
+					
+		Maven Project Structure :::			# Java Maven Desktop/Console/terminal Application;
+
+		MVN_Poject1				# Project Name 
+			src 
+				main			# Maintain the source code *.java - Business Logic 
+					*.java
+				test			# Maintain the Test Cases and Test Data - JUnit 
+					*.java
+			target
+				artifacts *.war / *.jar
+			pom.xml 			==> defines the application artifacts, plugins and all the required depedencies
+			
+				By using Maven Archetypes
+			JRE_Libraries
+			MVN_Libraries
+	
+		Maven Project Structure :::			# Java Maven  Web Application;
+
+		MVN_Poject2				# Project Name 
+			src 
+				main			# Maintain the source code *.java - Business Logic 
+					*.java
+					*.java 
+					*.java
+				test			# Maintain the Test Cases and Test Data - JUnit 
+					*.java
+			resources
+				webapp
+					*.html 
+					*.jsp
+					*.css
+			target
+				artifacts *.war
+			pom.xml 			==> defines the application artifacts, plugins and all the required depedencies
+			
+				By using Maven Archetypes
+			JRE_Libraries
+			MVN_Libraries	
+			
+			
+		Eclipse IDE :
+		
+			Java is Object Oriented Programming Language :
+			
+			Artifacts ==> JVM - Java Virtual Machine		- Platform Independent Language
+							It help to run/execute the java applications in any platform 
+								Window/Linux/Mac
+			
+				OOPs Concepts :
+					Class 
+							- Functions and Variables.
+					Objects
+							- Instance of Class 
+					Inheritance
+					
+					Abstraction
+					
+					Encapsulation
+					
+		
+		
+		Create a Java Console & Web Application Using Maven 
+		
+			1. Create New Project 
+			Open Existing Project from the local machine
+			Import the Existing Project from external machine/network/repo
+			
+			
+			Archetype :::
+			
+				Template 
+				
+			Create a Project ::
+				
+				*.java 
+				
+				packages are collection of class/java programs 
+		
+		Create a Maven Console Application :
+				Desktop Application :::	
+						Group_ID
+							org.apache.maven.archetype
+						Artifact_ID
+							maven-archetype-simple
+						
+		Create a Maven Web Application 
+						Group_ID
+							org.apache.maven.archetype
+						Artifact_ID
+							maven-archetype-webapp			
+	
+		Java maven Spring boot web application framework :
+	
+	
+		Maven Repository : https://mvnrepository.com/
+	
+	
+Next :
+
+		Demo - Unit Test with Java application 
+		
+		Demo - Java maven Spring boot web application framework
+	
+		Python
+		
+		fundamentals of sql
+	
+	
+###############
+12th Dec. 2023
+###############	
+
+
+		Demo - Unit Test with Java application 
+		
+		Demo - Java maven Spring boot web application framework
+		
+		CI -> build, unit test 
+		
+		
+		Testing ???
+		
+			What is the purpose of testing ??
+			
+		Requirement Analysis
+		Design 
+		Code	
+		Testing 
+		
+		Dev 
+		
+		Build 
+		
+		Test 
+		
+			QA	- Quality Assurance Testing  
+			UAT - User Acceptance Testing
+			
+		Prod.
+		
+		Eg.: 
+		
+			Create a program to perform basic arithmetic operation :
+			
+				num1 			5 			s		5 
+				num2 			5 			t 		t
+				operator 		+ - * /		#		&
+				
+				Output 			10 
+				
+			num1,num2,operator  		# Input validation
+			
+			output 						# result shd be based on the operator
+		
+		
+			Test Cases / Scenarios 
+					10 Scenarios 
+			
+			Test Data 
+					5,5,*
+					s,5,&
+					
+			Exception handling!
+			
+			Positive
+			
+			Negative path 
+			
+			DevOps Engineer ==> CI --> valid the Test Coverage!
+											100% test coverage 
+											failure cases 
+											success cases 
+											skipped ?
+											
+			JaCoCo 	==> Java Code Coverage Tool 
+			
+			In DevOps Perspective ::
+			
+				Shift Left Approach.
+				
+					==> It is a process of capturing & fixing all the issues/bugs/impacts at the very earlier stage of CICD Process.
+					
+			
+			dev -> build -> unit test -> qa -> uat -> prod test(performance Testing)
+					Monitor the prod environment : server/applications/traffic/networking/storage 
+			
+			Unit Testing is completely owned by developers == JUNIT 
+			
+			Testing Team ::		TestNG / Selenium Tools 
+				QA 
+					functional/regression/ testing 
+			
+				UAT User Acceptance Testing 
+					Based on the LIVE Production Data.
+			
+			Telecomm Domain :::
+			
+				SP1 --> Introduce a new feature. 
+				
+					How end user can avail the offer ?
+					
+					Thru their outlets / website.
+					
+					Users - Business Users.
+			
+			Testing Tools :::
+			
+		Demo - Java maven Spring boot web application framework
+		
+			Spring Initializr		==> Web Service used to create Java Spring boot web application
+				https://start.spring.io/
+			Full stack developers
+				As a developer, 
+					1. create business application using java
+					2. Create web application components using html, jsp, css 
+					3. Integration of java and web to database.			
+		
+		MS .Net ==>  Framework 
+				
+				
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>www.loksaieta.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="jumbotron" style="background-color:white">
+      <img src="https://octodex.github.com/images/spidertocat.png" alt="Spidertocat"
+           class="img-responsive center-block" style="width:250px"/>
+      <h2 class="text-center">Hello Team</h2>
+      <p class="text-center">Spring Boot Web Application </p>
+  </div>
+</body>
+</html>
+
+
+Next ::			
+	
+	Python ::
+
+		Python Console Application
+		Python Web Application 
+		
+	In Python, 
+	
+		Install python 
+		Python IDEs like Pycharm*
+			Install Visual Studio Code - https://code.visualstudio.com/download
+			
+		Fundamentals of Python.
+	
+	
+	SQL ->
+		
+###############
+14th Dec. 2023
+###############		
+	
+	
+	Python ::
+
+		Python Console Application
+		Python Web Application 
+		
+	In Python, 
+	
+		Install python 					==>	https://www.python.org/downloads/
+		Python IDEs like Pycharm*
+			Install Visual Studio Code 	==> https://code.visualstudio.com/download
+			
+		Fundamentals of Python.
+		
+		Python IDLE 
+		
+	Python --> 	Develop business Applications 
+				Scripts to Automate the process
+				
+				
+		Accessing Python using Visual Studio Code IDE.
+
+			1. Install Python in Windows Machine/Mac 
+			2. Install Visual Studio Code 
+			3. Open VS Code 
+			4. Install Python Extension(Microsoft) for VS Code.
+				Go to file Menu --> Open folder
+				
+				save the python file as  script1.py / *.py
+				
+			Variable ::
+			
+				x=23
+				
+			scope of the variable :::
+			
+							local variable 
+							
+							global variable 
+				
+a=10  
+b="Hi Python"  
+c = 10.5  
+print(type(a))  
+print(type(b))  
+print(type(c)) 
+
+
+x=9				# Global Variable
+sum()
+{
+	a=5			# Local 
+	b=5
+	c=a+b 
+	print(x)
+}
+	
+sum()
+print(a)
+print(x)	
+
+	
+###############
+15th Dec. 2023
+###############	
+	
+	Python ::
+			
+		Python Console Application
+		Python Web Application 
+		
+		Vaiables ::
+		
+			Local & Global Variables :
+			
+			Identifiers / Literals 
+			Keywords ==> Reserved variables
+
+		Web site : Jenkins 
+			access the user Login/registration process : 
+			
+			API --> Application Programming Interface 
+				Send Request to Web Application using API Calls (Request)
+				Response will be sent from the Application (JSON File/YAML File)
+				
+				
+			sequential/flat file 
+			XML File - It is composed of User defined Tags
+			JSON & YAML == Both are composed of key and values (Key-Value Pair)
+			
+			Variables ::
+				
+				x=5
+				
+				x == y		# Yes / NO 
+				
+				a+ = b 		==> a = a + b
+				
+				if (a>b) and (a>c)
+					print "value of a is greater than both b and c"
+					
+					
+				in 		
+				
+				stud_Register_Numbers : {1001,1002,1003,1004,1005,1006}
+				
+				if (1002 not in stud_Register_Numbers)
+					print "1002 exist"
+				
+				not in
+			
+			Array :::		===> Set 
+			
+				stud_Register_Numbers : {1001,1002,1003,1004,1005,1006}
+			
+			Dictionary ::
+			
+			Employee_Details {
+				name : "xyz"
+				Emp_ID : "1001"
+				Payment {
+					basic_pay : 12312312
+					
+				}
+			}
+				
+			tuple 			()		==> Read-Only (1,2,"asdf","ADF") # Fixed List of elements	List of Months
+			
+			list 			[]		==> Editable  [1,2,"asdf",12,1] 	# variable list of elements 
+			
+											list[0]
+			
+			
+			Dictionary 		{}		==> {sno:1001,sname:"xjhvjbjhyz",dept:"IT"}
+
+			Set				{}		==> Should have only the unique values 
+			
+				stud_Register_Numbers : {1002,1001,1003,1004,1005,1006}
+				
+			Numeric :
+					a = 5 			
+			
+			String ::
+				
+					a = "Hello"
+					
+					b = "Hello" 
+					
+					c = "Students *** $"
+					
+					d = '''Students' Database'''
+					
+			
+	
+	Next :: 
+	
+				Python Web Application :::
+				
+					- Web Application Framework 
+					
+							Django
+							Flask 
+	
+				Flask Web Application Framework to craete python web application :
+				
+					1. Visual Studio Code 
+					2. Create a Project Folder
+					3. webapp.py 		# Import Flask in webapp.py
+					4. Create templates folder 
+							index.html 
+							
+					5. Open Terminal from VS Code 
+					6. set FLASK_APP=sample
+					7. python -m flask run
+					
+						localhost:5000
+						
+						http://127.0.0.1:5000
+
+#app.py
+				
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+
+def sample():
+	return render_template("sample.html")
+
+if "__name__" == "__main__":
+	app.run(debug=True)	
+
+
+	
+
+#sample.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>www.loksaieta.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="jumbotron" style="background-color:white">
+      <img src="https://octodex.github.com/images/spidertocat.png" alt="Spidertocat"
+           class="img-responsive center-block" style="width:250px"/>
+      <h2 class="text-center">Hello Team</h2>
+      <p class="text-center">Python Web Application Demo </p>
+  </div>
+</body>
+</html>	
+	
+	
+Next :::
+
+		Fundamentals of SQL :::
+
+		Assignments - Module 2 - Java 	
+		
+		Module 3 
