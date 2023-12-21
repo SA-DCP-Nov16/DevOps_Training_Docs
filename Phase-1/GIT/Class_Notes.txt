@@ -110,3 +110,135 @@ Next ::
 		GIT 
 		Install GIT Client in Local Machine 
 		Git Commands 
+
+
+
+		
+###############
+21st Dec. 2023
+###############	
+
+		GIT 
+		Install GIT Client in Local Machine 
+		Git Commands 
+		
+		
+		Distributed VCS :::
+		
+		
+		Local Machine 															====> 		Remote Server
+		
+		Git Client (installed in Local Machine)													GITHUB
+		
+		Repository : 
+			Repository -- collection of folders and files - usually we maintain the project source code.
+			
+			
+		Git File Workflow :::
+		
+		Local Machine 																			====> 		Remote Server
+		
+			Working Directory	-----> 		Staging Area	-------->		Local Repository	------->		Remote Repository
+		
+			index.html			git add		index.html  	git commit		index.html_v1.0		git push 		index.html_v1.0
+		
+		Developers' Workload ???
+		
+			- New Project
+		
+			- Enhancement Project / Bug fixing!
+			
+			
+		GIT CLI Commands :::
+		
+			git clone 	-->	Used to clone/copy the entire Remote Repository into the local Machine
+		
+			git add 	--> Used to add the changes from Working Directory to Staging Area
+			
+			git commit 	--> Used to commit the changes from Staging area to Local Repository
+			
+			git push 	-->	Used to push the changes from Local Repository to Remote Repository
+			
+			git fetch/git pull ::
+			
+						--> Both git fetch and git pull are used to handle the incremental changes from Remote Repository
+						
+						--> git fetch :
+								It is just to check for any incremental changes in remote repository.
+								If there is any incremental changes exist in the remote repository, it will update the changes in the Local Repository. It will never Update the Changes in Working Directory.
+								
+						--> git pull :
+								It will check for any incremental changes in remote repository.
+								If there is any incremental changes exist in the remote repository, it will update the changes in the Local Repository as well as in the Working Directory.	
+
+			fork 		--> Used to copy a Remote Repository to another Remote Repository
+			
+				
+			
+		
+		Git Client (installed in Local Machine)	
+							https://git-scm.com/downloads
+							Choose windows select standalone installer - 64bit 
+							
+							
+			Working with GIT CLI :
+			
+				Maintain the Project/Workspace :
+				
+				Folder Structure!
+				
+					cd d:
+					
+					d/DevOpsGIT 
+					
+					cd d:
+					mkdir DevOpsGIT 
+					cd DevOpsGIT 
+					pwd 
+					# d/DevOpsGIT 
+					# c/DevOpsGIT 
+		
+					git --version
+					
+						mkdir project-repo1 
+						
+					
+					git init 	--> Is used to Initialize a new git Repository
+									It creates a GIT_DIR! and the default branch (master/main)
+
+					git status
+					
+					git config --global user.email "loksai@asdfasd.com"
+					git config --global user.name "LoksaiETA"
+					
+					echo "rec1" >> file.txt 
+					
+					git add file1.txt 
+					git status					
+					git commit -m "Created File1.txt"
+					git status					
+					git status
+					
+					git log 		# get the list of commit we made in the repo.
+				
+				
+						mkdir project-repo2 
+						
+					
+					git init 	--> Is used to Initialize a new git Repository
+									It creates a GIT_DIR! and the default branch (master/main)
+
+					git status
+					
+					git config --global user.email "loksai@asdfasd.com"
+					git config --global user.name "LoksaiETA"
+					
+					echo "rec1" >> file.txt 
+					
+					git add file1.txt 
+					git status					
+					git commit -m "Created File1.txt"
+					git status					
+					git status
+					
+					git log 		# get the list of commit we made in the repo.	
