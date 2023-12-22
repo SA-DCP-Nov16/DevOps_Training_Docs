@@ -242,3 +242,331 @@ Next ::
 					git status
 					
 					git log 		# get the list of commit we made in the repo.	
+
+
+
+
+###############
+22nd Dec. 2023
+###############	
+
+			GIT CLI Commands 
+			
+			Working with Local GIT Repository!
+			
+			create 
+			
+			git add - Used to add the changes from Working Directory to Staging Area
+			
+				git add <file_name>
+				
+				git add <file1.txt> <file2.txt> <file3.txt>
+
+				git add *.txt 
+				
+				git add *.java *.md 
+				
+				git add .					# this is most commonly used
+				
+			
+			git commit -m "Commit Message"	# it is important to enter valid commit message.
+			
+				Release_Number 
+				Change Request Number 
+			
+			git commit -m "Created project files"
+				
+			git status 			# get the current status of the repository.
+						
+			git log 			# list the commits and used for tracking the changes. 
+			
+				git log
+
+				git log --oneline 
+				
+				git log -2 
+				
+				git log --oneline -3
+			
+			git show <commit_id>
+			
+			ls 							# Is a Linux command used to get the list of files in working directory/untracked files.
+			
+			git ls-files				# used to get the list of files that are being tracked by git. 
+			
+			git rm --cached file1.txt	# used to remove the file Just from staging area.
+			
+			git rm -f s1.txt			# used to remove the file from the staging area as well as from working directory.
+			
+			HEAD Pointer 				# Is a pointer, used to point the latest commit of the current Branch.
+			
+			
+			
+			Undo the Commited Changes from Repository ::
+			
+			git reset 
+			
+					syntax: 
+						
+						git reset <reset_option> <previous_commit_id>
+				
+					- git reset is used to undo the committed changes from the Repository.
+					
+					- git reset will never create any new commit point.					
+					
+					- It is NOT Recommended in the Shared Repository. Because, the reset activities cannot be tracked.
+						
+					
+					
+					- git reset options :
+					
+						git reset --soft :::						
+								It will remove the the changes from local repository, changes will be moved back to Staging Area.
+								The HEAD Pointer will points to that specific Commit point.
+						
+						git reset --mixed					# This is the DEFAULT Option 
+								It will remove the the changes from local repository as well as from the staging area, and directly move the changes back to Working Directory.
+								The HEAD Pointer will points to that specific Commit point.
+								
+						
+						git reset --hard 			# Should be AVOIDED.						
+								It will remove the the changes from local repository, staging area as well as from the Working Directory. It is a permanent Deletion of file.
+								The HEAD Pointer will points to that specific Commit point.
+			
+						git reset --soft cm2
+						
+						git reset cm2 
+			
+			cm3 			 
+			
+			cm2 			HEAD 
+			
+			cm1
+			
+
+   56  cd SandBox/SA-Nov16/devops-git/
+   57  ls
+   58  clear
+   59  ls
+   60  mkdir testrepo1
+   61  cd testrepo1/
+   62  clear
+   63  ls
+   64  ls -a
+   65  git init
+   66  ls -a
+   67  echo "rec1" >> file1.txt
+   68  git status
+   69  git add file1.txt
+   70  git status
+   71  git commit -m "Created File1.txt"
+   72  git status
+   73  git log
+   74  echo "rec1" >> file2.txt
+   75  git status
+   76  git add file2.txt
+   77  git commit -m "Created File2.txt"
+   78  git log
+   79  ls
+   80  ls -a
+   81  cd .git/
+   82  ls
+   83  clear
+   84  cd ..
+   85  clear
+   86  ls
+   87  cat file1.txt
+   88  git status
+   89  echo "rec2" >> file2.txt
+   90  cat file2.txt
+   91  echo "rec3" >> file2.txt
+   92  cat file2.txt
+   93  git status
+   94  git add file2.txt
+   95  git commit -m "Updated file2.txt"
+   96  git log
+   97  clear
+   98  ls
+   99  echo "rec1" >> s1.txt
+  100  ls
+  101  echo "rec1" >> q1.java
+  102  echo "rec1" >> w1.md
+  103  git status
+  104  echo "rec1" >> l1.txt
+  105  echo "rec1" >> l2.txt
+  106  echo "rec1" >> l3.txt
+  107  echo "rec1" >> l3.md
+  108  echo "rec1" >> l4.md
+  109  echo "rec1" >> sample1.java
+  110  clear
+  111  ls
+  112  git status
+  113  git add l1.txt
+  114  git status
+  115  git add l3.txt l3.md
+  116  git status
+  117  git add *.java
+  118  git status
+  119  git add .
+  120  git status
+  121  echo "rec1" >> file5.txt
+  122  git add .
+  123  git status
+  124  git log
+  125  git commit -m "122023-Created project files"
+  126  git status
+  127  git log
+  128  clear
+  129  git log --oneline
+  130  git log
+  131  git log -2
+  132  git log -1
+  133  git log --oneline -1
+  134  git log --oneline -3
+  135  clear
+  136  git log --oneline
+  137  git show 28ae7df
+  138  git status
+  139  echo "rec1" >> j1.txt
+  140  clear
+  141  ls
+  142  git ls-files
+  143  git status
+  144  git add .
+  145  git ls-files
+  146  git commit -m "created j1.txt"
+  147  cd ..
+  148  clear
+  149  mkdir testrepo2
+  150  git init
+  151  rm -rf .git/
+  152  clear
+  153  cd testrepo2/
+  154  clear
+  155  git init
+  156  ls
+  157  git ls-files
+  158  echo "rec1" >> file1.txt
+  159  ls
+  160  git ls-files
+  161  git status
+  162  git add .
+  163  git staus
+  164  git status
+  165  git ls-files
+  166  echo "rec1" >> s1.txt
+  167  git add .
+  168  clear
+  169  ls
+  170  git ls-files
+  171  git status
+  172  git rm --cached file1.txt
+  173  ls
+  174  git ls-files
+  175  echo "rec1" >> l1.txt
+  176  git add .
+  177  git ls-files
+  178  git rm --cached s1.txt
+  179  git ls-files
+  180  ls
+  181  git status
+  182  git rm -f l1.txt
+  183  git ls-files
+  184  ls
+  185  clear
+  186  git log
+  187  git status
+  188  git add .
+  189  git commit -m "Commit Msg1"
+  190  clear
+  191  git lo
+  192  clear
+  193  git log
+  194  git log --oneline
+  195  git log --oneline -1
+  196  git log --oneline -2
+  197  ls
+  198  echo "rec1" >> w1.txt
+  199  git add .
+  200  git status
+  201  git rm -f w1.txt
+  202  ls
+  203  git ls-files
+  204  git status
+  205  res
+  206  clear
+  207  git log
+  208  git log --oneline
+  209  cd ..
+  210  cd testrepo1/
+  211  clear
+  212  git log
+  213  git log --oneline
+  214  git log -2
+  215  git log --oneline -2
+  216  clear
+  217  cd ..
+  218  clear
+  219  mkdir testrepo4
+  220  cd testrepo4
+  221  clear
+  222  git init
+  223  echo "rec1" >> file1.txt
+  224  git add .
+  225  git commit -m "CM1"
+  226  git log --oneline
+  227  echo "rec1" >> file2.txt
+  228  git add .
+  229  git commit -m "CM2"
+  230  echo "rec1" >> file3.txt
+  231  git add .
+  232  git commit -m "CM3"
+  233  echo "rec1" >> file4.txt
+  234  git add .
+  235  git commit -m "CM4"
+  236  echo "rec1" >> file5.txt
+  237  git add .
+  238  git commit -m "CM5"
+  239  clear
+  240  git status
+  241  git log --oneline
+  242  ls
+  243  git ls-files
+  244  git reset --soft 6007258
+  245  git status
+  246  ls
+  247  git ls-files
+  248  git log --oneline
+  249  git status
+  250  git commit -m "CM5.1"
+  251  git status
+  252  ls
+  253  git ls-files
+  254  git log --oneline
+  255  git reset --mixed 6007258
+  256  git status
+  257  ls
+  258  git ls-files
+  259  git add .
+  260  git commit -m "CM5.2"
+  261  git status
+  262  ls
+  263  git ls-files
+  264  git log --oneline
+  265  git reset --hard 6007258
+  266  git status
+  267  git ls-files
+  268  ls
+  269  git log --oneline
+  270  git reset --hard 875d70e
+  271  git log --log
+  272  git log --oneline
+  273  ls
+  274  git ls-files
+  275  clear
+  276  git log
+  277  git reset --hard 875d70ee
+  278  git log --oneline
+  279  ls
+  280  history
+			
