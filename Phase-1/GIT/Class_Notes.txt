@@ -569,4 +569,380 @@ Next ::
   278  git log --oneline
   279  ls
   280  history
+
+###############
+28th Dec. 2023
+###############				
+				
+				
+		GIT Misc. Commands :::
+		
+		git reset 
+		
+		git revert !
+		
+		
+		
+		git branching 
+		
+		git merge and its options 
+		
+		
+		
+		
+			git revert ::: 
 			
+					syntax: 
+						
+						git revert <previous_commit_id>
+				
+					- git revert is used to undo the committed changes from the Repository.
+					
+					- git revert will create any new commit point.					
+					
+					- git revert is Recommended in the Shared Repository. Because, the revert creates teh commit used to tracking the changes.
+					
+					- git revert is same as git reset --hard. Only difference is, we cannot track the git reset actions, but we can track the git revert action.
+						
+		
+		
+		git branch :::
+		
+			- GIT SCM used to perform parallel development.
+			
+			- git branches are logical copy of repository.
+			
+		GIT Branching Strategies/Techniques!
+		
+				Default Branch - Master is considered as a production copy of the source code.
+				Master Branch is called as long live Branch
+		
+Scenario 1 ::
+
+		Repository :
+			
+			master branch 	-- index.html -- created 10 commits - and it is working as expected!
+			
+Scenario 2 ::			
+
+		Repository :
+						
+			master	-- index.html -- created 10 commits - and it is working as expected!
+				feature -- index.html -- created 10 commits - and it is working as expected!
+				(Short Live Branch)		++10 commits & test 
+				
+			Enhancement Project!
+			
+		Repository :			
+									
+			master	-- index.html -- created 10 commits - and it is working as expected in prod.
+				feature
+					feature1cm1
+
+					
+		Repository :
+			master - cm1,cm2,cm3			index.html 
+				feature1 - cm1,cm2,cm3		index.html 
+				feature2 - cm1,cm2,cm3		index.html 
+				feature3 - cm1,cm2,cm3	
+				
+Scenario 3 ::
+
+		Repository :
+			master - cm1,cm2,cm3
+				Developer_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2
+					feature1 - cm1,cm2,cm3,f1cm1,f1cm2			index.html 		
+					feature2 - cm1,cm2,cm3,f2cm1,f2cm2			index.html
+
+
+Scenario 4 ::
+
+		Repository :
+			master - cm1,cm2,cm3
+			
+				Integration_Branch : - cm1,cm2,cm3,Developer1_Changes,Developer2_Changes,Developer3_Changes
+				
+					Developer1_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2
+						feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+						feature2 - cm1,cm2,cm3,f2cm1,f2cm2			
+
+					Developer2_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2,f3cm1,f3cm2
+						feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+						feature2 - cm1,cm2,cm3,f2cm1,f2cm2
+						feature3 - cm1,cm2,cm3,f3cm1,f3cm2
+						
+					Developer3_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2
+						feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+						feature2 - cm1,cm2,cm3,f2cm1,f2cm2	
+						
+
+Scenario 5 ::
+
+		Repository :
+			main/master - cm1,cm2,cm3,Changes_from_Team1&Team2
+
+				Release_Branch - cm1,cm2,cm3,Team1_Changes,Team2_Changes
+				
+					Integration_Branch1 : - cm1,cm2,cm3,Developer1_Changes,Developer2_Changes,Developer3_Changes				--> Team1
+					
+						Developer1_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2			
+
+						Developer2_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2,f3cm1,f3cm2
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2
+							feature3 - cm1,cm2,cm3,f3cm1,f3cm2
+							
+						Developer3_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2	
+
+					Integration_Branch2 : - cm1,cm2,cm3,Developer1_Changes,Developer2_Changes,Developer3_Changes				--> Team2
+					
+						Developer1_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2			
+
+						Developer2_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2,f3cm1,f3cm2
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2
+							feature3 - cm1,cm2,cm3,f3cm1,f3cm2
+							
+						Developer3_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2
+							
+Scenario 6 :		BugFix/Hotfix Changes.
+
+		Repository :
+			main/master - cm1,cm2,cm3,Changes_from_Team1&Team2
+			
+				hotfix_branch			# It is created dynamically during the Production Issues.
+				
+				
+
+
+Next Working with Branches ::::
+		
+		git commands ::
+		
+			git branch 
+			
+			git switch -c <new_branch_name>
+			
+			
+		repository:
+			master : -- cm1,cm2,cm3
+				feature1 -- cm1,cm2,cm3
+				feature2 -- cm1,cm2,cm3
+				feature3 -- cm1,cm2,cm3		
+			
+			
+			
+			git branch 				# to get the list of branches in the repository & identify the current Branch
+			
+			git switch -c branch 
+			
+			git branch <branch_name>
+			
+			git checkout -b <branch_name>
+			
+			
+			
+			git Merge :::
+			
+				git merge command is used to merge the changes from the current branch to the target branch.
+				
+				repository 
+				
+					master 	- cm1,cm2,cm3 					# Default Branch
+						feature1 - cm1,cm2,cm3
+						
+			
+
+				git merge <source_branch_name>			# This command should be executed from the Target Branch.
+				
+				git switch master 						# Switch to Master Branch 
+				
+				git merge feature1 						# Merge the Feature1 Changes into Master Branch 
+				
+				
+			master :
+			
+				feature4	- ready with the changes updated the same file 
+				feature5 	- ready with the changes updated the same file 
+				
+			Merge Conflict :::
+			
+				1. How the Merge conflicts Occurs ???
+					- When more than one user/feature try to update the same file at the same record level, Merge Conflict will Occur.
+				
+				2. How to Resolve the Merge Conflict ???
+				
+					- Identify the file causing Merge Conflict.
+					- Review the Content of the file in target branch
+					- Decide which changes has to be retained.
+					- Remove the header/footer and unwanted records from the file.
+					- Add and Commit the changes in target branch.
+			
+			In DevOps Practise, We should NOT Resolve Merge Conflict.
+								We should always Prevent Merge Conflict.
+								
+			How to Prevent Merge Conflict ???
+			
+				Strictly follow DevOps Practise!
+				
+  292  mkdir demorepo1
+  293  cd demorepo1/
+  294  git init
+  295  git status
+  296  clear
+  297  ls
+  298  git ls-files
+  299  echo "rec1" > s1.txt
+  300  git add .
+  301  git commit -m "CM1"
+  302  echo "rec1" > s2.txt
+  303  git add .
+  304  git commit -m "CM2"
+  305  echo "rec1" > s3.txt
+  306  git add .
+  307  git commit -m "CM3"
+  308  echo "rec1" > s4.txt
+  309  git add .
+  310  git commit -m "CM4"
+  311  clear
+  312  ls
+  313  git log --onelins
+  314  git log --oneline
+  315  git revert 1ebd5ab
+  316  git log --oneline
+  317  ls
+  318  git revert f87fdef
+  319  git log --oneline
+  320  ls
+  321  git revert 5c93d6a
+  322  ls
+  323  cd ..
+  324  ls
+  325  cd demorepo1/
+  326  clear
+  327  clera
+  328  clear
+  329  git log --oneline
+  330  git branch
+  331  clear
+  332  cd .
+  333  cd ..
+  334  clear
+  335  ls
+  336  mkdir demorepo2
+  337  cd demorepo2/
+  338  clear
+  339  git init
+  340  git log --oneline
+  341  git status
+  342  echo "rec1" >> s1.txt
+  343  git add .
+  344  git commit -m "cm1"
+  345  clear
+  346  echo "rec1" >> s2.txt
+  347  git add .
+  348  git commit -m "cm2"
+  349  echo "rec1" >> s3.txt
+  350  git add .
+  351  git commit -m "cm3"
+  352  clear
+  353  git log --oneline
+  354  ls
+  355  git status
+  356  git branch
+  357  git switch -c feature1
+  358  git log --oneline
+  359  git switch master
+  360  git log --oneline
+  361  git branch feature2
+  362  git branch
+  363  git switch feature2
+  364  git branch
+  365  git switch master
+  366  git checkout -b feature3
+  367  clear
+  368  git switch master
+  369  git branch
+  370  git log --oneline
+  371  clear
+  372  ls
+  373  git switch feature1
+  374  ls
+  375  git log --oneline
+  376  git branch
+  377  ls
+  378  echo "rec1" >> q1.txt
+  379  git add .
+  380  git commit -m "f1cm1"
+  381  git log --oneline
+  382  echo "rec1" >> q2.txt
+  383  git add .
+  384  git commit -m "f1cm2"
+  385  git log --oneline
+  386  git switch master
+  387  git log --oneline
+  388  ls
+  389  clear
+  390  git switch feature1
+  391  git log --oneline
+  392  git switch master
+  393  ls
+  394  git log --oneline
+  395  git merge feature1
+  396  git status
+  397  git log --oneline
+  398  ls
+  399  git switch feature2
+  400  git log --oneline
+  401  ls
+  402  git switch master
+  403  clear
+  404  git log --oneline
+  405  ls
+  406  git branch
+  407  git branch feature4
+  408  git branch feature5
+  409  git branch
+  410  git switch feature4
+  411  git log --oneline
+  412  ls
+  413  cat s1.txt
+  414  echo "rec2 from feature4" >> s1.txt
+  415  ls
+  416  cat s1.txt
+  417  git status
+  418  git add .
+  419  git commit -m "f4cm1"
+  420  git status
+  421  git switch feature5
+  422  ls
+  423  cat s1.txt
+  424  echo "rec2 from feature5" >> s1.txt
+  425  cat s1.txt
+  426  git add .
+  427  git commit -m "f5cm1"
+  428  git switch master
+  429  ls
+  430  cat s1.txt
+  431  git merge feature4
+  432  cat s1.txt
+  433  git log --oneline
+  434  git merge feature5
+  435  git status
+  436  cat s1.txt
+  437  vi s1.txt
+  438  git status
+  439  git add .
+  440  git commit -m "Resolved Merge Conflict from S1.txt"
+  441  git status
+  442  git log --oneline
+  443  cat s1.txt
+  444  history
