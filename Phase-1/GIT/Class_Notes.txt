@@ -946,3 +946,416 @@ Next Working with Branches ::::
   442  git log --oneline
   443  cat s1.txt
   444  history
+
+###############
+29th Dec. 2023
+###############				
+			
+		rebase
+		
+		squash
+		
+		stash 
+		
+		.gitignore 
+		
+		remote Repository -- github!
+
+	Next : Jenkins!
+		
+		
+		git rebase :::
+		
+			Rebase is used to sync the latest changes from Target Branch with the current branch.
+			It helps maintain the linear commit history 
+			It helps to prevent merge conflicts in the target branch.
+			It is one of the best practises while working in git branches.
+			
+		
+		create repo. 
+		
+			repo1
+				master -	cm1			
+							cm1,f1cm1,f1cm2 		# upon merging feature1
+							
+							cm1,f2cm1,f2cm2,f1cm1,f1cm2 # upon merging feature2 without Rebase.
+							
+							cm1,f1cm1,f1cm2,f2cm1,f2cm2 # upon merging feature2 with Rebase.
+							
+				
+					feature1	-	cm1,f1cm1,f1cm2  
+					
+						git switch master 
+						
+						git merge feature1					
+						
+					feature2	-	cm1,f2cm1,f2cm2  
+
+						git rebase master 
+								-	cm1,f1cm1,f1cm2,f2cm1,f2cm2 
+					
+						git switch master 
+						
+						git merge feature2
+
+		
+		GIT Squash :::
+		
+			Git Squash is a Merge option.
+			It is used to combine the more than one commits into a single commit point, It is used while merging the changes to target Branch.
+			
+			If we dont want to highlight the commit history to the target Branch we use git Squash.
+			
+			
+			
+			Repo1 :
+				master - cm1 
+						cm1,f1cm1,f1cm2,f1cm3,f1cm4,f1cm5,f1cm6,f1cm7,f1cm8,..........,n 		#Upon Merge without squash.
+						cm1,Feature1_Changes													#Upon Merge with squash.
+				
+					feature1 - cm1,f1cm1,f1cm2,f1cm3,f1cm4,f1cm5,f1cm6,f1cm7,f1cm8,..........,n
+					
+					git rebase master 
+					
+					git switch master 
+					
+					git merge --squash feature1
+
+					git commit -m "Combined commits from feature1"
+					
+							Enter the Message : Feature1_Changes
+			
+				
+Scenario 5 ::
+
+		Repository :
+			main/master - cm1,cm2,cm3,cm4				# Upon Squash!!!!
+
+				Release_Branch - cm1,cm2,cm3,Team1_Changes,Team2_Changes
+				
+					Integration_Branch1 : - cm1,cm2,cm3,Developer1_Changes,Developer2_Changes,Developer3_Changes				--> Team1
+					
+						Developer1_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2			
+
+						Developer2_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2,f3cm1,f3cm2
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2
+							feature3 - cm1,cm2,cm3,f3cm1,f3cm2
+							
+						Developer3_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2	
+
+					Integration_Branch2 : - cm1,cm2,cm3,Developer1_Changes,Developer2_Changes,Developer3_Changes				--> Team2
+					
+						Developer1_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2			
+
+						Developer2_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2,f3cm1,f3cm2
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2
+							feature3 - cm1,cm2,cm3,f3cm1,f3cm2
+							
+						Developer3_Branch: - cm1,cm2,cm3,f1cm1,f1cm2,f2cm1,f2cm2
+							feature1 - cm1,cm2,cm3,f1cm1,f1cm2			
+							feature2 - cm1,cm2,cm3,f2cm1,f2cm2			
+		
+			
+		git cherry-pick ::		it is used to merge a specific commit to the target branch. 
+								It is not a best practise to use. 
+							
+	
+		git cherry-pick <commit_id>
+		
+		git cherry-pick Team1_Changes
+		
+		
+		
+		stash:::
+		
+		Git Stash :::
+		
+			Stash is used to store the uncommited changes to the temporary Area.(GIT_DIR!)
+			Its allows to switch to any branch without commiting the changes in the current branch.
+			
+			
+			git stash save "Save_Massage"	# USed to Stash the uncommitted changes to temporary Area.
+			
+			git stash list					# Used to get the list of Stashed Entries 
+
+			git stash apply 	# Apply the latest entry from the stash list back to the staging area!
+								# It will never remove that entry from stash list.
+			git stash apply stash@{1}
+			
+			git stash pop 		# Apply the latest entry from the stash list back to the staging area!		
+			                    # It will remove that entry from stash list.								
+			git stash pop stash@{1}
+			
+			git stash drop		# used to Drop/Delete the latest entry from the stash list.
+			git stash drop stash@{1}
+			
+			git stash clear 	# used to clean-up the stash list.
+			
+
+			
+		
+		.gitignore ::::
+		
+			It is used to ignore the files from tracking!
+			It is always a best practise to have .gitignore file in the repository.
+		
+		SCM :
+		
+		Local Machine :
+		
+		Java_Web_App_Project_Repo						===>				Remote Github Repo!
+			src
+				main 
+				test 
+			target 
+				*.war 
+			pom.xml 
+			application.properties 
+			db_userID
+			db_Password 
+			db_Secrets
+			db_Credential
+			
+			
+			.gitignore 
+				*.class 
+				*.war 
+				*.doc
+				sample.txt 
+				target/
+				db_userID
+				db_Password 
+				db_Secrets
+				db_Credential		
+		
+		
+		Handling Remote Repository -- github!	
+
+			Developers' Workload :::
+			
+				New Project 
+				
+				Enhancement/BugFix Projects
+					GITHUB 
+					Bitbucket
+					Azure Repos 
+					AWS Code Commits 
+					gitlab 
+		
+		
+		Pull Request :::
+				It is created by the developers and assigned to the Reviewers for review and approve.
+
+  450  mkdir samplerepo1
+  451  cd samplerepo1/
+  452  clear
+  453  git init
+  454  echo "rec1" >> q1.txt
+  455  ls
+  456  git add .
+  457  git commit -m "cm1"
+  458  clear
+  459  ls
+  460  git log --oneline
+  461  git branch feature1
+  462  git branch feature2
+  463  git branch
+  464  git switch feature1
+  465  git log --oneline
+  466  ls
+  467  clear
+  468  echo "rec1" >> w1.txt
+  469  git add .
+  470  git commit -m "f1cm1"
+  471  echo "rec1" >> w2.txt
+  472  git add .
+  473  git commit -m "f1cm2"
+  474  clear
+  475  git log --oneline
+  476  git rebase master
+  477  git switch master
+  478  git merge feature1
+  479  clear
+  480  git log --oneline
+  481  ls
+  482  git switch feature2
+  483  git log --oneline
+  484  ls
+  485  ls
+  486  echo "rec1" >> e1.txt
+  487  git add .
+  488  git commit -m "f2cm1"
+  489  echo "rec1" >> e2.txt
+  490  git add .
+  491  git commit -m "f2cm2"
+  492  echo "rec1" >> e3.txt
+  493  git add .
+  494  git commit -m "f2cm3"
+  495  ls
+  496  git log --oneline
+  497  git rebase master
+  498  ls
+  499  git log --oneline
+  500  clear
+  501  git log --oneline
+  502  git switch master
+  503  ls
+  504  git merge feature2
+  505  clear
+  506  git log --oneline
+  507  ls
+  508  git switch feature1
+  509  git log --oneline
+  510  ls
+  511  git rebase master
+  512  ls
+  513  git log --oneline
+  514  clear
+  515  ls
+  516  git log --oneline
+  517  echo "rec1" >> l1.txt
+  518  git add .
+  519  git commit -m "created l1.txt"
+  520  echo "rec1" >> l2.txt
+  521  git add .
+  522  git commit -m "created l2.txt"
+  523  echo "rec1" >> l3.txt
+  524  git add .
+  525  git commit -m "created l3.txt"
+  526  echo "rec1" >> l4.txt
+  527  git add .
+  528  git commit -m "created l4.txt"
+  529  echo "rec1" >> l5.txt
+  530  git add .
+  531  git commit -m "created l5.txt"
+  532  clear
+  533  git log --oneline
+  534  git rebase master
+  535  git switch master
+  536  ls
+  537  git merge --sqash feature1
+  538  git merge --squash feature1
+  539  git status
+  540  git commit -m "Created l*.txt files"
+  541  git status
+  542  git log --oneline
+  543  ls
+  544  clear
+  545  cd ..
+  546  mkdir samplerepo2
+  547  cd samplerepo2
+  548  clear
+  549  git init
+  550  echo "rec1" >> w1.txt
+  551  git add .
+  552  git commit -m " Created w1.txt "
+  553  clear
+  554  git log --oneline
+  555  git switch -c feature1
+  556  git log --oneline
+  557  ls
+  558  echo "rec1" >> l1.txt
+  559  echo "rec2" >> l1.txt
+  560  git add .
+  561  git switch master
+  562  git status
+  563  git switch feature1
+  564  clear
+  565  git status
+  566  git stash save "Created l1.txt"
+  567  git status
+  568  ls
+  569  git stash list
+  570  echo "rec1" >> l2.txt
+  571  git add .
+  572  git stash save "Created l2.txt"
+  573  ls
+  574  git stash list
+  575  git status
+  576  git stash apply
+  577  git status
+  578  git stash list
+  579  git commit -m "Created l2.txt"
+  580  ls
+  581  git status
+  582  git stash drop
+  583  git stash list
+  584  clear
+  585  echo "rec1" >> l3.txt
+  586  git add .
+  587  git stash save "Created for l3.txt"
+  588  git stash list
+  589  git status
+  590  git stash pop
+  591  git stash list
+  592  ls
+  593  git stash save "Created l3.txt"
+  594  git stash list
+  595  git status
+  596  git stash pop stash@{1}
+  597  git git status
+  598  git status
+  599  git stash save "Created l1.txt"
+  600  clear
+  601  git stash list
+  602  ls
+  603  git stash apply stash@{0}
+  604  git commit -m "created l1.txt"
+  605  git stash apply stash@{1}
+  606  git commit -m "created l3.txt"
+  607  clear
+  608  ls
+  609  git status
+  610  git stash list
+  611  git stash clear
+  612  git stash list
+  613  cear
+  614  clear
+  615  cd ..
+  616  mkdir samplerepo3
+  617  c ds
+  618  cd samplerepo3/
+  619  clear
+  620  git init
+  621  ls -a
+  622  vi .gitignore
+  623  ls
+  624  ls -a
+  625  git status
+  626  git add .
+  627  git commit -m "Initial Commit - created .gitignore"
+  628  clear
+  629  cat .gitignore
+  630  ls
+  631  echo "rec1" >> file1.txt
+  632  ls
+  633  git status
+  634  echo "rec1" >> s1.doc
+  635  git status
+  636  echo "sample1.txt"
+  637  ls
+  638  echo "rec1" >> sample1.txt
+  639  git status
+  640  history
+
+
+	Task :::
+	
+		Practise the GIT Commands till date.
+		
+		Install Jenkins in AWS VMs and Login to Jenkins using Web Browser
+
+
+
+Next :::
+			Remote Repository Handling
+			
+			Jenkins Module.
