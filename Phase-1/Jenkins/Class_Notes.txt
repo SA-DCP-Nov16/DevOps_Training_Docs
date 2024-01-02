@@ -1,0 +1,160 @@
+###############
+2nd Jan. 2024
+###############	
+
+Jenkins - Build Orchestration Tool :::
+
+		DevOps 
+		
+			Continuous Development 
+			
+		Jenkin's Is a open source Build Orchestration Tool 
+		
+			- It is based on Master/Slave Architecture
+			
+		SDLC : 	
+			
+			Automated Build 		- Compile & Create artifacts 	 Tool : Maven 
+			
+			Automated Testing		- Testing - Unit Testing 		 Tool : Junit / Selenium 
+			
+			Automated Deployment 	- Code Promotion 				 Tool : Docker/Kubernetes/Ansible
+			
+			Automated Monitoring	- Monitoring CPu/Memory/Traffic  Tool : Prometheus/Grafana
+
+		Jenkin's Is a open source Build Orchestration Tool 
+		
+			- It is based on Master-Slave Architecture	
+
+			- It is used to automate the process of Continuous Integration/C_Delivery/C_Deployment/C_Testing/C_Monitoring.
+			
+		Jenkins Architecture:
+
+			Jenkins Master(VM) 	--> Here we install Jenkins,
+									Create Jenkins Jobs/Project - CICD Pipeline Projects
+									Schedule the Jenkins Jobs in the respective Slave Nodes.
+			
+				Jenkins Slave Node(VM)	--> Is used to actually perform the application builds
+				
+				
+			@Enterprise level, Application Teams ::::  Team1 - Java Project, Team2 - Python, Team3 - Angular/Nodejs/.net
+			
+			
+			Jenkin_Master (VM)				# Install jdk, jenkins
+											# Create Jenkins Jobs/Project - CICD Pipeline Projects
+											# Schedule the Jenkins Jobs in the respective Slave Nodes.
+											
+				Jenkins_Slave_Node1	(VM)	# Build Java Applications 
+				Jenkins_Slave_Node2			# Build Python Applications 
+				Jenkins_Slave_Node3			# Build NodeJS Applications 
+				Jenkins_Slave_Node4			# Build Angular/React Applications 
+				Jenkins_Slave_Node5			# Build .Net Applications 
+				
+				
+		Working with Jenkins :::
+		
+			Jenkins can be used ::
+			
+				Developer's Perspective :::
+				
+					- Developers are just the consumers of Jenkins Projects.
+				
+				
+				DevOps Team's Perspective :::
+				
+					- Jenkins Administrators 
+				
+					Roles & Responsibilities in Jenkins :::
+					
+						- Owner of Jenkins Master and Slave Nodes 
+						- Complete Administration of Jenkins and its process
+						- Installation of jenkins 
+						- Management of Jenkins Plugins 
+						- User Management 
+						- Tools Management
+						- Jenkins System Management 
+						- Credential Management 
+						- Creation and Management of Jenkins Slave Nodes
+						- Security/Access Management 
+						- Creation of CICD Pipeline Projects 
+						- Onboard Application for DevOps CICD Automation 
+						- Troubleshooting the issues 
+						- Backup and Recovery 
+						- Upgrades of Jenkins Servers and Plugins
+						
+		
+		In Jenkins we used groovy as a scripting Language to create CICD Automation.
+		
+		
+		Other Build Orchestration Tools in Market :
+		
+			AWS Code Pipelines 			# yaml scripts!!!!
+			Azure Pipelines 
+			gitlab-ci 
+			bamboo 
+			
+		Installation & Configuration of Jenkins :::
+		
+			AWS Cloud Platform :::
+			
+				Launch Ubuntu 20.04 (VM)
+						Install - git, jdk, jenkins 
+				Jenkins can be accessed using web browser!
+					open the default Jenkins port - 8080
+		
+			
+		https://www.jenkins.io/doc/book/installing/	
+
+Installation procedures :::
+
+	1. Install the pre-requisites 
+	2. Install the Actual tool 
+	3. Perform Post_Installation Activities
+	
+It is always recommended to use the official documentation to do the package management
+
+
+Install & Configure Jenkins Server :
+
+	- Refer to that tools/Service's Official Documentation.
+				https://www.jenkins.io/doc/book/installing/linux/
+
+1. Install the pre-requisites :::
+
+# Install Jdk:
+
+sudo -i 			
+sudo apt update -y
+sudo apt install openjdk-11-jre -y 						# previous version
+java -version						
+
+2. Install the Actual tool :::
+ 								
+#Install Jenkins:
+
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt-get update
+
+sudo apt-get install jenkins -y
+
+
+3. Perform Post_Installation Activities :::
+
+jenkins --version 
+
+systemctl status jenkins 
+
+Open web browser :
+
+http://<Public_IP_Address>:8080/
+
+E.g.: http://43.205.118.56:8080/
+
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
