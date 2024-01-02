@@ -1359,3 +1359,182 @@ Next :::
 			Remote Repository Handling
 			
 			Jenkins Module.
+
+###############
+2nd Jan. 2024
+###############	
+
+	Remote Repository Handling	
+	
+		- Local and Remote Repositories
+		
+		Handling Remote Repository -- github!	
+
+			Developers' Workload :::
+			
+				New Project 
+				
+				Enhancement/BugFix Projects
+					GITHUB 
+					Bitbucket
+					Azure Repos 
+					AWS Code Commits 
+					gitlab		
+					
+
+		GIT CLI Commands :::
+		
+			git clone 	-->	Used to clone/copy the entire Remote Repository into the local Machine
+		
+			git add 	--> Used to add the changes from Working Directory to Staging Area
+			
+			git commit 	--> Used to commit the changes from Staging area to Local Repository
+			
+			git push 	-->	Used to push the changes from Local Repository to Remote Repository
+			
+			git fetch/git pull ::
+			
+						--> Both git fetch and git pull are used to handle the incremental changes from Remote Repository
+						
+						--> git fetch :
+								It is just to check for any incremental changes in remote repository.
+								If there is any incremental changes exist in the remote repository, it will update the changes in the Local Repository. It will never Update the Changes in Working Directory.
+								
+						--> git pull :
+								It will check for any incremental changes in remote repository.
+								If there is any incremental changes exist in the remote repository, it will update the changes in the Local Repository as well as in the Working Directory.	
+								
+							git pull ==> git fetch + git Merge 
+
+			fork 		--> Used to copy a Remote Repository to another Remote Repository
+			
+		git clone :	
+		
+			git clone https://github.com/SA-DCP-Nov16/TestRepo1.git
+			
+			github LoginID : loksaieta
+			
+			github Access Token : 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
+			
+				How to create github access token ?
+				
+					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
+		
+		git remote 
+				
+			git remote -v   # Used to get the list of the remote repositories linked to the local repository
+		
+		git push 
+			
+			git push -u origin local-feature1
+			
+		git fetch 
+		
+		git pull 
+		
+			git branch -M main 		# Rename the Branch 
+		
+		
+		As a best Practice :
+		
+			- Always used git rebase before merge between branches 
+			
+			- Always use git pull before git push.
+		
+			
+		git branch -M master			# Rename Branch!!!
+		
+		git remote add origin https://github.com/SA-DCP-Nov16/TestRepo2.git		# Connect/Link to remote repository
+		
+		git remote remove origin									#Disconnect the remote repository from local
+		
+		
+		git switch -c feature1 
+		
+		git switch master 
+
+  507  mkdir remote_repos
+  508  cd remote_repos/
+  509  ls
+  510  clear
+  511  ls
+  512  git clone https://github.com/SA-DCP-Nov16/TestRepo1.git
+  513  ls
+  514  cd TestRepo1/
+  515  clear
+  516  clear
+  517  ls
+  518  git status
+  519  git remote -v
+  520  git branch
+  521  git log --oneline
+  522  git switch -c local-feature1
+  523  clear
+  524  git status
+  525  git branch
+  526  git log --oneline
+  527  ls
+  528  echo "rec1" >> local-file1.txt
+  529  git status
+  530  git add .
+  531  git commit -m "local changes for file1.txt"
+  532  git log --oneline
+  533  git remote -v
+  534  git push -u origin local-feature1
+  535  clear
+  536  git switch main
+  537  ls
+  538  git log --oneline
+  539  ls
+  540  git fetch
+  541  ls
+  542  git ls-files
+  543  git pull
+  544  ls
+  545  clear
+  546  git status
+  547  git log --oneline
+  548  ls
+  549  git pull
+  550  ls
+  551  clear
+  552  git remote -v
+  553  cd ..
+  554  clear
+  555  ls
+  556  mdkir temprepo1
+  557  mkdir temprepo1
+  558  cd temprepo1/
+  559  clear
+  560  ls
+  561  git init
+  562  echo "rec1" >> file1.txt
+  563  git add .
+  564  git commit -m "Created file1.txt"
+  565  clear
+  566  ls
+  567  git branch -M main
+  568  git branch
+  569  git branch -M master
+  570  git branch
+  571  git remote -v
+  572  git remote add origin https://github.com/SA-DCP-Nov16/TestRepo2.git
+  573  git remote -v
+  574  git push -u origin master
+  575  git remote remove origin
+  576  git remote -v
+  577  clear
+  578  history
+
+
+Summary ::
+	
+		- git file workflow 
+		- git Misc. Commands 
+		- git branching Strategies/Techniques
+		- Merge 
+		- Merge Conflict
+		- Rebase / squash /stash 
+		- Remote Repo Handling!
+
+
