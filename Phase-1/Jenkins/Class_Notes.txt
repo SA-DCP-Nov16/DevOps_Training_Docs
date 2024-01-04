@@ -158,3 +158,43 @@ E.g.: http://43.205.118.56:8080/
 
 cat /var/lib/jenkins/secrets/initialAdminPassword
 
+
+
+###############
+4th Jan. 2024
+###############	
+
+
+		- Installation of jenkins 
+		
+			Jenkins Installation Path ::
+			
+				/var/lib/jenkins
+			
+			- Installation of jenkins 
+			- Management of Jenkins Plugins 
+			- User Management 
+			- Tools Management
+			- Jenkins System Management 
+			- Credential Management 
+			- Security/Access Management
+
+			Jenkins Projects/Jobs :::
+			
+				Free style Projects 		-- It is based on the manual configurations.
+				
+				
+				Pipeline Projects 			-- It is based the groovy scripts. 
+	
+	
+		Variables :::
+		
+			Parameterized Jobs/Projects.
+			
+			Types :
+			
+				Environment Variables
+				
+					echo "${BUILD_NUMBER}"
+					
+				User-Defined Variables
