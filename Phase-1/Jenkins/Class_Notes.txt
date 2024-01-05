@@ -198,3 +198,164 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 					echo "${BUILD_NUMBER}"
 					
 				User-Defined Variables
+
+
+###############
+5th Jan. 2024
+###############	
+
+		Variables :::
+		
+			Parameterized Jobs/Projects.
+			
+			Types :
+			
+				Environment Variables
+				
+					echo "${BUILD_NUMBER}"
+					
+				User-Defined Variables
+					It is used to parameterize the Jenkins Projects
+					
+				a = 5 
+				
+		
+		Jenkins Pipeline Project ::::
+		
+		
+			Jenkins Pipeline is composed of various Stages :::
+			
+					- Pipeline Projects :
+							It is based on the Scripts - groovy scripts.
+							It is composed of various stages.
+							
+					DevOps Approach ::
+							
+							Source Development --> Create the code and update the code in a source code repository.
+						
+						Automated thru DevOps Approach :
+						
+							Pick the code, 
+							Perform Automated Build 
+							Perform Automated Unit Testing 
+							
+							Promote the code for further testing
+							Notify the testing team 
+						
+						Maven Goal - clean package(build,unit_testing,create artifacts)
+		
+			- Scripted Pipeline ::
+			
+			- Declarative Pipeline ::
+		
+pipeline {
+	   agent { label 'slave1' }
+
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				echo 'Perform Build'
+				git 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+            }
+        }
+        stage('Maven Build') {
+            steps {
+                echo 'Perform Maven Build'
+				sh "mvn clean package"
+            }
+        }
+        stage('Deploy to QA Environment') {
+            steps {
+                echo 'Deploy to QA'
+            }
+        }
+    }
+}		
+		
+		Creation of Pipeline Projects
+
+		Creation and Management of Jenkins Slave Nodes
+
+			Jenkin_Master (VM)				# Install jdk, jenkins
+											# Create Jenkins Jobs/Project - CICD Pipeline Projects
+											# Schedule the Jenkins Jobs in the respective Slave Nodes.
+											
+				Jenkins_Slave_Node1	(VM)	# Build Java Applications
+
+		Create and Configure Jenkins Slave Node ::::
+		
+		
+				Jenkins_Master(VM) 				Tools: git, jdk, jenkins 
+					Jenkins_Slave_Node1(VM)		Tools: git, jdk, maven
+				Through SSH, connect the Jenkins Master & Slave Nodes
+		
+		
+		
+#Configure Slave Node1 for Java Maven App. :
+
+Launch an Ubuntu Machine : 
+
+sudo -i
+
+apt update -y 
+
+Install Java ::
+
+sudo apt update -y 
+sudo apt install openjdk-11-jre -y
+java -version
+
+Install GIT :
+
+sudo apt install git -y
+
+Install Maven - Build Tool :
+https://maven.apache.org/install.html
+
+sudo apt install maven -y 
+
+
+Create User in Jenkins Slave Machine & Create SSH Keys 
+
+	SSH Keys --> is composed of public and private keys 
+
+
+#Add User : 
+
+useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+su - devopsadmin
+
+#ssh-keygen
+
+#for Ubuntu ::
+ssh-keygen -t rsa -b 2048 -m PEM
+
+
+ls ~/.ssh 
+
+#You should see following two files:
+
+#id_rsa - private key
+#id_rsa.pub - public
+
+
+cat id_rsa.pub > authorized_keys
+
+chown -R devopsadmin /home/devopsadmin/.ssh
+chmod 600 /home/devopsadmin/.ssh/authorized_keys
+chmod 700 /home/devopsadmin/.ssh
+
+
+In Jenkins Master - Add Node Configuration
+		
+		Goto Manage Jenkins - Add New Node Configuration
+		
+		Create Application Build using Maven in Slave Node 
+		
+
+		- User Defined Variables 
+		- Create and configure Jenkins Slave Node 
+		- Configure Nodes in Jenkins Master
+		- Create Jenkins Pipeline
