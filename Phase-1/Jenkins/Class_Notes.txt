@@ -359,3 +359,218 @@ In Jenkins Master - Add Node Configuration
 		- Create and configure Jenkins Slave Node 
 		- Configure Nodes in Jenkins Master
 		- Create Jenkins Pipeline
+
+		
+###############
+8th Jan. 2024
+###############
+
+pipeline {
+	   agent { label 'slave1' }
+
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				echo 'Perform Build'
+				git 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+            }
+        }
+        stage('Maven Build') {
+            steps {
+                echo 'Perform Maven Build'
+				sh "mvn clean package"
+            }
+        }
+        stage('Deploy to QA - Server') {
+            steps {
+				script {
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/mvn-hello-world.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+			}
+            }
+        }
+        stage('Deploy to UAT  Server') {
+            steps {
+				script {
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/mvn-hello-world.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+			}
+            }
+        }
+    }
+}		
+
+
+		Deploy the artifacts to Test Environment 
+		
+		Environment ::
+		
+			Non-Prod										==> 	Prod Environment
+			
+			DEV 
+			BUILD (VM) create artifacts 
+			TEST 
+				QA (VM) - tomcat to run the application
+				UAT 										==> 		Production Environment
+				
+				
+		Continuous Development 
+		
+		Continuous Integration 
+		
+		Continuous Testing 
+		
+		Continuous Delivery / Deployment 
+		
+		
+		- Create Test Environment / Tomcat Server Configuration
+
+######################Install TOMCAT Application Server on Ubuntu :::
+
+sudo -i
+
+sudo apt update -y 
+
+
+sudo apt install openjdk-11-jre -y 
+java -version
+
+#edit /etc/profile & add JAVA_HOME
+
+#/usr/lib/jvm/java-11-openjdk-amd64/
+
+vi /etc/profile
+
+java-11-openjdk-amd64
+
+
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
+
+source /etc/profile
+
+Install Tomcat ::  https://tomcat.apache.org/download-80.cgi
+
+https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.97/bin/apache-tomcat-8.5.97.tar.gz
+
+cd /opt
+wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.97/bin/apache-tomcat-8.5.97.tar.gz
+
+tar -xvzf /opt/apache-tomcat-8.5.97.tar.gz
+
+mv apache-tomcat-8.5.97 tomcat
+
+#Start Tomcat Server:
+#Goto:
+
+cd /opt/tomcat/bin
+./startup.sh
+
+###########################################
+
+#Add User : 
+
+
+
+useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+su - devopsadmin
+
+#ssh-keygen
+
+#for Ubuntu ::
+ssh-keygen -t rsa -b 2048 -m PEM
+
+
+ls ~/.ssh 
+
+#You should see following two files:
+
+#id_rsa - private key
+#id_rsa.pub - public
+
+
+cat id_rsa.pub > authorized_keys
+
+chown -R devopsadmin /home/devopsadmin/.ssh
+chmod 600 /home/devopsadmin/.ssh/authorized_keys
+chmod 700 /home/devopsadmin/.ssh
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#make devopsadmin user as a owner to tomcat dir :
+
+chown -R devopsadmin /opt/tomcat
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	Deployment ???
+	
+		Copy the artifacts from the source server to the target server :
+		
+		
+			Source Server : Jenkins_Slave 								Target Server : Tomcat 
+			
+				Source File?												Target Path ?
+				
+					target/mvn-hello-world.war									/opt/tomcat/webapps
+
+
+	Connect Tomcat Server with Jenkins :::
+	
+		Using Publish over SSH Plugin.
+		
+			Login to Jenkins Server 
+			
+			Install Publish over SSH Plugin & Restart Jenkins 
+			
+			Configure the Target Server in Jenkins Master using Publish over SSH Plugin.
+	
+	
+
+		- Deploy the Artifacts to Tomcat Server thru Jenkins 
+
+pipeline {
+	   agent { label 'slave1' }
+
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				echo 'Perform Build'
+				git 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+            }
+        }
+        stage('Maven Build') {
+            steps {
+                echo 'Perform Maven Build'
+				sh "mvn clean package"
+            }
+        }
+        stage('Deploy to Tomcat - Server') {
+            steps {
+				script {
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/mvn-hello-world.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+			}
+            }
+        }
+    }
+}		
+
+		
+		- Run the application 
+		
+		- Build Triggers 
+		
+				Build Periodic 			- used to schedule the job to run at specific time.
+										- scheduling can be done using Cron Tabs 
+										- Triggers the Jenkins Jobs based on schedule.									
+										
+				
+				GITHUB Webhook
+				
+				Poll SCM 
+				
+
+		
+		- Email Notifications 
+		
+		- Continuous Delivery and Deployment Pipelines
