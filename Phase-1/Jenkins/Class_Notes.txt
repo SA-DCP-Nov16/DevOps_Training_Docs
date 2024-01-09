@@ -574,3 +574,168 @@ pipeline {
 		- Email Notifications 
 		
 		- Continuous Delivery and Deployment Pipelines
+
+
+###############
+9th Jan. 2024
+###############		
+
+		- Build Triggers 
+		
+				Build Periodic 			- used to schedule the job to run at specific time.
+										- scheduling can be done using Cron Tabs 
+										- Triggers the Jenkins Jobs based on schedule.	
+										
+										Eg.: Scheduled to run the job at a specific time. @8AM
+				
+				GITHUB Webhook
+				
+							- Webhook is used to trigger the CI/CD pipeline project whenever the commit happened in the source code repository.
+							- Configure github webhook payload url in github repo. 
+							
+							<public_ip_Address>:8080/github-webhook/
+							
+							http://65.2.148.251:8080/github-webhook/
+				
+				Poll SCM 
+
+							- PollSCM is used to trigger the CI/CD pipeline project for the commit happened in the source code repository and based on the crontab scheduled.
+							
+							As per our schedule, the job will be triggered for every one minute, ONLY if there is any changes happened in the source repository.
+							
+					Build Cycle 
+					
+					Test Cycle 		- 8AM,12PM,3PM 
+					
+					Release Cycle 
+
+							
+		- Email Notifications 
+		
+				Email Notifications can be sent at 3 situations :
+				
+					Succussful 
+					Failure 
+					Unstable
+
+pipeline {
+	   agent { label 'slave1' }
+
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				echo 'Perform Build'
+				git 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+            }
+              post {
+                failure {
+                  sh "echo 'Send mail on failure'"
+					mail bcc: 'loksai23@gmail.com', body: "${BUILD_URL} The Job Status", cc: 'loksai23@gmail.com', from: '', replyTo: '', subject: 'SCM Checkout Failed', to: 'loksai23@gmail.com'
+                }
+              }
+        }
+        stage('Maven Build') {
+            steps {
+                echo 'Perform Maven Build'
+				sh "mvn clean package"
+            }
+              post {
+                failure {
+                  sh "echo 'Send mail on Build failure'"
+					mail bcc: 'loksaieta223@gmail.com', body: 'The Job Status', cc: 'loksaieta223@gmail.com', from: '', replyTo: '', subject: 'Maven Build Failed', to: 'loksaieta223@gmail.com,loksaieta223@gmail.com,loksaieta223@gmail.com'
+                }
+              }
+        }
+        stage('Approve Deployment to QA'){
+            steps{
+                
+                //----------------send an approval prompt-------------
+                script {
+                   env.APPROVED_DEPLOY = input message: 'User input required Choose "yes" | "Abort"'
+                       }
+                //-----------------end approval prompt------------
+            }
+        }
+        stage('Deploy to Tomcat - Server') {
+            steps {
+				script {
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/mvn-hello-world.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+			}
+            }
+              post {
+                success {
+                  sh "echo 'Send mail on Success'"
+					mail bcc: 'loksaieta223@gmail.com', body: 'The Job Status', cc: 'loksaieta223@gmail.com', from: '', replyTo: '', subject: 'Deployment to QA Successful', to: 'loksaieta223@gmail.com,loksaieta223@gmail.com,loksaieta223@gmail.com'
+                }
+                failure {
+                  sh "echo 'Send mail on failure'"
+					mail bcc: 'loksaieta223@gmail.com', body: 'The Job Status', cc: 'loksaieta223@gmail.com', from: '', replyTo: '', subject: 'Deployment to QA Failed', to: 'loksaieta223@gmail.com,loksaieta223@gmail.com,loksaieta223@gmail.com'
+                }
+              }
+        }
+    }
+}		
+
+		
+		- Continuous Delivery and Deployment Pipelines		
+		
+pipeline {
+	   agent { label 'slave1' }
+
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				echo 'Perform Build'
+				git 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+            }
+        }
+        stage('Maven Build') {
+            steps {
+                echo 'Perform Maven Build'
+				sh "mvn clean package"
+            }
+        }
+        stage('Approve Deployment to QA'){
+            steps{
+                
+                //----------------send an approval prompt-------------
+                script {
+                   env.APPROVED_DEPLOY = input message: 'User input required Choose "yes" | "Abort"'
+                       }
+                //-----------------end approval prompt------------
+            }
+        }
+        stage('Deploy to Tomcat - Server') {
+            steps {
+				script {
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/mvn-hello-world.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+			}
+            }
+        }
+    }
+}				
+		Access Token ????
+		
+		
+SMTP Server :
+smtp.gmail.com
+
+SMTP Authentication
+
+SMTP Port :: 465
+
+Login to Gmail :::
+
+Click Manage Account Settings
+
+@Left side panel - select Security 
+
+MFA --> mobile#
+App Password = 16 bytes of App Password. 
+What ? window
+Which Appln - email
+		
+
+Next Module :: Docker & Kubernetes!
