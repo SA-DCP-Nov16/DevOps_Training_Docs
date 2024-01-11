@@ -147,6 +147,28 @@
 			
 			docker run >image_name>:tag 
 			
+   15  sudo apt install docker.io -y
+   16  clear
+   17  ls
+   18  clear
+   19  docker --version
+   20  docker version
+   21  clear
+   22  docker --version
+   23  docker images
+   24  docker ps
+   25  docker ps -a
+   26  docker pull centos
+   27  docker images
+   28  docker run centos
+   29  docker ps
+   30  docker ps -a
+   31  docker run ubuntu
+   32  clear
+   33  docker images
+   34  docker ps
+   35  docker ps -a
+   36  history
 			
 Summary :
 
