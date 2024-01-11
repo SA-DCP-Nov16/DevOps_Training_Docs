@@ -792,3 +792,383 @@ Next :::
 		Assignments - Module 2 - Java 	
 		
 		Module 3 
+		
+###############
+18th Dec. 2023
+###############	
+
+		Structured Query Language - SQL 
+		
+			SQL ???
+			
+			
+		Database Management System !
+		
+		Data!
+		
+			What is Data?
+				- It is a raw fact - without any meaning!
+				
+			What is Information?
+				- The Processed Data!
+				
+			India - Data! 
+			
+			India is a Country!
+				
+
+		File System ::
+			Sequential Files!
+			Key Sequential Files!
+			
+		Database Management System: 
+		
+		Relational Data!
+		
+		Table : Rows & Columns!
+		
+		DevOps Batch Students :
+		
+		Relational Database Management System: 
+		
+				- Used to Manage the relational Data
+				- Maintains data integrity
+				
+			Eg.: 	My SQL 
+					Oracle 
+		
+		Stud_Table:
+		
+		Stud_Reg_No		Stud_Name		Contact_Number		Department
+		1001			xxxxxxxx		2222222222			IT 
+		1002			yyyyyyyy		3333333333			CSE
+
+		SQL ::: Structured Query Language
+		
+			Create the Business Applications 
+			
+				Microservice - 
+				
+					3 - Tier Application Architecture!
+					
+						User_Registration_Service:
+						
+						Front_End Layer		# used to interact with the Application
+						
+						Application Layer	# used to Process the Request 
+						
+						Back_End(DataBase)	# used to store or retrieve the data in/from Database
+					
+					
+			SQL ::: Structured Query Language
+			
+					CRUD 
+			
+				Types of SQL Command :::
+				
+		Stud_Table:
+		
+		Stud_Reg_No		Stud_Name		Contact_Number		Department
+		1001			xxxxxxxx		2222222222			IT 
+		1002			yyyyyyyy		3333333333			CSE					
+		1003			yyyyyyyy		3433333333			CSE	
+		1004			yyyyyyyy		3353333333			CSE	
+		1005			yyyyyyyy		3336333333			CSE	
+		1006			yyyyyyyy		3333733333			CSE	
+		
+		
+			1004 : 
+			
+				DQL -- Select Query :
+				
+		select * from stud_table where Stud_Reg_No = 1004;
+
+		Stud_Reg_No		Stud_Name		Contact_Number		Department	
+		1004			yyyyyyyy		3353333333			CSE	
+
+		select Stud_Reg_No,Stud_Name,Contact_Number from stud_table where Stud_Reg_No = 1004;
+		
+		Stud_Reg_No		Stud_Name		Contact_Number	
+        1004			yyyyyyyy		3353333333		
+		
+		select * from stud_table;
+		
+		Stud_Reg_No		Stud_Name		Contact_Number		Department
+        1001			xxxxxxxx		2222222222			IT 
+        1002			yyyyyyyy		3333333333			CSE			
+        1003			yyyyyyyy		3433333333			CSE	
+        1004			yyyyyyyy		3353333333			CSE	
+        1005			yyyyyyyy		3336333333			CSE	
+        1006			yyyyyyyy		3333733333			CSE	
+		
+
+				DDL :: Data Definition Language
+				
+					CREATE 
+					ALTER 
+					RENAME
+					DROP 		# used to drop the table/database 
+					
+						drop table stud_table;
+						
+					TRUNCATE	# used to delete all the records from the table. NOT the Table Structure.
+					
+						truncate stud_table;	
+
+
+			Product_Table :
+			
+				Product Name 		Brand
+				Monitor 			Dell
+				Monitor 			Dell
+				Mouse				Dell 
+				Keyboard 			Dell
+
+
+		select * from stud_table where Stud_Reg_No = 1004;
+		
+		select * from stud_table where Stud_Dept LIKE 'C%';
+		
+		select * from stud_table;
+		
+		Stud_Reg_No		Stud_Name		Contact_Number		Department		EMail_ID
+        1001			xxxxxxxx		2222222222			IT 				<null>
+        1002			yyyyyyyy		3333333333			CSE				asdfasdf@asdf.com		
+        1003			yyyyyyyy		3433333333			CSE				<null>
+        1004			yyyyyyyy		3353333333			CSE				asdfasdasdfasdf@asdf.com 
+        1005			yyyyyyyy		3336333333			CSE				<null>	
+        1006			yyyyyyyy		3333733333			CSE				<null>
+		
+		SELECT Stud_Reg_No AS "Student Registration Number", Stud_Name AS "Student Name" FROM stud_table where Stud_Reg_No = 1004;;
+		
+		Student Registration Number		Student Name
+        1004							yyyyyyyy
+		
+		
+		drop 
+		
+		truncate : it used to delete all the records from a table
+		
+		DELETE FROM employees WHERE last_name = 'Doe';
+		
+		
+		
+		GRANT select ON employee_table TO developer1;
+		
+		REVOKE select ON employee_table FROM developer1;
+		
+UPDATE Employees
+SET Salary = Salary * 1.10
+WHERE Department = 'Sales';
+savepoint 1
+
+UPDATE Employees
+SET Salary = Salary * 1.10
+WHERE Department = 'Sales';
+COMMIT;
+
+UPDATE Employees
+SET Salary = Salary * 1.10
+WHERE Department = 'Sales';
+COMMIT;
+
+UPDATE Employees
+SET Salary = Salary * 1.10
+WHERE Department = 'Sales';
+savepoint 2
+
+rollback 2
+
+
+Constraints  - Conditions :::			- used maintain the data integrity
+
+	not null 
+	primary key 
+	check 
+	foreign key 			== Referential Integrity
+	default 
+	unique 
+
+	Join the records from more than one table -->
+	
+	subqueries -->
+	
+	
+	Database is a collection of tables.
+	
+	Table is a collection of rows and columns.
+	
+	Employee_Database 
+	
+		Emp_Basic_Details			Base Table - Parent Table 
+		
+			Emp_No			1001,1002,1003,1004,1005	==> Unique, Not Null (Primary key)
+			Emp_Name		XXXXX,EEEEE,RRRRR,QQQQQQ	==> Not Null
+			Phone_Number	222222,3333333,444444,4444	==> Unique,Not Null
+			DOB					15/12/1899				==> not_null,check 
+			EMail_ID 										Unique,Not Null
+			Address
+			Department 
+			Designation
+		
+		1001, ZZZZZZ
+
+		
+		Emp_Salary_Details 			Child Table 	- Integrity of Child Table 
+		
+			Emp_no 
+			Emp_name 
+			Basic_Pay
+			HRA 
+			DA 
+			Net_pay 
+			Gross_pay		
+	
+		1001, ZZZZZZ, 50000,.............
+			1003, adfasdfs 45000,............	
+
+
+			select a.emp_no,a.emp_name,b.basic_pay,b.gross_pay from Emp_Basic_Details a, Emp_Salary_Details b where a.emp_no = b.emp_no
+		
+		select statement within a select statement
+		
+		
+		delete from emp_table where emp_no = 1004;
+		
+		truncate emp_table;		delete the records not the table structure.
+		
+		drop -- will delete the table along with the records.
+		
+	
+		insert query to insert the records into the table ??
+		
+		
+		Emp_Project_Details 
+		
+			Emp_No 
+			Emp_Name 
+			Proj_ID 
+			Proj_Name
+			Cust_Name 
+			Proj_Duration
+			Account
+	
+Next ::
+		Install SQL Server 
+		work with SQL 
+		
+		
+###############
+19th Dec. 2023
+###############	
+
+		Install SQL Server 
+		
+				https://www.microsoft.com/en-in/sql-server/sql-server-downloads
+				
+				https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16&redirectedfrom=MSDN
+				
+				SQL Server Express Edition!
+				
+				https://www.sqlzoo.net/wiki/SQL_Tutorial
+		
+		work with SQL 
+		
+			- SQL --
+			
+			Database is a collection of tables.
+			
+			Table is a collection of rows and columns.	
+
+
+			Employees Details:
+			
+			Employee_Database:			
+				Tables:
+					Emp_Basic_Details
+					Emp_Salary_Details
+					Emp_Project_Details
+					
+			Students_Database:			
+				Tables:
+					Stud_Basic_Details
+					Course_Details
+					Placement_Details		
+
+			Normalization!
+			
+			
+			sname	--> char(20)	# reserves 20 bytes to this field.
+			xxxxxx
+			
+			sname  	--> varchar(20)	#	20 means the maximum size 
+			xxxxxx							6 bytes
+			
+			
+			
+			Sequential File 
+			
+			Indexed file 
+			
+			
+			Tables :::
+				
+				index the field 
+				set primary key to the field 
+				
+				
+	Module 2 :::
+	
+		Application Development process!
+		Development Tools!
+		How the Application is developed, compiled and packaged as executables!
+			Tools Stack ?
+				
+			Eclipse IDE 
+			Maven - Build Tools 
+				Compile/create artifacts/testing
+				Maven Goals 
+					compile 
+					test		unit testing 
+					package -- compile, test, create artifacts 
+					
+				POM.xml 
+			tomcat - web app server 
+			
+			Python - VSCode/Pycharm IDEs 
+				flask/django web app framework 
+				
+				
+		Development and DevOps Role / process!
+		
+		
+		Development :::
+		
+		
+		AppTeam :
+					Java We Applications.
+					
+			Local Machine 
+				Install : Eclipse/JDK/GIT 
+				Create Project using Eclipse 							# 3-tier Application 
+				Use Maven kind of tool to compile and create artifacts 
+				Test : Unit Testing 
+				Integrate Tomcat with Eclipse 
+					run the application using Tomcat in web browser 
+					
+			Promote the code to target environments! 
+			
+		DevOps :	Team automate the process of CI/CT/CD
+			
+			
+				1. Developers will update the source code in the source code repository!
+				2. Usind DevOps Automation(Jenkins) - 
+						perform :
+							Automated build 
+							Automated Unit testing 
+							Automated Code Promotion to Test Environments 
+							Automated Production Deployments
+				
+					
+	Assignments : Module 2 -		
+			
