@@ -1,0 +1,160 @@
+
+###############
+9th Jan. 2024
+###############	
+
+		Containerization using Docker!
+		
+		Virtual Machine(VM) Is a Computing Environment - 
+		
+		Server vs VM ??
+		
+		Computer/Destop MAchine vs Virtual Machine?
+		
+		Virtual Machine !
+		
+			- VMs are called as Hardware level Virtualization
+			- It is created using Hypervisor
+			- It is used to run the Operating System
+			- It consume huge space and consume more time to start the VM.
+			- Even if there is no Application is active, VM will be up and running.
+			
+		Containerization !
+		
+			- Containers are OS Level Virtualization
+			- It is created using Container Engine 
+			- It is used to run the tasks/Applications. NOT Operating System 
+			- Without any task/application, if we run the container just with a OS, Then the Container will immediately goes to EXIT State.
+			- It is fast in processing the applications and consume less space compared to VM.
+			- Using Containers we can reduce the no. of VMs
+			
+		
+		Working With containers :		
+		
+		
+			Infra-Structure Perspective ::
+			
+				Jenkins_Master(VM) : 	- create the job & Schedule the jobs
+				
+					Jenkins_Slave1(VM) : Java - To build the application and create artifacts
+					Jenkins_Slave2(VM) : Python - To build the application and create artifacts
+					Jenkins_Slave3(VM) : .Net - To build the application and create artifacts
+					Jenkins_Slave4(VM) : Angular - To build the application and create artifacts
+					Jenkins_Slave5(VM) : Node - To build the application and create artifacts
+					Jenkins_Slave6(VM) : Ruby - To build the application and create artifacts
+			
+
+			Containerization :::
+			
+				Jenkins_Master :
+					
+					Jenkin_Slave - (VM)(EC2):
+						Container Engine 
+							C1	Java - 
+							C2  Python 
+							C3  .Net - 
+							C4  Angular
+							C5  Node - 
+						    C6  Ruby - 
+			
+			Deployment Perspective ::
+		
+				Src_Code - Java web application :
+				
+					build - created artifacts - mywebapp.war
+					
+					deployment - deployed mywebapp.war to Tomcat Server 
+				
+				Build Server : build - created artifacts - mywebapp.war
+							openjdk11,maven 
+							tomcat8.5  unit testing 
+				
+				Using Containerization :::
+				
+					Create an Application package : mywebapp_pkg1(mywebapp.war,openjdk11,tomcat8.5)
+					
+										mywebapp_pkg1:v1.0
+										mywebapp_pkg1:v1.1
+										mywebapp_pkg1:v1.2
+										
+					
+				
+				QA_Server 	- mywebapp_pkg1
+				
+				UAT_Server - mywebapp_pkg1 
+					
+				PROD_Server - mywebapp_pkg1 
+				
+				Terminologies :::
+				
+				Containerization - Is a process of packaging the Application along with its dependencies.
+				
+				Image 			- Is a static file defines the application and its dependencies 
+									Eg.: mywebapp_pkg1(mywebapp.war,openjdk11,tomcat8.5)
+								- Non-Executable 
+				
+				Container 		- Executable units of an Image.
+				
+				Container Registry - Used to maintain the Container Images 
+									dockerhub is a container registry
+									
+				Repository			- It is a subset of Container Registry
+						
+				-
+			- Create Dockerhub Account :::
+			
+			
+			Login to Docker hub 
+			
+			Explore the Docker Official Images :
+			
+			Download the existing image from Dockehub and use it in a VM.
+			
+			Install Docker Engine in the VM.
+				https://docs.docker.com/engine/install/
+
+				sudo apt install docker.io -y
+				
+			Docker CLI Commands :
+			
+			DockerHub ::
+			
+				Dockerhub CE 	- # for Learning purpose free.
+				
+				Dockerhub EE	- # paid version
+				
+			Docker Cli Commands :::
+			
+			docker --version
+			
+			systemctl status docker 
+			systemctl start docker 
+			systemctl stop docker 
+			systemctl restart docker 		
+			systemctl enable docker 
+			
+			docker images 		- Is used to list images present in the local Machine 
+			
+			docker ps 			- Is used to list Container that are in running state 
+			
+			docker ps -a		- Is used to list the Containers that are in running as well as in stop/exit state. 
+			
+			docker pull 		- Is used to download the Container Images from Dockerhub registry to Local Machine 
+			
+			docker run 			- Is used to Create and run the Container based on the image.
+			
+			docker pull <image_name>:tag 
+			
+			docker run >image_name>:tag 
+			
+			
+Summary :
+
+		VM (vs) Containers 
+		Install Container Engine in Jenkins Slave Node! (Ubuntu)
+			sudo apt install docker.io -y
+		dockerhub 
+		How to work with dockerhub using pull and run commands
+		
+		
+		
