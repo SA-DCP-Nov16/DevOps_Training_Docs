@@ -1,6 +1,6 @@
 
 ###############
-9th Jan. 2024
+11th Jan. 2024
 ###############	
 
 		Containerization using Docker!
@@ -179,4 +179,299 @@ Summary :
 		How to work with dockerhub using pull and run commands
 		
 		
+###############
+12th Jan. 2024
+###############	
+
+			
 		
+			Docker Cli Commands :::
+			
+			docker images 		- Is used to list images present in the local Machine 
+			
+			docker ps 			- Is used to list Container that are in running state 
+			
+			docker ps -a		- Is used to list the Containers that are in running as well as in stop/exit state. 
+			
+			docker pull 		- Is used to download the Container Images from Dockerhub registry to Local Machine 
+			
+			docker run 			- Is used to Create and run the Container based on the image.
+			
+			docker pull <image_name>:tag 
+			
+			docker run >image_name>:tag 
+			
+			Mode of Container Execution :::
+			
+				- Foreground/Attached Mode 			# Default Mode
+				
+					docker run centos sleep 20
+						
+				- Background/Detached Mode 
+				
+					docker run -d centos sleep 20
+				
+				- Interactive Mode
+			
+					docker run -it centos bash
+					docker run -it --name=javaapp1build centos bash
+					
+					
+			start / stop containers
+			
+			
+			docker start <container_id>					# Used to start the container
+			
+			docker stop <container_id>					# Used to stop the running container
+
+			docker kill <container_id>					# Used to forcefully kill the container
+			
+			
+			docker rm <container_id>					# Used to remove the container
+
+			docker rmi <image>							# Used to remove the image
+
+			
+			
+			docker start <container_id>					# Start the Container 
+			
+			docker exec -it <container_id> bash			# Is used login to the running container.
+			
+			docker inspect <container_id>				# Used to inspect the properties of container objects
+			
+			docker history <image>						# Used to get the history/layers of image
+			
+				Image 			- Is a static file defines the application and its dependencies 
+									Eg.: mywebapp_pkg1(mywebapp.war,openjdk11,tomcat8.5)
+								- Non-Executable 			
+			
+			
+			Port Mapping / Binding ::::
+			
+				It is used to map the container port and host port.
+				
+				-p <host_port>:<container_port>
+				
+				docker run -it -p 8085:8080 tomcat:8.0
+				
+				
+				hello-world.war 		== tomcat server -- <x.x.x.x>:8080
+			
+			
+				docker run -it <image> 		Used create a container 
+				
+				docker exec -it <container_id> 	# used to login to running container!
+				
+			
+			
+			Container Volumes :
+				
+				packets - (info. scr_addr, desti_addr)
+			
+			
+				Stateless Applications ==> Containers were actually created for stateless applications 
+				
+					Any Application that do not have any Trace of Execution is called as Stateless Application.
+					
+				Stateful Application	==> That leaves the trace of execution.
+				
+				3-Tier Application :
+				
+					Front_End 				C1 
+					Application_Layer		C2 
+					Back_End 				C3
+			
+			
+			docker volume :::
+			
+			docker volume list 
+			
+			docker volume create sa-nov16-vol1			
+			
+			docker volume inspect sa-nov16-vol1
+			
+			docker run -it --mount source=sa-nov16-vol1,destination=/sa-nov16-vol1 centos bash
+			
+			
+			run 
+			
+			stopped 
+			
+			start 
+			
+			exec 
+					
+   15  sudo apt install docker.io -y
+   16  clear
+   17  ls
+   18  clear
+   19  docker --version
+   20  docker version
+   21  clear
+   22  docker --version
+   23  docker images
+   24  docker ps
+   25  docker ps -a
+   26  docker pull centos
+   27  docker images
+   28  docker run centos
+   29  docker ps
+   30  docker ps -a
+   31  docker run ubuntu
+   32  clear
+   33  docker images
+   34  docker ps
+   35  docker ps -a
+   36  history
+   37  docker images
+   38  docker ps -a
+   39  docker run centos
+   40  docker ps -a
+   41  ls
+   42  cd /
+   43  ls
+   44  clear
+   45  docker images
+   46  docker run centos
+   47  docker ps -a
+   48  docker run centos sleep 30
+   49  docker run centos sleep 20
+   50  clear
+   51  docker run -d centos sleep 20
+   52  docker ps
+   53  docker run centos sleep 20
+   54  asdf
+   55  clear
+   56  docker run -it centos bash
+   57  docker ps
+   58  clear
+   59  docker run -it -p 8085:8080 tomcat:8.0
+   60  history
+
+   15  sudo apt install docker.io -y
+   16  clear
+   17  ls
+   18  clear
+   19  docker --version
+   20  docker version
+   21  clear
+   22  docker --version
+   23  docker images
+   24  docker ps
+   25  docker ps -a
+   26  docker pull centos
+   27  docker images
+   28  docker run centos
+   29  docker ps
+   30  docker ps -a
+   31  docker run ubuntu
+   32  clear
+   33  docker images
+   34  docker ps
+   35  docker ps -a
+   36  history
+   37  clear
+   38  docker ps
+   39  docker ps -a
+   40  docker run -it --name=javaapp1build centos bash
+   41  docker ps -a
+   42  ckear
+   43  clear
+   44  docker run -it --name=javaapp2build centos bash
+   45  docker ps -a
+   46  clear
+   47  docker ps -a
+   48  docker start ba48735807e2
+   49  docker ps
+   50  docker exec -it ba48735807e2 bash
+   51  docker ps
+   52  docker exec -it ba48735807e2 bash
+   53  docker ps
+   54  docker stop ba48735807e2
+   55  docker ps
+   56  docker ps -a
+   57  clear
+   58  docker ps
+   59  docker ps -a
+   60  docker rm fb27a0aab41e 6f9ca0 9e49884
+   61  docker ps -a
+   62  clear
+   63  docker images
+   64  docker ps -a
+   65  docker rmi ubuntu
+   66  docker rm 9180b3ea0701
+   67  docker rmi ubuntu
+   68  dockerimages
+   69  docker images
+   70  docker inspect ba48735807e2
+   71  docker images
+   72  clear
+   73  docker history centos
+   74  docker ps -a
+   75  docker run -it tomcat:8.0
+   76  clear
+   77  docker ps
+   78  docker run -it -p 8089:8080 tomcat:8.0
+   79  history
+
+   15  sudo apt install docker.io -y
+   16  clear
+   17  ls
+   18  clear
+   19  docker --version
+   20  docker version
+   21  clear
+   22  docker --version
+   23  docker images
+   24  docker ps
+   25  docker ps -a
+   26  docker pull centos
+   27  docker images
+   28  docker run centos
+   29  docker ps
+   30  docker ps -a
+   31  docker run ubuntu
+   32  clear
+   33  docker images
+   34  docker ps
+   35  docker ps -a
+   36  history
+   37  docker ps
+   38  docker volume list
+   39  docker volume create sa-nov16-vol1
+   40  docker volume list
+   41  docker volume inspect sa-nov16-vol1
+   42  cd /var/lib/docker/volumes/
+   43  ls
+   44  cd sa-nov16-vol1/
+   45  cd _data/
+   46  clear
+   47  pwd
+   48  clear
+   49  docker run -it centos bash
+   50  docker run -it --mount source=sa-nov16-vol1,destination=/sa-nov16-vol1 centos bash
+   51  pwd
+   52  ls
+   53  cat file1fromcontainer.txt
+   54  echo "rec1" >> inputfromhost.txt
+   55  ls
+   56  docker run -it --mount source=sa-nov16-vol1,destination=/sa-nov16-vol1 centos bash
+   57  df
+   58  clear
+   59  docker run -it --mount source=sa-nov16-vol1,destination=/sa-nov16-vol1 centos bash
+   60  pwd
+   61  cd ..
+   62  ls
+   63  pwd
+   64  docker volume create tempvol1
+   65  ls
+   66  docker volume inspect tempvol1
+   67  clear
+   68  docker ps -a
+   69  docker ps
+   70  docker exec -it a761bf bash
+   71  docker exec -it 25125e962 bash
+   72  docker ps
+   73  docker ps -a
+   74  history
+
