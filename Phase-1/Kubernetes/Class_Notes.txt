@@ -133,3 +133,39 @@ Next:
 		Services 
 		Namespaces 
 		Hostpath Volumes 
+
+###############
+18th Jan. 2024
+###############	
+
+		Terminologies :::
+		
+			kubectl 		# Command Line Utility used to interact with Kubernetes 
+			kubeadm 		# It is used to Initialize / Config the Kubernetes_Master & Cluster 
+			Kubernetes_Cluster 	# It is Collection K8s WorkerNodes 
+			pods 		
+			
+		Working with Pods 
+		Deployments 
+		Services 
+		Namespaces 
+		Hostpath Volumes 	
+
+			Tomcat(8080)/Nginx(80) ???
+
+		Working with Pods ::
+
+			Manifest file --> *.yaml Script.
+			
+			Yaml Scripts are Declarative Scripts
+					key:value pair
+					
+			Create and work with pods using Kubectl.
+
+
+			Kubernetes Namespaces are logical partitioning of the Cluster.
+			
+			Create Pods ::
+				Write a Manifest File. - *.yaml
+				
+			
