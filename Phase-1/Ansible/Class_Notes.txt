@@ -1,0 +1,90 @@
+
+###############
+23rd Jan. 2024
+###############		
+
+	IAC Tools ::::
+	
+		Ansible 
+		Terraform 
+		
+		
+		IAC Tools :::
+		
+		
+		Infra-Structure Management Team :::
+		
+			Provision/Creating the servers
+				
+			Configure the servers 
+			
+			Typical Shell Scripts were to Create/Manage the servers.
+			
+			
+		IAC Tools ==> 	Infra-Structure As Code 
+							- Write the code to automate the infrastructure provisioning and Configuration
+							- Declarative Scripts 
+							- *.yaml Scripts / HCL Scripts 
+		
+			Provision/Creating the servers		==> Terraform / Cloudformation / RMs
+				
+			Configure the servers		- CMS	==> Configuration Management System - Install/Unstall/Upgrade
+												==> Ansible / chef / puppet 
+		
+			
+
+			Ansible 	==> *.yaml Scripts 
+			
+			Terraform 	==> HCL Language - Hashi-Corp declarative Language (*.json)
+			
+			
+			Team 
+			
+				40 Developers Joined my team 
+				
+					Laptop/Workstation
+
+						- Install the required tools 
+
+		Ansible ::
+		
+			Ansible Architecture 
+			
+			Components of Ansible Architecture 
+			
+				Inventory File 			# Used to maintain the details of the target nodes 
+				Modules 				# Used to execute some task in Target Node 
+				ansible.config 			# Is used to maintain the Default properties of Ansible in Ansible Controller 
+				
+				Ansible Controller & Ansible Target Nodes 
+			
+			Terminologies 
+			
+				How to access the target nodes from Ansible Controller ???
+				
+				SSH --> Handling SSH Keys - Enable Key Based Authentication
+				
+				Ansible Adhoc Command		==>  	Used to quickly execute a Module/Task in the target node(s)
+													Cannot be reusable 
+							apt install git -y
+							
+				Ansible Playbooks 			==> Used to execute some series of modules/Tasks in the target node(s)
+							apt install git -y
+							apt install jdk 
+							apt install maven 
+							
+						Playbooks are written using *.yaml scripts
+						Playbooks are reusable 
+				
+				Ansible CLI Commands 
+
+Next :::
+			Installation of Ansible and Target Nodes 
+				
+			Work with the Ansible - Inventory file / Modules / Adhoc Commands / Playbooks 
+			
+			Ansible Roles 
+		
+			Terraform 
+		
+		
