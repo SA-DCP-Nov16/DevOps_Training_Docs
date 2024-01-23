@@ -168,4 +168,252 @@ Next:
 			Create Pods ::
 				Write a Manifest File. - *.yaml
 				
+				
 			
+###############
+19th Jan. 2024
+###############	
+
+		Deployment Controller Object 
+		
+		- Is used to 
+		
+			- Create replicas/copies of pod 				==		3 replicas of Pod.		v1.0 ===> v1.1		
+			- Upgrade Pod deployment version 
+			- Downgrade the Pod deployment version 
+			- Scale Up 
+			- Scale Down
+			- It helps update the version of applications without any downtime
+					- It is possible using the Deployment Strategy
+								Rolling Update Deployment Strategy.
+									It will update the image version on by one.
+								
+								
+								
+			
+Use Case :		Java Web Application 
+		
+		Application Life Cycle 
+		
+		1. Coded 
+		2. Build 
+		3. Create Artifacts 									mywebapp.war_v1.0 / v1.1 / v1.2 / v1.3 / ....
+		3. Deploy the artifacts to the target environment	
+			Test : QA / UAT / Prod
+			
+		Containerized Work flow :	
+		4. Using Docker Create Application Image				mywebapp_Image_v1.0 / v1.1 / v1.2 / v1.3 / ....
+				Docker Commit 
+				Docker Build (Dockerfile)
+		5. Push the Application Image to DockerHub 
+		6. Use Kubernetes to Deploy the Images in the Target Environment 	mywebapp_Image_v1.0 / v1.1 / v1.2 / v1.3 / ....
+			Test : QA / UAT / Prod			
+		
+		
+		
+		replicas in Manifest file is used to create replicaset 
+		
+		Application Life Cycle 
+		
+		1. Coded 
+		2. Build 
+		3. Create Artifacts 									mywebapp.war_v1.0 / v1.1 / v1.2 / v1.3 / ....
+		3. Deploy the artifacts to the target environment	
+			Prod
+
+			Prod Server1,2,3,4,5 -- Publish over SSH 
+			
+			Deployment :::
+			
+				-> Coping the Artifacts from one server to another 
+				
+				Copy of a Application will be deployed in more than one production server. 
+
+
+		Kube_Master 
+			Kube_WorkerNode1,2
+			
+			In kubernetes, the copy of pods will be deployed in the available workernodes.
+
+			Deployment Controller Object 
+		
+		- Is used to 
+		
+			- Create replicas/copies of pod 				==		3 replicas of Pod.		v1.0 ===> v1.1		
+			- Upgrade Pod deployment version 
+			- Downgrade the Pod deployment version 
+			- Scale Up 
+			- Scale Down
+			- It helps update the version of applications without any downtime
+					- It is possible using the Deployment Strategy
+								Rolling Update Deployment Strategy.
+									It will update the image version on by one.
+			
+
+
+		Namespaces :::
+		
+			Logical Partitioning of the Cluster :::
+			
+		Kubernetes_Master 
+			Cluser1
+				WN1,2,3,4,5
+			
+			
+		Hostpath Volumes :::
+		
+				It is used to maintain the persistant data.
+				
+Next :::				
+		Overview of Kubernetes Services :::
+		
+		Demo :::
+			docker/Kubernetes ==> Jenkins
+			
+			CICD Pipeline :::
+			
+		Monday :::
+		
+			- Pipeline ::
+			
+			J_Master
+			 J_Slave 
+			QA_Server
+			 
+			build & deploy using jenkins
+			
+			create docker image using dockerfile.
+			
+###############
+22nd Jan. 2024
+###############	
+
+		CICD Pipepline ::::
+		
+		Application : Builds, Deployments 
+		
+		DevOps Stage ::
+		
+		C_Development 
+		
+		C_Integration 
+		C_Testing 
+		C_Delivery
+		C_Deployment
+		
+		1. Infra-Structure Provisioning 
+		2. Configuring the required tools in all the servers / Integration of Servers 
+		3. Create the CICD Pipeline 
+		4. Onboard the Applications 
+		
+		
+		Jenkins_Master 		==> Used to create CICD Pipeline Project and scheduling 
+			Jenkins_Slave 	==> Used to Perform the Build - Compile & Create Artifacts.
+		QA_Server 			==> Deployed the Artifacts	- Publish over SSH.
+			
+			
+		Containerization ::::
+			
+		Jenkins_Master 		==> git,jdk, Jenkins 				
+							==> Used to create CICD Pipeline Project and scheduling  
+			Jenkins_Slave(Build_Server) 	==> git, jdk, maven, docker
+							==> Used to Perform the Build - Compile & Create Artifacts, Create/Build Docker Images			
+		Kubernetes_Master(VM)					==> Deployment  ==> docker,containerD,Kubeadm,kubectl,kubelet
+			Kubernetes_WorkerNode1
+			Kubernetes_WorkerNode2
+			
+		How to Integrate Kubernetes_Master to Jenkins_Master ???
+			SSH Protocol
+			
+			@@@@@@Task 1 ::: 			
+			1. Steps to Integrate Kubernetes_Master to Jenkins_Master ???
+		
+		
+		3. Create the CICD Pipeline Project :::
+		
+		Pipeline :
+			Stages ::: (Collection of Tasks)
+			
+		CICD Pipeline :::
+pipeline {
+	   agent { label 'slave1' }
+
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				echo 'Perform Build'
+				git 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+            }
+        }
+        stage('Maven Build') {
+            steps {
+                echo 'Perform Maven Build'
+				sh "mvn clean package"
+            }
+        }
+        stage('Deploy to Tomcat - Server') {
+            steps {
+				script {
+				sshPublisher(publishers: [sshPublisherDesc(configName: 'Tomcat-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/mvn-hello-world.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+			}
+            }
+        }
+    }
+}				
+		Stages :::
+		
+			Stage 1 : SCM_Checkout			# Bring the latest code changes from src_code repo to Jenkins_Slave_Node
+			Stage 2 : Application_Build		# Compile the code & Create Artifacts in Jenkins_Slave_Node
+			Stage 3 : Docker_Build			# Build Docker Application Image in Jenkins_Slave_Node using the artifacts created in Jenkins_Slave_Node
+			Stage 4 : Login to DockerHub	# From Jenkins_Slave_Node, using Docker Credentials
+			Stage 4.1 : Publish Docker Image to DockerHub 	# Push the Docker Application Image from Jenkins_Slave_Node to DockerHub Registry
+			Stage 5 : Deploy the Application Image in Kubernetes Cluster 	# Create Manifest file for Deployment Contoller Object.
+																			# NodePort Service to expose the pods to internet 
+			
+
+
+				@@@@@@Task 2 ::::
+				Steps to identify all the pre-requisites and Commands to be used in all the stages.
+				
+				
+
+			@@@@@@Task 1 ::: 			
+			1. Steps to Integrate Kubernetes_Master to Jenkins_Master ???
+			@@@@@@Task 2 ::::
+			2. Steps to identify all the pre-requisites and Commands to be used in all the stages.
+
+		Next ::::
+
+			
+			Best Practices ::: To Create CICD Pipelines ::::
+			
+				1. Overview of Kubernetes Services/Volumes 
+				
+				2. Namespaces 
+				
+			Ansible/Terraform :::
+			
+			
+		Kubernetes_Master(VM)	
+			Kubernetes_Master1(VM)		# Active Master Node 	
+				Kubernetes_Cluster1
+					WorkerNode1(VM) 	
+					WorkerNode2(VM)
+					WorkerNode3(VM)		
+				Kubernetes_Cluster2
+					WorkerNode1(VM) 	
+					WorkerNode2(VM)
+					WorkerNode3(VM)			
+			Kubernetes_Master2(VM)		# Active Master Node 	
+				Kubernetes_Cluster1
+					WorkerNode1(VM) 	
+					WorkerNode2(VM)
+					WorkerNode3(VM)		
+				Kubernetes_Cluster2
+					WorkerNode1(VM) 	
+					WorkerNode2(VM)
+					WorkerNode3(VM)				
+			
+			
+		
