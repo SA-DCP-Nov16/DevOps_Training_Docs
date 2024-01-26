@@ -186,7 +186,7 @@ Next:
 			- It helps update the version of applications without any downtime
 					- It is possible using the Deployment Strategy
 								Rolling Update Deployment Strategy.
-									It will update the image version on by one.
+									It will update the image version one by one.
 								
 								
 								
