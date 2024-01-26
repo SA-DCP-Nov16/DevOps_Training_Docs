@@ -86,5 +86,242 @@ Next :::
 			Ansible Roles 
 		
 			Terraform 
+
+
 		
+###############
+25th Jan. 2024
+###############		
+
+		
+			Installation of Ansible and Target Nodes 
+				
+			Work with the Ansible - Inventory file / Modules / Adhoc Commands / Playbooks 
+			
+			Ansible Roles 
+		
+			Terraform 
+		
+
+1. Jenkins Slave Nodes - why we need it ? 
+
+2. Sir how to get t2.micro in instance type, because in my system windows 11 t2.micro is not coming? Can you show a demo how to get it , as its not available, and not coming in remaining options also
+
+		3. Sir, when I used open-jdk-17, your mvn-hello-world was not getting packaged...
+But using open-jdk-11 it is getting packaged (mvn clean package)
+On Jenkins it is showing a notification jdk-11 will be outdated by sept 30, What will be the solution? Or will developers take care of the necessary plugins??
+
+Meaning and use of Plugins ???
+
+Deployment Object Concepts 
+
+I Understand the Jenkins Pipeline / Module. Maven/Tomcat.   But the thing is ==> In real time Scenario Will use tomcat server anywhere.
+
+Sir show how to use git on Ec2 - ubuntu, we know how to use it on local machine but on a VM some things can be tricky
+
+		local machine -- git bash 
+	Linux - ubuntu 	
+		mkdir projects 
+		mkdir repo1
+		git init 
+		git clone <url>
+	
+	
+	Local Machine :: appln_repo1   --> AWS EC2 
+	
+		from local machine - git push appln_repo1 to github 
+	
+		from aws ec2 instance - git clone appln_repo1 from github 
+		
+
+Sir for doing ubuntu linux assignment 1st question in AWS, can we use git bash for support, I mean to bring ubuntu into existence through aws by using git bash?
+
+			
+			
+	explain deployemnet concepts sir
+	
+	In Slave_Node ???
+	Slave_Node1 == app team 1 ---> jdk11 
+	
+	Slave_Node2 == app team 2 ---> jdk17 
+	
+	
+	Containarization !!!
+	
+		
+			Infra-Structure Perspective ::
+			
+				Jenkins_Master(VM) : 	- create the job & Schedule the jobs
+				
+
+				: Ruby - To build the application and create artifacts
+			
+
+			Containerization :::
+			
+				Jenkins_Master : Jenkins uses the plugins to interact with the tools 
+					
+					Jenkin_Slave - (VM)(EC2):
+						Container Engine 
+							C1	Java - 			Maven is used to build 
+							C2  Python 
+							C3  .Net - 
+							C4  Angular
+							C5  Node - 
+						    C6  Ruby - 
+							C7 Jdk11
+							C8 Jdk17	
+							
+							
+			Create Container Image 
+			Push the image to Container Registry 
+			pull the image to any target node 
+	
+
+		Why we need Containers ???
+		
+		Docker is used to create and push the images to container Registry 
+		
+		Kubernetes ==> Deploy that container image in the target environment 
+
+	
+		
+
+			mywebapp.war_v1.0
+			mywebapp.war_v1.1
+			mywebapp.war_v1.2
+			mywebapp.war_v1.3
+		
+			mywebapp_image:v1.0
+			mywebapp_image:v1.1
+			mywebapp_image
+		
+			Micro-service - 
+			
+			3-tier 
+			
+In portmapping we are giving port number to that host, but in real time do we need to give port number in our own are did management will give?
+				
+		
+	sir ,if MS is 3 tier how can maven create separate package  , one for *.java (business logic) and another for resouces (.html,css,jsp)
+
+	
+	
+	Kubernetes Services ::
+	
+		Nodeport  pod --> expose to internet --> nodeport service
+		
+		clusterIp Service 
+		
+		Load Balancer 
+			
+			
+			front_end-Pod(x.x.x.x) 						Backend-pod(y.y.y.y)
+			
+			
+		Flannel Network Plugin :::
+		
+		K8s Architecture :::
+		
+			Kube Proxy ==> used to perform networking 
+			
+			pod --> ip address. (10.244.0.0) - flannel/calico network plugin
+		
+		
+		Port Mapping :::: 
+		
+		docker run -it -p 8081:8080 tomcat:8.0 ???????
+		
+		docker run -it centos 
+	
+	
+	
+		Ansible Installion.
+
+
+Task :::
+
+	Go-through the class notes :
+		git, jenkins, docker 		till this Monday 29th 
+		kubernetes fundamentals 	for tuesday		 30th 	
+		Ansible,terraform 			next Monday      5th 
+		
+
+Next ::::		
+			Installation of Ansible and Target Nodes 
+				
+			Work with the Ansible - Inventory file / Modules / Adhoc Commands / Playbooks 
+			
+			Ansible Roles 
+			
+			Dockerfile.
+			
+
+
+		
+###############
+26th Jan. 2024
+###############		
+
+			Installation and configuration of Ansible and Target Nodes 
+			
+			Create Ansible Inventory file 
+			Working with Ansible 
+				
+			Work with the Ansible - Inventory file / Modules / Adhoc Commands / Playbooks 
+			
+			Ansible Roles 
+
+
+				SSH :
+					private key 
+					public key 
+					
+					
+				Jenkins_Master 			SSH Connection 
+				
+					Jenkins_Slave (Created user_id, ssh keys & shared the private of slavenode to master)
+											(host_name,user_name,private_key)
+											
+				
+				Ansible_Master_Node(Owned by Configuration Management Team/DevOps) (host_name,user_name,ssh_keys)
+				
+					Ansible_Target_Node1(Dev_Team)			(host_name,user_name,password)	
+					Ansible_Target_Node2(Testing_team)		(host_name,user_name,password)
+											
+					
+						
+			Installation and configuration of Ansible Controller Machine and Target Nodes 
+
+			Work with Ansible :::
+
+				- Create Inventory
+					hosts - Default Inventory file 
+
+
+			###update vi etc/ansible/hosts
+
+			[testnodes]
+			samplenode1 ansible_ssh_host=172.31.32.64 ansible_ssh_user=ansibleadmin
+			samplenode2 ansible_ssh_host=172.31.47.96 ansible_ssh_user=ansibleadmin
+
+			[devNodes]
+			devnode1 ansible_ssh_host=172.31.13.244 ansible_ssh_user=ansibleadmin
+			devnode2 ansible_ssh_host=172.31.13.144 ansible_ssh_user=ansibleadmin
+
+			[testserver]
+			testnode1 ansible_ssh_host=172.31.13.144 ansible_ssh_user=ansibleadmin
+								
+				- Working with Ansible Modules using :
+						Adhoc Commands 
+
+Summary :::
+		Install and config Ansible Controller and Target Nodes 
+		Create Inventory Files 
+		Execute Ansible Modules using Adhoc Commands 
+
+Next :::						
+						Playbooks  # written using *.yaml scripts.
+						
+							- Run the series of Ansible Modules 
 		
