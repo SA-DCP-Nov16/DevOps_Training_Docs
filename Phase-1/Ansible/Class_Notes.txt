@@ -325,3 +325,52 @@ Next :::
 						
 							- Run the series of Ansible Modules 
 		
+
+###############
+29th Jan. 2024
+###############	
+
+			Playbooks  # written using *.yaml scripts.
+			
+			Playbooks are used to execute the task in the target nodes 
+
+			- It is collection of tasks
+				Tasks are the Modules.
+				
+			Write the Ansible Playbooks to execute the tasks in the target nodes.
+			
+			It to reuse.
+			
+			Variables :::
+			
+				System Variable 
+				
+				User Defined Variable
+						
+						
+							- Run the series of Ansible Modules 
+							
+							
+				Handle the Variables ::
+				
+					Setup Modules generated variable / System Variables 
+					
+					User-Defined Variables 
+					
+				vars :
+				
+				vars_files:
+				
+				-e 
+				
+				become: yes 
+				
+				gather_facts: false 
+				
+				apt Module  
+				
+				yum Module 
+				
+				state : present/absent/latest 
+				
+				when condition to control the flow of execution of tasks in playbook.
