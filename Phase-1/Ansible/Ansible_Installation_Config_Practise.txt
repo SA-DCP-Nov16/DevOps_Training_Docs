@@ -172,3 +172,277 @@ ansible-doc -l
 ansible-doc shell
 
 
+
+Playbooks :::::
+
+	- *.yaml Script
+	- Defines the Tasks/Modules to be executed in target nodes.
+	- Reusability
+	
+	
+Build Server :::
+
+	- install jdk 
+	- install git 
+	- install maven
+
+
+#**************************************************************************************************************************
+#Ansible Variables !
+#shell : echo $var1 
+
+in yaml : "{{var1}}"
+
+
+ansible samplenode1 -m setup
+
+
+key:Value pair 
+
+#debugmod.yaml
+
+---
+ - hosts: testnodes
+   tasks:
+   - debug:  
+      msg:
+       - "The os distribution is: {{ansible_distribution}}" 
+       - "THe os name is: {{ansible_system}}"
+       - "The os family is: {{ansible_os_family}}"
+       - "THe mount points are :{{ansible_mounts}}"
+	   
+	   
+	Execute :::
+	
+			ansible-playbook debugmod.yaml 
+
+
+echo "${var1}" $var1
+
+"{{var1}}"
+
+debug -a msg / var 
+
+
+Debug Module :
+	msg 
+	var  "{{ansible_distribution}}"
+	
+	"{{var1}}"
+
+echo $var1
+
+
+setup Module :
+
+setup module is the default module.
+
+
+
+
+
+
+YAML ::
+
+			"{{var1}}"
+			
+	
+
+
+
+
+	debug :
+		msg 
+		var 
+
+
+
+
+var1
+
+echo $var1
+
+echo "${var1}"
+
+"{{var1}}"
+
+
+
+Handling the variables ::
+
+# How to jus verify playbook syntax:
+#ansible-playbook testfile.yaml --syntax-check
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~ test_var-datatype.yaml
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#test_var-datatype.yaml
+---
+ - hosts: samplenode1
+   vars:
+    x: 23
+    my_num: 45.67
+    my_name: Loksai
+    my_b: YES   
+   tasks:
+   - debug:
+      msg:
+       - "The value of x is: {{x}} and type: {{x|type_debug}}"
+       - "THe value of my_num: {{my_num}} and type : {{my_num|type_debug}}"
+       - "The value of my_name : {{my_name}} and type: {{my_name|type_debug}}"
+       - "THe value of my_b is: {{my_b}} and type : {{my_b|type_debug}}"
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#/etc/ansible/variables/myvarfile1.yaml
+    x: 23
+    my_num: 45.67
+    my_name: Loksai_ETA
+    my_b: YES
+
+#test_var-datatype1.yaml
+---
+ - hosts: samplenode1
+   vars_files:
+     - /etc/ansible/variables/myvarfile1.yaml
+   tasks:
+   - debug:
+      msg:
+       - "The value of x is: {{x}} and type: {{x|type_debug}}"
+       - "THe value of my_num: {{my_num}} and type : {{my_num|type_debug}}"
+       - "The value of my_name : {{my_name}} and type: {{my_name|type_debug}}"
+       - "THe value of my_b is: {{my_b}} and type : {{my_b|type_debug}}"
+
+
+ansible-playbook test_var-datatype1.yaml
+
+---
+ - hosts: testnodes(grp - 100 VMs)
+   gather_facts: false
+   become: yes
+   tasks:
+   - name: Manage git tool
+     apt:
+       name: git
+       state: present
+
+
+git ==> apt install/uninstall/update 
+
+apt ::
+
+	name : <name of the package>
+	
+	state : present/absent/latest 
+
+
+
+apt install git -y 
+
+apt remove git -y
+
+apt install git -y 
+
+
+---
+ - hosts: samplenode1
+   gather_facts: false
+   become: yes
+   tasks:
+   - name: Manage git tool
+     apt:
+       name: git
+       state: present
+
+
+apt : 
+
+state : present/absent/latest 
+
+sudo apt install git 
+
+ansibleadmin 
+sudo apt install git 
+
+ubuntu -- apt 
+centos/rhel -- yum 
+
+	name :	to identify the package
+	
+	state : present/absent/latest
+
+
+#install3.yaml
+---
+ - hosts: "{{ host_name }}"
+   become: yes
+   tasks:
+   - name: Manage "{{ tool_name }}" service
+     apt:
+       name: "{{ tool_name }}"
+       state: "{{ tool_state }}"
+
+
+
+ansible-playbook var4.yaml -e "host_name=samplenode1 tool_name=git tool_state=present"
+
+
+Handling Variables :::
+
+	--> Hardcoding the variables --> vars:
+	--> Using Variables files    --> vars_files: 
+	--> Passing Extra values     --> -e 
+
+Handling Variables in Ansible :::
+
+	- Environment variables -- accessible using Setup Module.
+	
+	- Hardcoding the values in playbook 
+		using vars :
+	
+	- Using External Variable files :
+		using var_files
+
+	- Using -e to pass the values at run time.
+
+
+#install3.yaml
+---
+ - hosts: "{{ host_name }}"
+   become: yes
+   tasks:
+   - name: Manage "{{ tool_name }}" service
+     "{{Module_name}}":
+       name: "{{ tool_name }}"
+       state: "{{ tool_state }}"
+
+	  
+ansible-playbook inst3.yaml -e "host_name=samplenode1 tool_name=git tool_state=present"
+
+
+
+
+
+
+
+
+Using When Condition :::
+
+---
+  - hosts: testnodes
+    #gather_facts: false
+    become: yes
+    tasks:
+      - name: Install-nginx on Debian
+        apt:
+          name: nginx
+          state: "{{pkg_state}}"
+        when: ansible_os_family == "Debian"
+      - name: Install-nginx on Redhat
+        yum:
+          name: nginx
+          state: "{{pkg_state}}"
+        when: ansible_os_family == "RedHat"
+		
+		
