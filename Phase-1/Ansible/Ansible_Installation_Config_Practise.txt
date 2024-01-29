@@ -1,0 +1,174 @@
+Ansible Installation & Configurations:
+
+Launch 3 EC2 Instances... 1 for Ansible Controller & 2 as Nodes - ubuntu
+
+SSH connections :::
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#Login to Ansible Node1 & Node2. Perform below activities:
+
+#Add User in Ansible Nodes : 
+
+sudo -i
+
+apt update -y 
+
+useradd ansibleadmin -s /bin/bash -m -d /home/ansibleadmin 
+
+passwd ansibleadmin
+
+#Enter New Password:
+#Confirm Password:
+
+#Goto:
+
+vi /etc/ssh/sshd_config
+
+#Enable Password Authentication to Yes and save the file
+#Execute Below command to update the changes.
+
+service sshd reload
+
+#As a root user edit below file:
+
+$ visudo
+
+#add the below mentioned line in the file and save it.
+ 
+ansibleadmin ALL=(ALL) NOPASSWD: ALL
+
+su - ansibleadmin
+
+ls -a 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#Login to Ansible Controller:
+https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html
+
+https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu
+
+sudo -i
+
+sudo apt update -y
+
+sudo apt install software-properties-common -y
+
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+
+sudo apt update -y
+
+sudo apt install ansible -y
+
+ansible --version
+
+#go to /etc/ansible
+
+#host - inventory file
+#config
+#roles 
+
+#Add User in Ansible Controller : 
+
+useradd devopsadmin -s /bin/bash -m -d /home/devopsadmin
+
+#useradd devopsadmin
+
+su - devopsadmin	
+
+ssh-keygen -t rsa -b 1024 -m PEM
+
+ssh-copy-id ansibleadmin@172.31.32.64
+ssh-copy-id ansibleadmin@172.31.47.96
+
+ssh ansibleadmin@172.31.32.64
+ssh ansibleadmin@172.31.47.96
+
+chown -R devopsadmin:devopsadmin /etc/ansible
+
+
+###update vi etc/ansible/hosts
+
+[testnodes]
+samplenode1 ansible_ssh_host=172.31.32.64 ansible_ssh_user=ansibleadmin
+samplenode2 ansible_ssh_host=172.31.47.96 ansible_ssh_user=ansibleadmin
+
+
+#**************************************************************************************************************************
+#hosts file is the default Inventory file for ansible 
+#**************************************************************************************************************************
+#Access thru Ansible Controller :
+#**************************************************************************************************************************
+
+ansible <hosts_name> -m <module_name> -i <inventory_file>
+
+ansible testnodes -m ping
+
+ansible dev_server_grp1 -m ping -i dev_servers
+
+#host machines can be identified using :
+#all | group_name | individual_host_name
+
+
+###update vi /etc/ansible/host
+
+[testnodes]
+samplenode1 ansible_ssh_host=172.31.41.32 ansible_ssh_user=ansibleadmin
+samplenode2 ansible_ssh_host=172.31.39.17 ansible_ssh_user=ansibleadmin
+
+##################################################################################
+
+#**************************************************************************************************************************
+#Access thru Ansible Controller :
+#**************************************************************************************************************************
+Ansible Modules: Eg.: 
+ansible testnodes -m ping
+
+ansible all -m ping ### will ping all hosts from /etc/ansible/hosts file
+
+ansible samplenode1 -m ping
+ansible samplenode2 -m ping
+
+#or using user defined Inventory file
+#ansible ansible-node1 -m ping -i myinventoryfile.txt
+
+
+ansible samplenode1 -m ping -i myinventoryfile.txt
+
+#**************************************************************************************************************************
+
+ansible samplenode2 -m ping
+
+ansible samplenode1 -m shell -a "sleep 5 ; echo 'hi'"
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ansible Facts!
+
+ansible samplenode1 -m setup
+ansible samplenode1 -m setup -a "filter=ansible_mounts"
+
+
+ansible testnodes -m setup -a "filter=ansible_distribution"
+
+
+##Transfer a file from Ansible Controller to Target Nodes using copy Module
+
+ansible samplenode1 -m copy -a "src=/etc/ansible/file1.txt dest=/home/ansibleadmin"
+
+ansible samplenode1 -m copy -a "src=/etc/ansible/s1.txt dest=/home/ansibleadmin backup=yes"
+
+
+
+
+##Transfer a file from Ansible Nodes to Ansible Controller using fetch Module
+ansible samplenode1 -m fetch -a "src=/home/ansibleadmin/filefrom_AN1.txt dest=/home/devopsadmin"
+
+
+### List all modules:
+ansible-doc -l
+
+### To know about any specific modules:
+ansible-doc shell
+
+

@@ -416,4 +416,144 @@ pipeline {
 					WorkerNode3(VM)				
 			
 			
+###############
+23rd Jan. 2024
+###############				
+			
+			
+			Kubernetes :::
+			
+			Deployments 
+			
+			Namespaces 
+			
+			Hostpath 
+			
+			PODS -- exposed using Nodeport Service.
+			
+			Kubernetes Services
+
+				- ClusterIP 			# Default kubernetes Service
+				
+				- NodePort
+				
+				- Load Balancer Service
+		
+		
+			PODS -- exposed using Nodeport Service
+			
+			Node Service : 
+			
+			<public_ip_address>:<node_port_#>
+			
+			
+			Node 
+				Pod 
+					Container 
+						App_Image(Nginx) - 80
+						
+			
+			Web-Application :: 3-Tier Appln. Architecture 
+			
+			Front_End			Pod1  GUI - Exposed to Internet  ip addr.
+			
+			Application_Layer	Pod2
+			
+			Back_End			Pod3 
+			
+			
+			
+			NodePort Service  ==> It is used to expose the pods to internet 
+									- Used for External Communication
+			ClusterIP Service 	==> It is used to communicate between the pods internally			
+									- Used for Internal Communication
+									
+									
+									vm1  			-====> 			 vm2 
+									
+									
+			Load Balancer Service  ===> Is used to reduce the number of IPs address to be maintained for NodePort Service.
+										Load Balancer Service Created on top of the NodePort Service, will receives the request from end user thru internet and Route the request the corresponding nodeport service and access the pod within that.
+			
+		
+		
+			Namespace ==> 
+			
+				kubectl create ns <namespace>
+				
+				
+			Default Deployment Strategy in Kubernetes ?????
+			
+				Rolling Update Strategy ???
+				
+				Blue Green Deployment Strategy ::::
+				
+				Active Production Server(Green)/Down this server :	 Server LIVE Server :
+
+					Application_v1.1 is LIVE 							New_Appln_v2.0 is LIVE
+		
+				Kubernetes :::
+				
+				LIVE PRODUCTION K8s Cluster :
+				
+				Primary ???										Secondary Servers ???
+				
+				Kubernetes_Master								Kubernetes_Master
+					Kubernetes_WorkerNode1                      	Kubernetes_WorkerNode1
+					Kubernetes_WorkerNode2                      	Kubernetes_WorkerNode2
+					
+				LIVE Environment:
+				
+				Kubernetes_Master
+					Kubernetes_WorkerNode1
+					Kubernetes_WorkerNode2
+					
+				Namespace - PROD_Namespace1  - v1.1 - Application_v1.1 is LIVE 	
+
+
+				Namespace - PROD_Namespace2  - v2.0 - Thorough Testing  
+
+				Namespaces :
+				
+					DEV
+					QA 
+					UAT 
+					
+					PROD_v1 	LIVE 
+					PROD_v2 	
+					
+				
+		Kubernetes :::
+		
+			Kubernetes - Architecture
+			Components of Kubernetes Architecture 
+			Write Manifest file to create / Deploy the Pods
+			Pod Networking - Inter-Pod & Intra-Pod Communication 
+			How the POD IPs address is defined?
+			Login to pod using kubectl exec 
+			Expose the pod to internet 
+			Deployment 
+				Upgrade 
+				Rollback 
+				Scale-up
+				Scale-Down 
+			Namespace
+			Volume - Hostpath
+			Services 	-- Comparison of all the service 
+				Cluster_IP 
+				Node_Port 
+				Load_Balancer	
+
+		Create a end-to-end CICD Pipeline :
+		Stages :::
+		
+			Stage 1 : SCM_Checkout			# Bring the latest code changes from src_code repo to Jenkins_Slave_Node
+			Stage 2 : Application_Build		# Compile the code & Create Artifacts in Jenkins_Slave_Node
+			Stage 3 : Docker_Build			# Build Docker Application Image in Jenkins_Slave_Node using the artifacts created in Jenkins_Slave_Node
+			Stage 4 : Login to DockerHub	# From Jenkins_Slave_Node, using Docker Credentials
+			Stage 4.1 : Publish Docker Image to DockerHub 	# Push the Docker Application Image from Jenkins_Slave_Node to DockerHub Registry
+			Stage 5 : Deploy the Application Image in Kubernetes Cluster 	# Create Manifest file for Deployment Contoller Object.
+																			# NodePort Service to expose the pods to internet 
+																			
+																		
 		
