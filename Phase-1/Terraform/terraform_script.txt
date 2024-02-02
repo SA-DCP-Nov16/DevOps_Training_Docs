@@ -1,0 +1,207 @@
+provider "aws" {
+  region     = "ap-south-1"
+  access_key = "Ajjj"
+  secret_key = "W7"
+}
+
+# Create AWS Instance
+
+resource "aws_instance" "sanov16-instance1" {
+  
+  ami           = "ami-0a7cf821b91bcccbc"
+  instance_type = "t3.micro"
+  key_name      = "sa-nov16-kp1"
+  count = 10
+
+  tags = {
+    Name = "dev_server"
+  }
+}
+
+# Create AWS Instance
+
+resource "aws_instance" "sanov16-instance1" {
+  
+  ami           = "ami-0a7cf821b91bcccbc"
+  instance_type = "t3.medium"
+  key_name      = "sa-nov16-kp1"
+
+  tags = {
+    Name = "Nov-16-Dummy_Server"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Create AWS Instance
+
+resource "aws_instanceeee" "app_server2" {
+  ami           = "ami-09f7fbc41963e146f"
+  instance_type = "t2.micro"
+  key_name      = "loksaieta123"
+
+  tags = {
+    Name = "TerraformDemoServer2"
+  }
+}
+
+
+
++ => Add new resource
+~ => update any existing resource
+- => Delete any existing resource
+
+
+terraform init
+
+terraform plan
+
+terraform apply
+
+terraform destroy
+
+terraform state list
+
+terraform apply -auto-approve
+
+
+
+*****************************************************************************************
+
+
+
+
+Install Terraform --> Local Windows Machine!!!
+
+Use Command prompt to run Terraform commands like : terraform init, terraform plan, terraform apply, etc..
+
+Create the Config file ?
+
+Visual Studio Code  to create or develop Terraform Config files! i.e., *.tf files 
+
+
+
+
+
+
+provider "aws" {
+  region     = "ap-south-1"
+  access_key = "ALYFO"
+  secret_key = "Ij"
+}
+
+
+# Create VPC
+
+resource "aws_vpc" "myvpc9" {
+  cidr_block       = "10.0.0.0/16"
+  instance_tenancy = "default"
+
+  tags = {
+    Name = "myvpc9"
+  }
+}
+
+# Create Subnet 
+
+resource "aws_subnet" "mysubnet9" {
+  vpc_id     = aws_vpc.myvpc9.id
+  cidr_block = "10.0.1.0/24"
+
+  tags = {
+    Name = "mysubnet9"
+  }
+}
+
+# Internet Gateway
+
+resource "aws_internet_gateway" "mygw9" {
+  vpc_id = aws_vpc.myvpc9.id
+
+  tags = {
+    Name = "mygw9"
+  }
+}
+
+# Route Table
+
+resource "aws_route_table" "myrt9" {
+  vpc_id = aws_vpc.myvpc9.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.mygw9.id
+  }
+
+  tags = {
+    Name = "myrt9"
+  }
+}
+
+# Route Table Association
+
+resource "aws_route_table_association" "myrta9" {
+  subnet_id      = aws_subnet.mysubnet9.id
+  route_table_id = aws_route_table.myrt9.id
+}
+
+# Security Groups
+
+resource "aws_security_group" "mysg9" {
+  name        = "mysg9"
+  description = "Allow inbound traffic"
+  vpc_id      = aws_vpc.myvpc9.id
+
+  ingress {
+    description      = "HTTP"
+    from_port        = 80
+    to_port          = 80
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description      = "SSH"
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  tags = {
+    Name = "mysg9"
+  }
+}
+
+# Create Instance
+
+resource "aws_instance" "instance9" {
+  ami           = "ami-03cb1380eec7cc118"
+  instance_type = "t2.micro"
+  associate_public_ip_address = true
+  subnet_id = aws_subnet.mysubnet9.id
+  vpc_security_group_ids = [aws_security_group.mysg9.id]
+  key_name = "loksaieta123v2"
+
+  tags = {
+    Name = "Dummy_Server0"
+  }
+}
