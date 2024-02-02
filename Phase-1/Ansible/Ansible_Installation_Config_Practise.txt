@@ -446,3 +446,127 @@ Using When Condition :::
         when: ansible_os_family == "RedHat"
 		
 		
+Handlers --> are used to control the flow of playbook execution, based on the previous modules
+		This can be done thru notify key.
+
+		Handlers are same as tasks.
+		But, it gets executed only if we notify.
+
+Handlers :::
+
+	Handlers are used to control the flow of execution of tasks.
+	
+	Tasks 1 :::
+	
+	QA_Server 
+	
+		Tomcat :::
+				
+			1. Install the Pre-requisites		# jdk 			# jdk 
+			2. Install the actual tool 			# tomcat 		# jenkins 
+			3. Configure/setup the tool			# start tomcat  # unlock jenkins and setup
+
+	
+	playbook ::
+	
+		Task1 : Install jdk 
+		
+		Task2 : Install tomcat 
+		
+		Task3 : Start tomcat
+		
+		Handlers :: It is also a collection of tasks
+					The Tasks defined in the Handlers will be invoked only if we notify.
+					
+					
+
+---
+  - hosts: samplenode1
+    #gather_facts: false
+    become: yes
+    tasks:
+      - name: Install-httpd
+        yum:
+          name: httpd
+          state: present
+    - name: start-httpd
+      service:
+          name: httpd
+          state: started
+
+	apt/yum --> state : present/absent/latest 
+
+	service --> state : started/stopped/restarted
+
+		  
+Ansible Roles :::
+
+		Are used to organize the Ansible Components 
+		
+		for Reusability
+		
+		Use git remote repositories to maintain the Ansible Roles.
+		
+			variable/handlers/defaults/secrets/tasks
+			
+			Playbooks 
+			
+			
+		Roles can be created using :::
+		
+			- ansible-galaxy init testrole1 
+				Roles can be defined at enterprise level / global level.
+#~~~~~~~~~~~~~~~~~~~~~~~~~
+Ansible Roles :::
+
+
+		Ansible Roles are used to organize the Ansible Components
+		To reuse & Share.
+
+		Ansible Repository ::
+
+		Understand the structure of Ansible Components ::::
+
+			playbooks, handlers, loop, variable, defaults, tasks,
+			
+				
+			
+			
+			
+			
+Working with Handlers using Ansible Roles :::
+
+---
+# tasks file for testrole1
+      - name: Install-nginx
+        apt:
+          name: nginx
+          state: present
+        notify:
+        - start-nginx
+
+
+---
+# handlers file for testrole1
+    - name: start-nginx
+      service:
+          name: nginx
+          state: started
+
+
+---
+- hosts: samplenode1
+  become: yes
+  roles:
+    - role: testrole1
+
+
+---
+- hosts: {{host_name}}
+  become: yes
+  roles:
+    - role: {{role_name}}	  
+
+
+
+
