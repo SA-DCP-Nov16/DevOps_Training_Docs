@@ -374,3 +374,90 @@ Next :::
 				state : present/absent/latest 
 				
 				when condition to control the flow of execution of tasks in playbook.
+
+
+###############
+30th Jan. 2024
+###############	
+
+	Ansible Playbook
+	
+		Variables :::
+		
+			vars :
+			
+			vars_files 
+			
+			-e 
+			
+			
+			ansible Register 
+			
+			Ansible Handlers 
+			
+			Ansile loops 
+			
+			Ansible Roles 
+			
+Ansible ::
+
+	Ansible Architecture
+	Ansible components 
+	Modules 
+	Inventory 
+	Adhoc Commands 
+	Playbooks 
+	Handling Variables 
+	Handlers
+	register 
+	loop 
+	Ansible Roles 
+
+
+	Fundamentals of Terraform 
+	
+		IAC Tools :::
+		
+			Provision/Creating the Infra-Structure		--> Terraform 
+			
+			
+			Configuration of Infra-Structure 	- CMS 	--> Ansible 
+	
+		Terraform is the open-source IAC Tool for provision the infrastructure.
+		
+		Terraform is a product of Hashi-Corp 
+		Terraform Scripts are written using HCL - Hashi-Corp Declarative Language ( Based on Json)
+
+		Working model of Terraform ::
+		
+		
+		Cloudformation   == AWS Resources 
+		
+		Terraform  			== USed for any platform
+		
+			Scope of the Target Environment
+			
+			Write Config File *.tf 
+			
+			Initialize
+			
+			plan 
+			
+			apply 
+			
+		Install Terraform ::::
+			
+			Install Visual Studio Code in Local Windows Machine 
+					https://code.visualstudio.com/download
+			
+			Install Terraform in Local Windows Machine
+					https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+
+			
+Next :::
+
+		Install Terraform 
+		
+		Provision/Create AWS Infra-Structure Using Terraform 
+		
+		
