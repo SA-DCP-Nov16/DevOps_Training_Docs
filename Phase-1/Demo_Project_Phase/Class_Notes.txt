@@ -1,0 +1,118 @@
+	
+###############
+05th Feb. 2024
+###############			
+			
+		End-to-End CICD Pipeline 
+		Demo - Web application created in Eclipse - push to github 
+						CICD :
+							SCM_Checkout - 
+							Build			*.war 
+							Docker Build - Create Application Image 
+							Push the image to dockerhub
+							Deployed to Kubernetes 
+							EMail Notifications 
+
+
+		DevOps :::
+		
+			SDLC ::
+			
+			Development Perspective :::
+			
+				Create Application Source Code.
+				Using IDEs like Eclipse 
+				Push the Source Code to Source Code Repository like github.
+				
+				
+				
+
+			DevOps Perspective :::
+			
+				CI-CD to be automated using DevOps Process.
+				
+				What are the servers needed ?
+				What are the tools needed ?				
+				How to integrate the servers ?				
+				What are the various stages in CI-CD Pipeline?
+				
+			Java Web Application ::: Maven - Springboot 
+			
+			The process of application build and deployment.
+			Containerized the application ??
+			
+			Now ::
+			
+				Java Web Application ::: Maven -
+				Do Containarization
+				Deploy in Kubernetes
+				
+			
+			Servers ::
+				
+				Jenkins_Master 			:	Used to create the jenkins pipeline projects and schedule.
+					Build Server		: 	Used to perform Application Build & Create artifacts - *.war & Build Container Image 	 
+				Kubernetes_Master 		: 	Deployment of Pods
+					Kubernetes_WorkerNode1
+					Kubernetes_WorkerNode2
+
+			Tools ::
+				
+				Jenkins_Master 				:	git, jdk, jenkins 
+					Build Server			: 	git, jdk, maven, docker
+				Kubernetes_Master 			:	CRI-ContiainD, Kubectl, Kubeadm, Kubelet...... 
+					Kubernetes_WorkerNode1
+					Kubernetes_WorkerNode2	
+
+					
+					
+			Integrate the Servers ::
+									
+				Jenkins_Master 				:				
+					Build Server			:				
+				Kubernetes_Master 			:				
+					Kubernetes_WorkerNode1				
+					Kubernetes_WorkerNode2					
+				
+			What are the various stages in CI-CD Pipeline ?		
+
+				Jenkins Pipeline Project ::
+				
+				Stages :::
+				
+					1. SCM Checkout 
+					2. Application Build - # Create *.war and perform Unit Testing 
+					3. Docker Build 
+					4. Push the Container Image to Dockerhub 
+					5. Deploy to Kubernetes
+				
+				
+			Input :	Application Source Code - Repository URL 
+			
+				Contents of the Source Repository :::
+					
+						src code files 
+						test cases
+						pom.xml
+						Dockerfile
+						manifest file to create Kubernetes Deployments and NodePort Services.
+							
+						
+			
+			SCM - used to version the source code 
+			
+			docker hub - used version the container images 
+			
+			jforg artifactory - used to version control the artifacts.
+			
+			Infra-Structure Provisioning & Configurations :
+				Ansible or Terraform 
+			
+			Continuous Development
+			
+			Continuous Integration 			
+			Continuous Delivery 			
+			Continuous Deployment 
+			
+			Continuous Monitoring 
+			
