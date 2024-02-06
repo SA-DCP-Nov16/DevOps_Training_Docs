@@ -116,3 +116,36 @@
 			
 			Continuous Monitoring 
 			
+###############
+06th Feb. 2024
+###############				
+			
+		1. Open the Src_Code Repository
+		
+
+			Need your Observation about the scr_code Repository
+
+
+				Contents of the Source Repository :::
+					
+						src code files 
+						test cases
+						pom.xml				
+							artifact_id
+							artifacts type 
+							dependencies
+						Dockerfile
+						manifest file to create Kubernetes Deployments and NodePort Services.
+	
+			fork the repository 
+				Change all the required parms if needed.
+			
+	
+		2. Create a Pipeline Project in Jenkins 
+		
+		3. Have the script and try to run the job.
+		
+				note down the errors. 
+				
+				
+	
