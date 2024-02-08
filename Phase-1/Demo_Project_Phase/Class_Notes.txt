@@ -148,4 +148,166 @@
 				note down the errors. 
 				
 				
+###############
+08th Feb. 2024
+###############			
+
+			
+	Jenkins_Master
+		Jenkins_Slave 
+		
+	Target_Server
+
+
+	Project work-flow :::
+	
+			Development Perspective :::	
+			
+				Create Application Source Code.
+				Using IDEs like Eclipse 
+				Push the Source Code to Source Code Repository like github.
+
+			DevOps Perspective :::
+				What are the various stages in CI-CD Pipeline ?		
+
+				Jenkins Pipeline Project ::
+				
+				Stages :::
+				
+					1. SCM Checkout 
+					2. Application Build - # Create *.war and perform Unit Testing 
+					3. Docker Build 
+					4. Push the Container Image to Dockerhub 
+					5. Deploy to Kubernetes				
+				
+	
+			Development Perspective :::	
+			
+				Task 1. To create Application Source Code. Java Maven web App using Springboot Application Framework 
+				
+					Pre-requisites ::
+						1. Install git, jdk, Eclipse and Tomcat in the Local Windows Machine
+					
+						2. Import the given Project Source Code from github Repository and Create Eclipe Project
+								For Example, use: https://github.com/StarAgileDevOpsTraining/star-agile-banking-finance
+						
+						3. Open the Source_code make some minor changes in the HTML Content and Save the file.
+						
+						4. Create the Tomcat Server in Eclipe IDE and Link your Project to Tomcat Server
+						
+						5. Define the required Port for Tomcat in Eclipse and save the Configuration
+						
+						6. Run the application using Tomcat Server in Local Machine and Test the Changes made in the Project.
+						
+						7. Commit the Changes in Local Repository using Eclipe 
+						
+						8. Push the Source Code back to Source Code Repository from wher you cloned it.
+						
+						
+	
+			DevOps Perspective :::
+
+				Task :
+					Assessment :::
+					
+					Create the Required VMs in AWS Cloud Platform 
+					Identify the purpose of the VMs and install the required tools in each VM 
+					
+			
+			Servers ::
+				
+				Jenkins_Master 			:	Used to create the jenkins pipeline projects and schedule.
+					Build Server		: 	Used to perform Application Build & Create artifacts - *.war & Build Container Image 	 
+				Kubernetes_Master 		: 	Deployment of Pods
+					Kubernetes_WorkerNode1
+					Kubernetes_WorkerNode2
+
+			Tools ::
+				
+				Jenkins_Master 				:	git, jdk, jenkins 
+					Build Server			: 	git, jdk, maven, docker
+				Kubernetes_Master 			:	CRI-ContiainD, Kubectl, Kubeadm, Kubelet...... 
+					Kubernetes_WorkerNode1
+					Kubernetes_WorkerNode2	
+
+					
+					
+			Integrate the Servers ::
+									
+				Jenkins_Master 				:				
+					Build Server			:				
+				Kubernetes_Master 			:				
+					Kubernetes_WorkerNode1				
+					Kubernetes_WorkerNode2					
+				
+			What are the various stages in CI-CD Pipeline ?		
+
+				Jenkins Pipeline Project ::
+				
+				Stages for any project:::
+				
+					1. SCM Checkout 
+					2. Application Build - # Create *.war and perform Unit Testing 
+					3. Docker Build 
+					4. Push the Container Image to Dockerhub 
+					5. Deploy to Kubernetes
+				
+				
+			Input :	Application Source Code - Repository URL 
+			
+				Contents of the Source Repository :::
+					
+						src code files 
+						test cases
+						pom.xml
+						Dockerfile
+						manifest file to create Kubernetes Deployments and NodePort Services.
+							
+					
+		For Health_Care Project ::::
+		
+			Jenkins_Master 			:	Used to create the jenkins pipeline projects and schedule.
+				Build Server		: 	Used to perform Application Build & Create artifacts - *.war & Build Container Image 
+										Push the Image to DockerHub 
+				Kubernetes_Master 	:
+					Kubernetes_WorkerNode1				
+					Kubernetes_WorkerNode2					
+					
+				Set up Ansible_Controller :
+					Add the Kubernetes_Master as a Ansible Node
+					Copy the Maniest file to Kubernetes_Master
+					Execute Kubernetes Manifest
+
+			Prometheus/Grafana :::
+				Set_Up Prometheus/Grafana in a dedicated VM 
+					Add Kubernetes_Master as a Target to Prometheus for Monitoring
+						- CPU Utilization 
+						- Memory Utilization 
+						- Availability of Disk Space
+	
+
+		For Banking/Insurance Project ::::
+		
+			Jenkins_Master 			:	Used to create the jenkins pipeline projects and schedule.
+				Build Server		: 	Used to perform Application Build & Create artifacts - *.war & Build Container Image 
+										Push the Image to DockerHub 
+
+			Target_Server :::
+
+				Create Target_Server using Terraform :
+					- Using Ubuntu v20.04 ami in your specific Region
+								
+				Set up Ansible_Controller :
+					Add the Target_Server as a Ansible Node
+					Install Docker in Target_Server using Ansible Playbook
+					Start Docker Service
+					Start Application Container using the same Ansible Playbook 
+
+			Prometheus/Grafana :::
+				Set_Up Prometheus/Grafana in a dedicated VM 
+					Add Target_Server as a Target to Prometheus for Monitoring
+						- CPU Utilization 
+						- Memory Utilization 
+						- Availability of Disk Space
+	
 	
