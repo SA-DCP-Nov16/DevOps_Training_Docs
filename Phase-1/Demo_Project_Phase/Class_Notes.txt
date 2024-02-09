@@ -311,3 +311,52 @@
 						- Availability of Disk Space
 	
 https://github.com/StarAgileDevOpsTraining/Certification_Projects_DevOps	
+				
+				
+###############
+09th Feb. 2024
+###############	
+
+			Development Perspective :::	
+			
+				Task 1. To create Application Source Code. Java Maven web App using Springboot Application Framework 
+				
+					Pre-requisites ::
+						1. Install git, jdk, Eclipse and Tomcat in the Local Windows Machine
+					
+						2. Import the given Project Source Code from github Repository and Create Eclipe Project
+								For Example, use: https://github.com/StarAgileDevOpsTraining/star-agile-banking-finance
+						
+						3. Open the Source_code make some minor changes in the HTML Content and Save the file.
+						
+						4. Create the Tomcat Server in Eclipe IDE and Link your Project to Tomcat Server
+						
+						5. Define the required Port for Tomcat in Eclipse and save the Configuration
+						
+						6. Run the application using Tomcat Server in Local Machine and Test the Changes made in the Project.
+						
+						7. Commit the Changes in Local Repository using Eclipe 
+						
+						8. Push the Source Code back to Source Code Repository from where you cloned it.
+						
+
+
+How to present during interview ::::
+
+		Entire Project workflow
+		
+		Tools used and its use case!
+		
+		FAQs for each Module!\
+		
+		Jenkins FAQs / Interview Questions for Fresher 2023
+		
+		Core Concepts :::::
+		
+		
+		3 - 6 months of DevOps!
+
+		DevOps Associate! 
+		
+		
+
