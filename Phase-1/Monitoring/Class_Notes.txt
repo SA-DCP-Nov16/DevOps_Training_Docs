@@ -1,0 +1,55 @@
+
+###############
+2nd Feb. 2024
+###############			
+			
+			Monitoring Tool :
+			
+				Infra-Structure Monitoring 
+							Prometheus/Grafana
+						
+					Install Prometheus/Grafana ????
+						- Architecture of Prometheus!
+						
+							- Retrieval Component -- used to pull the metrics from the target node.
+							
+							- Time Series DataBase 
+							
+							- PromQL 
+						
+						Prometheus 		==> Monitoring Tool 
+						
+						Grafana 		==> Visualization Tool 	-- Create Dashboards!
+						
+						
+				1. Install Prometheus & Grafana in a VM 
+				
+				2. Install Node Exporter(Prometheus Agent) in the target nodes. 
+				
+				
+				Launch 2 VMs - 
+					Monitoring Server 	-- Install Prometheus and Grafana 
+							
+					Target Server		-- Prometheus Agent(Node Exporter) 
+					
+					
+					Add Prometheus as a Data Source to Grafana 
+					
+					Create Dashboards in Grafana ::
+					'
+			Summary ::
+				Basic work flow of Prometheus & Grafana 
+				Install Prometheus, Grafana and also Prometheus Agent(in Target)
+					Setup Dashboards in Grafana.
+					
+Next ::::
+
+		Monday Demo on End-to-End CICD Pipeline 
+		Monday - Demo - Web application created in Eclipse - push to github 
+						CICD :
+							SCM_Checkout - 
+							Build			*.war 
+							Docker Build - Create Application Image 
+							Push the image to dockerhub
+							Deployed to Kubernetes 
+							EMail Notifications 

@@ -1,0 +1,161 @@
+
+###############
+1st Feb. 2024
+###############			
+
+	Fundamentals of Terraform 
+	
+		IAC Tools :::
+		
+			Provision/Creating the Infra-Structure		--> Terraform 
+			
+			
+			Configuration of Infra-Structure 	- CMS 	--> Ansible 
+	
+		Terraform is the open-source IAC Tool for provision the infrastructure.
+		
+		Terraform is a product of Hashi-Corp 
+		Terraform Scripts are written using HCL - Hashi-Corp Declarative Language ( Based on Json)
+
+		Working model of Terraform ::
+		
+		
+		Cloudformation   == AWS Resources 
+		
+		Terraform  			== USed for any platform
+		
+			Scope of the Target Environment
+			
+			Write Config File *.tf 
+			
+			Initialize
+			
+			plan 
+			
+			apply 
+			
+		Install Terraform ::::
+			
+			Install Visual Studio Code in Local Windows Machine 
+					https://code.visualstudio.com/download
+			
+			Install Terraform in Local Windows Machine
+					https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+
+
+		Install Terraform 
+		
+		Provision/Create AWS Infra-Structure Using Terraform 
+
+		Terraform  			== Used for any platform
+		
+			Scope of the Target Environment
+			
+			Write Config File *.tf 
+			
+			Initialize
+			
+			plan 
+			
+			apply 		
+
+
+
+		Install Terraform in local Windows Machine :::
+		
+			https://developer.hashicorp.com/terraform/install
+			
+			Download the terraform package - *.zip 
+			
+			Extract
+
+			Setup the Environment Variable for Terraform :::
+			
+			Open Visual Studio Code - IDE 
+			
+				Install Hashicorp Terraform Extension 
+				
+				Open Terminal 
+				
+				type: terraform --version 
+				
+			Working with Terraform :::
+				
+				Scope : Identify the Target Platform where to provision the resources #AWS
+				
+				Write - Config File *.tf to define the resources  
+				
+				Initialize - Install Terraform Provider in the project 
+				
+				plan - Preview the Config file for the resource definition 
+				
+				apply - Implement the Changes 
+				
+				
+			*.tf 		# Terraform resource definition file - shd be saves as *.tf
+				Provider aws {
+					aws_region
+					access_key
+					secret_key 
+				}
+				
+				
+				
+			+ Create/Add the resource 
+
+			~ Change/Modify the resource 
+			
+			- Destroy/Delete the resource 
+			
+					terraform destroy 
+			
+
+			
+			tfstate file -- used to maintain the current state of the resource in the target platform.
+							used to prevent duplicate resource definitions.
+							
+		Terraform Use-cases on DevOps Perspective ::::
+	
+		Dedicated test environments for production issues ::
+		
+		
+		
+		Pipeline 1 ::
+		
+		Regular build cycle :
+			SCM_Checkout -> Build -> Deploy to QA.
+			
+		Pipeline 2 :::
+		
+		Hotfix changes :
+		
+		Scenario 1 :
+			SCM_Checkout -> Build -> Create_QA_Server&Config_QA_Server -> Deploy to QA_Server -> QA_Testing -> Notify the user 
+			
+			SCM_Checkout -> Build -> Create_QA_Server&Config_QA_Server -> Deploy to QA_Server -> QA_Testing -> Notify the user - Destroy_QA Server.
+			
+		
+		Scenario 2 :	
+
+			Pipeline 1 :
+				SCM_Checkout - Create_QA_Server&Config_QA_Server
+				
+			Pipeline 2: 
+				SCM_Checkout -> Build -> Deploy to QA.
+								
+
+		Monitoring Tools :::	Fundamentals of Prometheus/Grafana
+		
+		Assignments :
+		
+		Monday - Demo - Web application created in Eclipse - push to github 
+						CICD :
+							SCM_Checkout - 
+							Build			*.war 
+							Docker Build - Create Application Image 
+							Push the image to dockerhub
+							Deployed to Kubernetes 
+							EMail Notifications 
+							 
+		
+			
